@@ -5,7 +5,5 @@ from django.http import HttpResponse
 def testfun(request):
     return HttpResponse('heloo testing')
 
-
-    
 def loginfun(request):
     return render(request,'charitylogin.html')    
