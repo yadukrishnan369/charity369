@@ -1,0 +1,244 @@
+{% extends "userhomebasepage.html" %} {% block content %} {% load static %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        background-color: rgb(243, 235, 233);
+    }
+    
+    .emp-profile {
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #fff;
+    }
+    
+    .profile-img {
+        text-align: center;
+    }
+    
+    .profile-img img {
+        width: 70%;
+        height: 100%;
+    }
+    
+    .profile-img .file {
+        position: relative;
+        overflow: hidden;
+        margin-top: -20%;
+        width: 70%;
+        border: none;
+        border-radius: 0;
+        font-size: 15px;
+        background: #212529b8;
+    }
+    
+    .profile-img .file input {
+        position: absolute;
+        opacity: 0;
+        right: 0;
+        top: 0;
+    }
+    
+    .profile-head h5 {
+        color: #333;
+    }
+    
+    .profile-head h6 {
+        color: #0062cc;
+    }
+    
+    .profile-edit-btn {
+        border: none;
+        border-radius: 1.5rem;
+        width: 70%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    
+    .proile-rating {
+        font-size: 12px;
+        color: #818182;
+        margin-top: 5%;
+    }
+    
+    .proile-rating span {
+        color: #495057;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    
+    .profile-head .nav-tabs {
+        margin-bottom: 5%;
+    }
+    
+    .profile-head .nav-tabs .nav-link {
+        font-weight: 600;
+        border: none;
+    }
+    
+    .profile-head .nav-tabs .nav-link.active {
+        border: none;
+        border-bottom: 2px solid #0062cc;
+    }
+    
+    .profile-work {
+        padding: 14%;
+        margin-top: -15%;
+    }
+    
+    .profile-work p {
+        font-size: 12px;
+        color: #818182;
+        font-weight: 600;
+        margin-top: 10%;
+    }
+    
+    .profile-work a {
+        text-decoration: none;
+        color: #495057;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    .profile-work ul {
+        list-style: none;
+    }
+    
+    .profile-tab label {
+        font-weight: 600;
+    }
+    
+    .profile-tab p {
+        font-weight: 600;
+        color: #0062cc;
+    }
+    
+    #servicediv1 {
+        background-color: rgb(243, 235, 233);
+        border-radius: 10px;
+    }
+    
+    #servicediv2 {
+        background-color: rgb(243, 235, 233);
+        border-radius: 10px;
+    }
+    
+    #servicediv1:hover {
+        background-color: white;
+    }
+    
+    #servicediv2:hover {
+        background-color: white;
+    }
+    
+    a {
+        text-decoration: none;
+        color: tomato;
+    }
+    
+    .edit {
+        text-decoration: none;
+    }
+    
+    .edit:hover {
+        background-color: rgb(243, 235, 233);
+        text-decoration: none;
+    }
+</style>
+
+
+
+<br>
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="/app4/media/{{userdata.picture}}" alt="" />
+                    <div class="file btn btn-lg btn-primary">
+
+                        <b> <span>  <a href="changeprofile" class="edit"> 
+                            <p> Change Photo </p>
+                            </a> </span>
+                        </b>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="profile-head">
+
+                    <p>Username: <b>, {{userdata.username}}<span>  <a href="changeusername" class="fa fa-pencil-square ms-3 edit"></a> </span></b></p>
+                    <p>Website: <b>{{userdata.website}}<span><a href="changewebsite" class="fa fa-pencil-square ms-3  edit"    ></a> </span></b></p>
+                    <p>Email: <b>{{userdata.useremail}}  <span>  <a href="changeemail" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
+                    <p>Bio: <b>{{userdata.bio}}  <span>  <a href="changebio" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
+
+
+
+                    <br>
+
+
+
+                    <br>
+                    <div class="col-md-">
+                        <p class="btn btn-warning fa fa-phone"> <b>{{userdata.phone}}  <span>  <a href="changephone" class="fa fa-pencil ms-3 edit"   ></a> </span></b></p>
+
+                        <p class="btn btn-success fa fa-whatsapp ms-5"> <b>{{userdata.whatsapp}} <span>  <a href="changewhatsapp" class="fa fa-pencil ms-3 edit"   ></a> </span></b></p>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <br>
+            <div class="col-md-2">
+                <div class="dropdown text-right">
+                    <button class="btn btn-success fa fa-cog dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Settings</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class=" fa fa-user dropdown-item" href="userprofileedit">Update Profile</a></li>
+                        <li> <a class=" fa fa-exchange dropdown-item" href="changepassword" role="button">Change Password</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+
+        <div>
+
+            <p>Address: <b>{{userdata.address}}  <span>  <a href="changeaddress" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
+            <p>About Me: <b>{{userdata.aboutme}}  <span>  <a href="changeabout" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
+
+
+
+
+
+
+        </div>
+
+    </form>
+
+    <br>
+
+    <div class="text-center ms-4 mt-2 ">
+        <a class="btn btn-warning fa fa-sign-out text-center" href="userprofilelogout" onclick="return confirm('are you sure to logout')" role="button">Logout</a>
+        <br>
+    </div>
+
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+{% endblock %}

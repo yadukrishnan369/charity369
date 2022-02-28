@@ -1,0 +1,242 @@
+{% extends "adminhomebasepage.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+<div class="sales-boxes">
+    <div class="recent-sales box">
+        <div class="title">Food Donation Request</div><br>
+        <div class="sales-details">
+            <ul class="details">
+                <li class="topic">Name</li>
+                {% for i in food %}
+                <li>{{i.charity.charityName}}</li>
+                {% endfor %}
+            </ul>
+            <ul class="details">
+                <li class="topic">Email</li>
+                {% for i in food %}
+                <li>{{i.charity.email}}</li>
+                {% endfor %}
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Expected Item</li>
+                {% for i in food %}
+
+                <li>{{i.foodExpectedItem}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Quantity</li>
+                {% for i in food %}
+
+                <li>{{i.foodQuantity}}</li>
+
+                {% endfor %}
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+<div class="sales-boxes">
+    <div class="recent-sales box">
+        <div class="title">clothing Donation Request</div><br>
+        <div class="sales-details">
+            <ul class="details">
+                <li class="topic">Name</li>
+                {% for i in clothing %}
+                <li>{{i.charity.charityName}}</li>
+                {% endfor %}
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Email</li>
+                {% for i in clothing %}
+                <li>{{i.charity.email}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Expected Item</li>
+                {% for i in clothing %}
+                <li>{{i.clothingExpectedItem}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Quantity</li>
+                {% for i in clothing %}
+                <li>{{i.clothingQuantity}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+<div class="sales-boxes">
+    <div class="recent-sales box">
+        <div class="title">Medicines Donation Request</div><br>
+        <div class="sales-details">
+            <ul class="details">
+                <li class="topic">Name</li>
+                {% for i in medicine %}
+                <li>{{i.charity.charityName}}</li>
+                {% endfor %}
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Email</li>
+                {% for i in medicine %}
+                <li>{{i.charity.email}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Expected Item</li>
+                {% for i in medicine %}
+                <li>{{i.medicineExpectedItem}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Quantity</li>
+                {% for i in medicine %}
+                <li>{{i.medicineQuantity}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+<div class="sales-boxes">
+    <div class="recent-sales box">
+        <div class="title">Study Materials Donation Request</div><br>
+        <div class="sales-details">
+            <ul class="details">
+                <li class="topic">Name</li>
+                {% for i in studymaterial %}
+                <li>{{i.charity.charityName}}</li>
+                {% endfor %}
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Email</li>
+                {% for i in studymaterial %}
+                <li>{{i.charity.email}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Expected Item</li>
+                {% for i in studymaterial %}
+                <li>{{i.studymaterialExpectedItem}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Quantity</li>
+                {% for i in studymaterial %}
+                <li>{{i.studymaterialQuantity}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+<div class="sales-boxes">
+    <div class="recent-sales box">
+        <div class="title">Other Donation Request</div><br>
+        <div class="sales-details">
+            <ul class="details">
+                <li class="topic">Name</li>
+                {% for i in other%}
+                <li>{{i.charity.charityName}}</li>
+                {% endfor %}
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Email</li>
+                {% for i in other %}
+                <li>{{i.charity.email}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Expected Item</li>
+                {% for i in other %}
+                <li>{{i.otherExpectedItem}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+            <ul class="details">
+                <li class="topic">Quantity</li>
+                {% for i in other %}
+                <li>{{i.otherQuantity}}</li>
+                {% endfor %}
+
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+
+{% endblock %}

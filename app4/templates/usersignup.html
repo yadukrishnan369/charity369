@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{% static 'js/usersignup.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgb(224, 199, 195);
+        }
+        
+        .wrapper {
+            position: relative;
+            max-width: 430px;
+            width: 100%;
+            background: #fff;
+            padding: 34px;
+            border-radius: 6px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .wrapper h2 {
+            position: relative;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .wrapper h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 28px;
+            border-radius: 12px;
+            background: tomato;
+        }
+        
+        .wrapper form {
+            margin-top: 30px;
+        }
+        
+        .wrapper form .input-box {
+            height: 52px;
+            margin: 18px 0;
+        }
+        
+        form .input-box input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            padding: 0 15px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #333;
+            border: 1.5px solid #C7BEBE;
+            border-bottom-width: 2.5px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .input-box input:focus,
+        .input-box input:valid {
+            border-color: #4070f4;
+        }
+        
+        form .policy {
+            display: flex;
+            align-items: center;
+        }
+        
+        form h3 {
+            color: #707070;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        
+        .input-box.button input {
+            color: #fff;
+            letter-spacing: 1px;
+            border: none;
+            background: tomato;
+            cursor: pointer;
+        }
+        
+        .input-box.button input:hover {
+            background: rgb(233, 126, 108);
+        }
+        
+        form .text h3 {
+            color: #333;
+            width: 100%;
+            text-align: center;
+        }
+        
+        form .text h3 a {
+            color: #4070f4;
+            text-decoration: none;
+        }
+        
+        form .text h3 a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h2>Registration Here</h2>
+
+
+
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="text" placeholder="Enter your name" name="username" id="user_name" onchange="CheckUserName()">
+                <!-- {{form.username}} -->
+            </div><span id="label1"></span>
+
+            <div class="input-box">
+                <!-- {{form.useremail}} -->
+                <input type="email" placeholder="Enter your email" name="useremail" id="user_email" onchange="CheckUserEmail()">
+
+            </div><span id="label2"></span>
+
+            <div class="input-box">
+                <input type="password" placeholder="Create password" name="password" id="password">
+
+                <!-- {{form.password}} {{form.password.errors}} -->
+
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Confirm password" name="confpassword" id="confpassword">
+                <!-- {{form.confpassword}} -->
+            </div>
+            <div class="policy">
+                <input type="checkbox">
+                <h3>I accept all terms & condition</h3>
+            </div>
+            <div class="input-box button">
+                <input type="submit" value="Register Now" onclick="addUser()"> {{msg.response}}
+                <!-- <button type="submit" class="btn btn-success" onclick="addUser()">submit</button> {{msg.response}} -->
+
+            </div>
+            <div class="text">
+                <h3>Already have an account? <a href="userlogin">Login now</a></h3>
+            </div>
+        </form>
+
+    </div>
+
+
+    <script>
+        function CheckUserName() {
+            var user_name = $("#user_name").val()
+            console.log(user_name)
+
+            $.ajax({
+                url: 'http://127.0.0.1:8000/CheckUserName',
+                type: 'get',
+                data: {
+                    'user_name': user_name,
+                },
+                success: function(response) {
+                    console.log(response.isExist)
+                    if (response.isExist == true) {
+                        document.getElementById("label1").style.color = "#ff0000";
+                        document.getElementById("label1").innerHTML = "User Name already Exist";
+                        alert("User Name already Exist")
+                        $(':input[type="submit"]').prop('disabled', true);
+
+                    } else {
+                        document.getElementById("label1").innerHTML = '';
+                        $(':input[type="submit"]').prop('disabled', false);
+
+                    }
+
+                }
+
+            })
+        }
+
+        function CheckUserEmail() {
+            var user_email = $("#user_email").val()
+            console.log(user_email)
+
+            $.ajax({
+                url: 'http://127.0.0.1:8000/CheckUserEmail',
+                type: 'get',
+                data: {
+                    'user_email': user_email,
+                },
+
+                success: function(response) {
+                    console.log(response.isEmailExist)
+                    if (response.isEmailExist == true) {
+                        document.getElementById("label2").style.color = "#ff0000";
+                        document.getElementById("label2").innerHTML = "Email  Already Exist";
+                        alert("Email  Already Exist")
+                        $(':input[type="submit"]').prop('disabled', true);
+
+                    } else {
+                        document.getElementById("label2").innerHTML = '';
+                        $(':input[type="submit"]').prop('disabled', false);
+
+                    }
+
+                }
+            })
+
+        }
+
+
+
+        $.ajaxSetup({
+            headers: {
+                "X-CSRFToken": '{{csrf_token}}'
+            }
+        })
+
+
+        function addUser() {
+
+            var user_name = $('#user_name').val()
+            var user_email = $('#user_name').val()
+            var password = $('#password').val()
+            var conf_password = $('#confpassword').val()
+
+            console.log(user_name)
+
+            $.ajax({
+                url: '/usersignup',
+                type: 'POST',
+                data: {
+                    'name': user_name,
+                    'email': user_name,
+                    'password': password,
+                    'confpassword': confpassword,
+
+                },
+                success: function(response) {
+                    alert('data inserted')
+                }
+            })
+
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

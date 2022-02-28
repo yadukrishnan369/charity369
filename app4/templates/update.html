@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/update/{{updatedetails.id}}" method="POST">
+        {% csrf_token %}
+
+        <input type="text" value="{{updatedetails.p_name}}" name="p_name" id="p_name">
+        <input type="text" value="{{updatedetails.p_address}}" name="p_address" id="p_address">
+        <input type="text" value="{{updatedetails.p_state}}" name="p_state" id="p_state">
+        <button type="submit" class="registerbtn">update</button>
+    </form>
+</body>
+
+</html>

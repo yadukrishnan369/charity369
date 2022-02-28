@@ -1,0 +1,109 @@
+{% extends "adminhomebasepage.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+<style>
+    body {
+        background-color: rgb(243, 235, 233);
+    }
+    
+    .dropdown-list-image {
+        position: relative;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    
+    .dropdown-list-image img {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    
+    .btn-light {
+        color: #2cdd9b;
+        background-color: #e5f7f0;
+        border-color: #d8f7eb;
+    }
+    
+    .container {
+        max-width: 960px;
+        /* margin: 0 auto;
+        padding: 2em 0 2em 0; */
+    }
+</style>
+
+<div class="container">
+
+    <div class=" d-grid">
+
+        <div class="box shadow-sm rounded bg-white mb-3  ">
+
+            <div class="box-title border-bottom p-3">
+                <h6 class="m-0">Feedbacks</h6>
+            </div>
+
+
+
+            <div class="box-body p-0">
+
+
+
+                <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header ">
+
+
+
+                    <div class="dropdown-list-image ms-2 mr-3">
+                        <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
+                    </div>
+
+                    <br>
+                    <div class="font-weight-bold mr-3 ms-5">
+                        <div class="text-truncate"><b>Jhone Doe</b></div>
+                        <div class="small">Accept Your Food Donation Request</div>
+                        <div class="text-right text-muted pt-1">3h</div>
+
+                        <br>
+
+                        <div class=" col-lg-3 text-center">
+                            <button class="open-button btn btn-success" onclick="openform1()">Reply</button>
+                        </div>
+                        <br>
+                        <div class="  form-popup" id="myform1" style="display: none;">
+
+
+                            <textarea class="form-control" aria-label="With textarea" style="width: 250px; height: 100px; border-radius: 7px; border-color: tomato;" placeholder="Type..."></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-success">Send</button>
+
+                            <button type="button" class=" btn btn-danger" onclick="closeform1()">Close</button>
+                            <br>
+
+                        </div>
+                    </div>
+
+                    <br>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<script src='{% static "js/adminhomeviewfeedback.js" %}'></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+
+{% endblock %}

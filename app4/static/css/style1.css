@@ -1,0 +1,9 @@
+.form1 {
+    width: 400px;
+    height: 450px;
+    margin-left: 700px;
+    margin-top: 60px;
+    border-style: solid;
+    color: tomato;
+    background-image: url('../userlogimg.jpg');
+}

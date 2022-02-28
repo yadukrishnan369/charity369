@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app4',
+    'app6',
+    'app8',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'app4/templates'
+            'app6/templates'
+            'app8/templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -80,8 +84,13 @@ WSGI_APPLICATION = 'charity.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'charity_db',
+        'USER':'postgres',
+        'PASSWORD':'root',
+        'HOST':'127.0.0.1',
+        'PORT':'5432'
+        
     }
 }
 
@@ -125,7 +134,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'app4/static')]
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+MEDIA_URL = 'app4/media/'
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'app4/media/')
+
+MEDIA_URL = 'app6/media/'
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'app6/media/')
+
+
+

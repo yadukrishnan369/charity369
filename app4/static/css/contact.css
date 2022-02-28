@@ -1,0 +1,65 @@
+#name {
+    width: 550px;
+    padding-left: 20px;
+    /* border-color: black; */
+    border-top-style: inherit;
+    border-right-style: inherit;
+    border-left-style: inherit;
+}
+
+#email {
+    width: 550px;
+    /* border-color: black; */
+    border-top-style: inherit;
+    border-right-style: inherit;
+    border-left-style: inherit;
+}
+
+#subject {
+    width: 550px;
+    /* border-color: black; */
+    border-top-style: inherit;
+    border-right-style: inherit;
+    border-left-style: inherit;
+}
+
+#messege {
+    width: 550px;
+    /* border-color: black; */
+    border-top-style: inherit;
+    border-right-style: inherit;
+    border-left-style: inherit;
+}
+
+#bttn {
+    background-color: green;
+    margin-left: 50px;
+}
+
+#namediv {
+    padding-left: 25px;
+}
+
+#emaildiv {
+    padding-left: 25px;
+}
+
+#subjectdiv {
+    padding-left: 25px;
+}
+
+#messegediv {
+    padding-left: 25px;
+}
+
+#div1 {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+
+.innerdiv {
+    height: 40px;
+    width: 40px;
+    background-color: red;
+}
