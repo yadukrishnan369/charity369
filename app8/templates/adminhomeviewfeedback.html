@@ -9,13 +9,13 @@
     
     .dropdown-list-image {
         position: relative;
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 4.5rem;
+        width: 4.5rem;
     }
     
     .dropdown-list-image img {
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 4.5rem;
+        width: 4.5rem;
     }
     
     .btn-light {
@@ -31,67 +31,47 @@
     }
 </style>
 
-<div class="container">
+<div class="conatiner text-center mb-5">
+    <a href="adminhomeviewfeedback" class="btn btn-success active">User FeedBack</a>
+    <a href="adminhomeviewcharityfeedback" class="btn btn-success">Charity FeedBack</a>
+</div>
 
-    <div class=" d-grid">
 
-        <div class="box shadow-sm rounded bg-white mb-3  ">
+<div class="container text-center text-danger">
+    <h3>User FeedBack</h3>
+</div>
+<br> {% for i in userfeedback %}
+<div class="sales-boxes">
+    <div class="recent-sales box">
+        <div class="title"> </div><br>
+        <div class="sales-details">
+            <div class="dropdown-list-image col-2">
+                <img class="rounded-circle" src="/app4/media/{{i.user.picture}}" alt="" />
 
-            <div class="box-title border-bottom p-3">
-                <h6 class="m-0">Feedbacks</h6>
             </div>
 
-
-
-            <div class="box-body p-0">
-
-
-
-                <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header ">
-
-
-
-                    <div class="dropdown-list-image ms-2 mr-3">
-                        <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
-                    </div>
-
-                    <br>
-                    <div class="font-weight-bold mr-3 ms-5">
-                        <div class="text-truncate"><b>Jhone Doe</b></div>
-                        <div class="small">Accept Your Food Donation Request</div>
-                        <div class="text-right text-muted pt-1">3h</div>
-
-                        <br>
-
-                        <div class=" col-lg-3 text-center">
-                            <button class="open-button btn btn-success" onclick="openform1()">Reply</button>
-                        </div>
-                        <br>
-                        <div class="  form-popup" id="myform1" style="display: none;">
-
-
-                            <textarea class="form-control" aria-label="With textarea" style="width: 250px; height: 100px; border-radius: 7px; border-color: tomato;" placeholder="Type..."></textarea>
-                            <br>
-                            <button type="submit" class="btn btn-success">Send</button>
-
-                            <button type="button" class=" btn btn-danger" onclick="closeform1()">Close</button>
-                            <br>
-
-                        </div>
-                    </div>
-
-                    <br>
+            <br>
+            <div class="font-weight-bold col-10">
+                <div class="text-truncate"><b><h5>{{i.user.username}}</h5></b></div>
+                <br>
+                <div class="small">
+                    {{i.message}}
                 </div>
+                <div class="text-right text-muted pt-1">3h</div>
 
+                <br>
 
             </div>
+
+            <br>
 
         </div>
+
     </div>
 
-
-
 </div>
+<br>
+<br> {% endfor %}
 
 
 

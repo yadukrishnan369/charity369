@@ -5,11 +5,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
     body {
-        background: rgb(226, 218, 216);
-    }
-    
-    #div1 {
-        border-radius: 45px;
+        background: white;
     }
     
     .wrapper {
@@ -23,6 +19,109 @@
         object-fit: cover;
         object-position: center left;
     }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 0px 50px 0px 50px;
+        box-shadow: 4px 4px rgb(161, 156, 156);
+        border-style: groove;
+    }
+    
+    .slide-content {
+        margin: 8px;
+        width: 250px;
+        height: 140px;
+        background-color: lightgray;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        border-style: groove;
+    }
+    
+    img {
+        width: 100%;
+    }
+    
+    .slid-er {
+        height: 156px;
+        /* slide-content height + 2*margin */
+        margin: auto;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .slid-er .slides {
+        display: flex;
+    }
+    
+    .slid-er .slide {
+        width: 258px;
+        /* slide-content width + margin */
+    }
+    
+    .button-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 150%;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        transition: opacity 0.25s;
+    }
+    
+    .button-container:hover {
+        opacity: 1;
+        text-decoration: none;
+    }
+    
+    .button-container:hover .button {
+        transform: translate(-50%, -50%);
+    }
+    
+    .button {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(-50%, calc(-50% + 12px));
+        background-color: rgba(0, 0, 0, 0.7);
+        transition: all 0.25s;
+        padding: 0 8px;
+        border-radius: 12px;
+        color: white;
+        outline: 2px solid transparent;
+    }
+    
+    .button:after {
+        content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+        margin: 0 3px 0 5px;
+        filter: invert(1);
+    }
+    
+    .button:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+        outline: 2px solid gray;
+    }
+    
+    #link {
+        text-decoration: none;
+        color: aliceblue;
+    }
+    
+    .content {
+        color: rgb(176, 76, 76);
+        font-size: larger;
+    }
 </style>
 
 
@@ -32,30 +131,102 @@
 <div class="mt-3 p-0 bg-text-white text-center " id="">
 
     <div id="myBtnContainer">
-        <a class="btn btn-success active  text-center" href="userdonationsreq" role="button">Show All </a>
+        <a class="btn btn-success   text-center" href="userdonationsreq" role="button">Show All </a>
         <a class="btn btn-success  text-center" href="userfoodreq" role="button">Food</a>
         <a class="btn btn-success  text-center" href="userclothingreq" role="button">Clothing</a>
-        <a class="btn btn-success  text-center" href="userstudymeterialsreq" role="button">Medicines</a>
-        <a class="btn btn-success  text-center" href="userstudymeterialsreq" role="button">Study Meterials</a>
+        <a class="btn btn-success  text-center" href="usermedicinesreq" role="button">Medicines</a>
+        <a class="btn btn-success active text-center" href="userstudymeterialsreq" role="button">Study Meterials</a>
         <a class="btn btn-success  text-center" href="userotherreq" role="button">Others</a>
+    </div>
+    <div class="container mt-4">
+        <div class="slid-er">
+            <div class="slides" id="slides">
+
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="https://www.pinterest.com/pin/42502790224869685/" target="_blank">
+                            <img src="../static/images/foodreqimg.jpg" loading="lazy" />
+                            <div class="button-container">
+                                <a href="userfoodreq" class="button" id="link">Food</a>
+
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="https://www.pinterest.com/pin/15833036179887216/" target="_blank">
+                            <img src="../static/images/clothingreqimg.jpg" loading="lazy" />
+                            <div class="button-container">
+                                <a href="userclothingreq" class="button" id="link">Clothing</a>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="https://www.pinterest.com/pin/125045327144436605/" target="_blank">
+                            <img src="../static/images/medicinereqimg.jpg" loading="lazy" />
+                            <div class="button-container">
+                                <a href="usermedicinesreq" class="button" id="link">Medicine</a>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="https://www.pinterest.com/pin/413909022012674906/?mt=login" target="_blank">
+                            <img src="../static/images/studymaterialreqimg.jpg" loading="lazy" />
+                            <div class="button-container">
+                                <a href="userstudymeterialsreq" class="button" id="link">Study Material</a>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="https://www.pinterest.com/pin/amelie-poulain-audrey-tautou--407857309977538667/" target="_blank">
+                            <img src="../static/images/oherreqimg.jpg" loading="lazy" />
+                            <div class="button-container">
+                                <a href="userotherreq" class="button" id="link">Other</a>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
     </div>
     <br>
     <hr style="border: 1px solid red;">
 </div>
+<br>
+<div class=" container text-center bg-danger text-white">
+    <h3>Study Material Donation Requests</h3>
+</div>
+<br>
 
 <div class="text-center">
-    <h3>Study Material Donation Requests</h3>
+    <h1 class="text-danger">{{message}}</h1>
 </div>
 
 {% for i in data %}
 
 
-<div class="container mt-5  bg-light" id="div1">
+<div class="container mt-5  bg-light" id="box">
 
     <div class="row wrapper">
 
         <div class="col-sm-2 pt-5 text-center">
-            <img src="app6/media/{{i.charity.picture}}" class="image--cover">
+            <img src="/media/{{i.charity.picture}}" class="image--cover">
         </div>
 
 
@@ -83,7 +254,7 @@
 
 
                 <div class="text-start ms-4 mt-2 ">
-                    <a class="btn btn-warning fa fa-handshake text-center" href="useracceptreq" role="button">Accept Request</a>
+                    <a class="btn btn-warning fa fa-handshake text-center" href="userstudymaterialacceptreq/{{i.id}}" role="button">Accept Request</a>
                     <a class="btn btn-info fa fa-phone text-center" href="#" role="button">{{i.charity.phoneNumber}}</a>
                     <a class="btn btn-success fa fa-whatsapp text-center" href="#" role="button">8089652533</a>
                 </div>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="hbfgjdgfjh">
+        <center>
+
+            Name
+            <input type="text" id="txtname" placeholder="Enter name"><span id="name_error"></span>
+            <br><br><br> Age <input type="text" name="" id="age2" placeholder="Enter Age">
+            <br><br> Gender <input type="radio" name="radio" id="n1">male
+            <input type="radio" name="radio" id="n2">Female<br><br> password <input type="password" name="" id="pass1"><span id="pass"></span><br><br>
+            <input type="submit" onclick="return validate()">
+    </form>
+    </center>
+    <script>
+        function validate() {
+            var name = document.getElementById('txtname')
+            var age = document.getElementById('age2')
+            var gender_male = document.getElementById('n1')
+            var female = document.getElementById('n2')
+            var password = document.getElementById('pass1')
+
+            if (name.value == "") {
+                document.getElementById('name_error').innerHTML = "please enter name"
+                name.style.borderColor = "red"
+                document.getElementById('name_error').style.color = "red"
+                name.focus()
+                return false
+            }
+            if (age.value == "") {
+                alert('please enter age')
+                age.focus()
+                return false
+            }
+            if (gender_male.checked == false && female.checked == false) {
+                alert('please enter gender')
+
+                return false
+            }
+            if (password.value == "") {
+                alert('please enter passwords')
+                document.getElementById('pass').innerHTML = "please enter password"
+                password.focus()
+                return false
+            }
+
+            if (password.value.length <= 8) {
+                document.getElementById('pass').innerHTML = "please enter 8 charcter"
+                return false
+
+
+            }
+            if (isNaN(age.value) == true) {
+                alert('please enter age')
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

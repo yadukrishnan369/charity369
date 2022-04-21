@@ -1,0 +1,109 @@
+{% extends "userhomebasepage.html" %} {% block content %} {% load static %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    .half-half-image-text {
+        padding: 70px 0px;
+    }
+    
+    #title {
+        color: #800000;
+    }
+    
+    */ .content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 35px 0px;
+    }
+    
+    #img {
+        min-height: 30px;
+        height: 50%;
+        border-radius: 10px;
+    }
+    
+    #content {
+        font-size: 22px;
+        color: #0e3481;
+    }
+</style>
+
+
+
+<div class="half-half-image-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h1 id="title">Our Mission</h1>
+            </div>
+            <br><br><br>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="content">
+                    <p id="content">The Charity Management System is a not-for-profit organization with the mission to help health, educational, and other institutions to create a better world for The "DoNow" Charity Management System. To promote this mission, we plan
+                        to: Actively educate the general public and potential donors about the specific challenges faced by The "DoNow" Charity Management System– the poorest country of the European Union. Create individual projects to aid specific areas
+                        of need within institutions and organizations which serve The "DoNow" Charity Management System.
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <img src="../static/images/aboutimg2.jpg" class="img-fluid image" alt="... " style="width: 700px; height: 300px;" id="img">
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<hr class="container" style="border: 1px solid red;">
+<hr class="container" style="border: 1px solid red;">
+
+<br>
+
+
+<div class="half-half-image-text">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 col-lg-6 mt-5">
+                <img src="../static/images/aboutimg3.jpg" class="img-fluid image mt-5" alt="... " style="width: 700px; height: 300px;" id="img">
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="row">
+                    <div class="col-12 ">
+                        <h1 id="title">History</h1>
+                    </div>
+
+                </div>
+                <br><br>
+                <div class="content">
+
+                    <p id="content">
+                        The idea for The "DoNow" Charity Management System was born in the summer of 2013, when Polina and Orlin Jordanov went to the Pirogov Emergency Hospital in Sofia, Bulgaria for an emergency visit. Polina and Orlin were moved by the poor conditions in which
+                        was New Yorkers came to the fundraiser, sent funds from other locations in the US and England. The first shipment of much needed surgical instruments is to help health, educational, and other institutions to create a better world
+                        for The "DoNow" Charity Management System.
+                    </p>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
+{% endblock %}

@@ -3,7 +3,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        /* background-color: rgb(243, 235, 233); */
         overflow: visible;
     }
     
@@ -53,243 +53,180 @@
         display: table;
         clear: both;
     }
-    /* .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 300px;
-        margin: auto;
-        text-align: center;
-        border-radius: 10px;
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: "Oswald"
     }
     
-    .title {
-        color: grey;
-        font-size: 18px;
+    a {
+        text-decoration: none;
+        color: black;
     }
     
-    button {
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
-        color: white;
-        background-color: #000;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-        font-size: 18px;
-    }
-    
-    button:hover,
     a:hover {
-        opacity: 0.7;
-    } */
+        color: rgb(58, 57, 57);
+        text-decoration: none;
+    }
+    
+    #charityName:hover {
+        background-color: #777;
+    }
 </style>
-
-<!-- <div class="container mt-5 ">
+{% for i in currentUser %}
+<div class="container mt-3">
     <div class="row">
-        <div class="col-sm-5 ms-3">
-            <h5>About Me</h5>
-            <h2 class="bg-light">{{charity.charityname}}</h2>
-            <p class="bg-light">{{charity.address}}</p>
-            <p class="bg-light">kerala</p>
-            <p class="bg-light">{{charity.phonenumber}}</p>
-
-            <br>
-
-            <div class="fakeimg">
-                <img src="../static/images/charityprofile.jpg" alt="John" style="width:100%">
-            </div>
-            <br><br><br><br><br>
-
-            <p>We are a non-profit, all-volunteer organization, operated exclusively for charitable purposes. We are dedicated to helping hospitals, schools, and other institutions address the needs of children in the country of India.</p>
-
-            <br>
-
-            <h3 class="mt-7 bg-danger text-white ">Our Mission</h3>
-            <p>The Smile Foundaton is committed to empower the underprivileged section of our society by creating an enabling environment through Encouragement, Education and Employment so that citizens can harness their full potential and live happy and
-                healthy lives with dignity and contribute positively to society. The Smile Foundation is working towards shaping up a society which is sustainable for future generations by working on environment conservation and introducing values in
-                society.
-            </p>
-
-            <hr class="d-sm-none">
+        <div class="col-3 mt-" style="color: black; font-size: large; background-color: #777; border-radius: 10px; text-align: center; padding-top: 4px;">
+            <a href="charityorghomeprofile" id="charityName">
+                <h5 class=" fa fa-user">&nbsp;&nbsp;{{i.charityName}}</h5>
+            </a>
         </div>
-
-
-
-        <div class="col-sm-6 ms-auto">
-            <h2 class=" bg-danger text-white">Our TEAM</h2>
-            <br>
-            <p><b>The smile Foundaton is Committed to Empower the Underprivileged sections of society and ultimately build a healthy, happy and progressive society where every citizen’s lives with dignity and gets equal opportunities, we had started the journey towards our
-                goal by taking smaller steps towards it, I would request everyone to join.</b>
-            </p>
-
-            <br>
-
-
-
-            <div class="card">
-                <img src="../static/images/profileimg.jpg" alt="John" style="width:100%">
-                <h5>John Doe</h5>
-                <p class="title">CEO,The Smile Foundation</p>
-                <div>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-
-                </div>
-                <p><button>Contact</button></p>
-            </div>
-
-            <br>
-
-            <hr class="d-sm-none">
-
-            <br>
-
-            <div class="card">
-                <img src="../static/images/profileimg2.jpg" alt="John" style="width:100%">
-                <h5>John Doe</h5>
-                <p class="title">President</p>
-                <div>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-
-                </div>
-                <p><button>Contact</button></p>
-            </div>
-
+        <div class=" col-3 text-end ">
+            <h4 class="text-danger fa fa-search mt-2">Search User</h4>
+        </div>
+        <div class="col-6 ">
+            <form class="d-flex" method="POST" action="searchuser">
+                {% csrf_token %}
+                <input class="form-control mt-" type="search" placeholder="Search user" aria-label="Search" name="searchUser" style="background-color:rgb(226, 212, 194); border-style: groove;">&nbsp
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
         </div>
     </div>
 </div>
- -->
+{% endfor %}
 
-<div class="container">
+
+<div class="row">
 
 
     <div id="carouselExampleFade" class="carousel slide carousel-fade mt-2" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <div class="carousel-indicators ">
+            <button type="button" data-bs-target="#carouselExampleCaptions " data-bs-slide-to="0 " class="active " aria-current="true " aria-label="Slide 1 "></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions " data-bs-slide-to="1 " aria-label="Slide 2 "></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions " data-bs-slide-to="2 " aria-label="Slide 3 "></button>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../static/images/slideimg.jpg" class="" alt="..." style="width: 1200px; height: 400px;">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Charity is injurious unless it helps the recipient to become independent of it.</h5>
+        <div class="carousel-inner ">
+            <div class="carousel-item active ">
+                <img src="../static/images/slideimg.jpg " class=" " alt="..." style="width: 1600px; height: 400px;">
+                <div class="carousel-caption d-none d-md-block ">
+                    <h3>Charity is injurious unless it helps the recipient to become independent of it.</h3>
                     <p>“No one has ever become poor by giving.”</p>
                 </div>
 
             </div>
-            <div class="carousel-item">
-                <img src="../static/images/slideimg3.jpg" class="img-fluid image" alt="..." style="width: 1200px; height: 400px;">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Charity is injurious unless it helps the recipient to become independent of it.</h5>
+            <div class="carousel-item ">
+                <img src="../static/images/slideimg3.jpg " class="img-fluid image " alt="... " style="width: 1600px; height: 400px;">
+                <div class="carousel-caption d-none d-md-block ">
+                    <h3>Charity is injurious unless it helps the recipient to become independent of it.</h3>
                     <p>“It's not how much we give but how much love we put into giving.”</p>
                 </div>
 
             </div>
-            <div class="carousel-item">
-                <img src="../static/images/slideimg4.jpg" class="img-fluid image" alt="..." style="width: 1200px; height: 400px;">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Charity is injurious unless it helps the recipient to become independent of it.</h5>
+            <div class="carousel-item ">
+                <img src="../static/images/slideimg4.jpg " class="img-fluid image " alt="... " style="width: 1600px; height: 400px;">
+                <div class="carousel-caption d-none d-md-block ">
+                    <h3>Charity is injurious unless it helps the recipient to become independent of it.</h3>
                     <p>“Charity . . . is the opium of the privileged.” ― Chinua Achebe, Anthills of the Savannah tags: charity, paraphrased159 likesLike</p>
                 </div>
 
             </div>
 
-            <div class="carousel-item">
-                <img src="../static/images/slideimg5.jpg" class="img-fluid image" alt="..." style="width: 1200px; height: 400px;">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Charity is injurious unless it helps the recipient to become independent of it.</h5>
+            <div class="carousel-item ">
+                <img src="../static/images/slideimg5.jpg " class="img-fluid image " alt="... " style="width: 1600px; height: 400px;">
+                <div class="carousel-caption d-none d-md-block ">
+                    <h3>Charity is injurious unless it helps the recipient to become independent of it.</h3>
                     <p>“When we give cheerfully and accept gratefully, everyone is blessed.”</p>
                 </div>
 
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+        <button class="carousel-control-prev " type="button " data-bs-target="#carouselExampleFade " data-bs-slide="prev ">
+      <span class="carousel-control-prev-icon " aria-hidden="true "></span>
+      <span class="visually-hidden ">Previous</span>
     </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+        <button class="carousel-control-next " type="button " data-bs-target="#carouselExampleFade " data-bs-slide="next ">
+      <span class="carousel-control-next-icon " aria-hidden="true "></span>
+      <span class="visually-hidden ">Next</span>
     </button>
     </div>
 
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 ">
 
-    <h2 class="bg-danger"> Our Services</h2>
+    <h2 class="bg-danger text-white "> Our Services</h2>
 
     <h4>Making a donation is the ultimate sign of solidarity</h4>
     <br>
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="img_5terre.jpg">
-                <img src="../static/images/fooddon.jpg" alt="Cinque Terre" width="600" height="400">
+    <div class="responsive ">
+        <div class="gallery ">
+            <a target="_blank " href="img_5terre.jpg ">
+                <img src="../static/images/fooddon.jpg " alt="Cinque Terre " width="600 " height="400 ">
             </a>
-            <div class="desc">
-                <h4>Food Services</h4>
+            <div class="desc ">
+                <h4 class="text-danger ">Food Services</h4>
             </div>
 
-            <div class="desc">A food Services is a non-profit, charitable organization that distributes food to those who have difficulty purchasing enough to avoid hunger, usually through intermediaries like food pantries and soup kitchens. Some food banks distribute
+            <div class="desc ">A food Services is a non-profit, charitable organization that distributes food to those who have difficulty purchasing enough to avoid hunger, usually through intermediaries like food pantries and soup kitchens. Some food banks distribute
                 food directly with their own food pantries.</div>
         </div>
     </div>
 
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="img_forest.jpg">
-                <img src="../static/images/healthdon.jpg" alt="Forest" width="600" height="400">
+    <div class="responsive ">
+        <div class="gallery ">
+            <a target="_blank " href="img_forest.jpg ">
+                <img src="../static/images/healthdon.jpg " alt="Forest " width="600 " height="400 ">
             </a>
-            <div class="desc">
-                <h4>Helth Services</h4>
+            <div class="desc ">
+                <h4 class="text-danger ">Health Services</h4>
             </div>
 
-            <div class="desc">Charities in Diseases, Disorders, and Disciplines are multipurpose organizations that seek cures for particular diseases and disorders or promote particular medical disciplines by providing direct services, advocating for public understanding
-                and support, and supporting targeted medical research.</div>
+            <div class="desc ">Charities in Diseases, Disorders, and Disciplines are organizations that seek cures for particular diseases and disorders or promote particular medical disciplines by providing direct services, advocating for public understanding and support,
+                and supporting targeted medical research.</div>
         </div>
     </div>
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="img_lights.jpg">
-                <img src="../static/images/studdon.jpg" alt="Northern Lights" width="600" height="400">
+    <div class="responsive ">
+        <div class="gallery ">
+            <a target="_blank " href="img_lights.jpg ">
+                <img src="../static/images/studdon.jpg " alt="Northern Lights " width="600 " height="400 ">
             </a>
-            <div class="desc">
-                <h4>Education Services</h4>
+            <div class="desc ">
+                <h4 class="text-danger ">Education Services</h4>
             </div>
 
-            <div class="desc">Education charities in typically aim to increase the time that children spend in education institutions and the quality of teaching that the children receive by building schools, tutoring outside the classroom, improving literacy, incentivizing
+            <div class="desc ">Education charities in typically aim to increase the time that children spend in education institutions and the quality of teaching that the children receive by building schools, tutoring outside the classroom, improving literacy, incentivizing
                 attendance, and providing supplies and technology.</div>
         </div>
     </div>
 
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="img_mountains.jpg">
-                <img src="../static/images/clothdonimg.jpg" alt="Mountains" width="600" height="400">
+    <div class="responsive ">
+        <div class="gallery ">
+            <a target="_blank " href="img_mountains.jpg ">
+                <img src="../static/images/clothdonimg.jpg " alt="Mountains " width="600 " height="400 ">
             </a>
-            <div class="desc">
-                <h4>Clothing Services</h4>
+            <div class="desc ">
+                <h4 class="text-danger ">Clothing Services</h4>
             </div>
 
-            <div class="desc"> the clothing donation service It helps those who can't afford clothes, disaster victims, and even people with diseases. When you donate to a charity that not only brings the clothes to a thrift shop but then turns that clothing donation into
+            <div class="desc "> the clothing donation service It helps those who can't afford clothes, disaster victims, and even people with diseases. When you donate to a charity that not only brings the clothes to a thrift shop but then turns that clothing donation into
                 a monetary donation, you're helping a wide array of people in need.</div>
         </div>
     </div>
 
 
 
-    <div class="clearfix"></div>
+    <div class="clearfix "></div>
     <br>
-    <hr style="border: 3px solid red;">
+    <hr style="border: 3px solid red; ">
     <br>
-    <div style="padding:6px;">
+    <div style="padding:6px; ">
         <p>
             <h3>Charities bring together people who care about a cause so that they can make a difference. ... Charities help in lots of different ways, but the main ways are by providing direct help, giving information, or raising awareness of an issue.</h3>
         </p>
@@ -297,7 +234,7 @@
             <h4>Charity provides direct services like food, clothing, shelter. Justice = social change. Justice promotes social change in institutions or political structures. Charity responds to immediate needs.</h4>
         </p>
     </div>
-    <hr style="border: 3px solid red;">
+    <hr style="border: 3px solid red; ">
 
 </div>
 

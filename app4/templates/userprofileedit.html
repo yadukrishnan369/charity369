@@ -209,127 +209,148 @@
     </div>
     <br>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="userprofileeditform" method="POST" enctype="multipart/form-data" name="profileeditform" onsubmit="return validateform()">
         {% csrf_token %}
-
         <dt>
-              <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fa fa-address-book">         Add Address
+              <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fa fa-address-book">         Add Address
             </i></a>
               </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+        <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+            <div class="ms-5" style="padding-top: 20px;">
 
-
-                <label for="tentacles ">Address:</label>
-
-                <input type="text" class="form-control" placeholder="Enter Address" aria-label="address" aria-describedby="basic-addon1" name="address">
-
+                <!-- <input type="text" class="form-control" placeholder="Enter Address" aria-label="address" aria-describedby="basic-addon1" value="{{user.address}}" name="address"> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Bio</span>
+                    <input type="text" class="form-control" placeholder="Add Address" aria-label="address" aria-describedby="basic-addon1" name="address" value="{{user.address}}">
+                </div>
+                <!-- <span id="addresserror"></span> -->
                 <br>
 
             </div>
         </dd>
         <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fa fa-laptop">          Add Website
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fa fa-laptop">          Add Website
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+        <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+            <div class="ms-5" style="padding-top: 20px;">
 
 
-                <label for="tentacles ">Add Website:</label>
+                <label for="tentacles">Add Website:</label>
 
-                <textarea class="form-control" aria-label="With textarea" name="website"></textarea>
-
+                <!-- <textarea class="form-control" aria-label="With textarea" name="website"></textarea> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Bio</span>
+                    <input type="text" class="form-control" placeholder="Add Website" aria-label="website" aria-describedby="basic-addon1" name="website" value="{{user.website}}">
+                </div>
                 <br>
+                <!-- <span id="websiteerror"></span> -->
+
 
             </div>
         </dd>
         <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fa fa-book">          Add Bio
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fa fa-book">          Add Bio
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
+        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true">
             <div class="ms-5 " style="padding-top: 20px; ">
 
 
-                <label for="tentacles ">Add Bio:</label>
+                <label for="tentacles">Add Bio:</label>
 
-                <textarea class="form-control" aria-label="With textarea" name="bio"></textarea>
-
+                <!-- <textarea class="form-control" aria-label="With textarea" name="bio" value="{{user.bio}}"></textarea> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Bio</span>
+                    <input type="text" class="form-control" placeholder="Add Bio" aria-label="bio" aria-describedby="basic-addon1" name="bio" value="{{user.bio}}">
+                </div>
                 <br>
+                <!-- <span id="bioerror"></span> -->
 
             </div>
         </dd>
         <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fa fa-phone">          Add Phone Number
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fa fa-phone">          Add Phone Number
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+        <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+            <div class="ms-5" style="padding-top: 20px;">
 
-                <label for="tentacles ">Add Phone Number:</label>
-
-                <input type="tel" id="phone" name="phone">
-
+                <!-- <input type="tel" id="phone" name="phone" value="{{user.phone}}"> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Phone number</span>
+                    <input type="tel" class="form-control" placeholder="Enter Food Quantity" aria-label="foodquantity" aria-describedby="basic-addon1" name="phone" value="{{user.phone}}">
+                </div>
                 <br>
+                <!-- <span id="phoneerror"></span> -->
 
             </div>
         </dd>
         <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fa fa-whatsapp">          Add Whatsapp 
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fa fa-whatsapp">          Add Whatsapp 
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+        <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+            <div class="ms-5" style="padding-top: 20px;">
 
+                <label for="tentacles">Add Whatsapp Number:</label>
 
-                <label for="tentacles ">Add Whatsapp Number:</label>
-
-                <input type="tel" id="phone" name="whatsapp">
-
+                <!-- <input type="tel" id="phone" name="whatsapp" value="{{user.whatsapp}}"> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Whatsapp Number</span>
+                    <input type="tel" class="form-control" placeholder="Enter Whatsapp Number" aria-label="foodquantity" aria-describedby="basic-addon1" name="whatsapp" value="{{user.whatsapp}}">
+                </div>
                 <br>
+                <!-- <span id="whatsapperror"></span> -->
 
             </div>
         </dd>
 
         <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fa fa-pencil">          About Me
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fa fa-pencil">          About Me
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+        <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+            <div class="ms-5" style="padding-top: 20px;">
 
 
-                <label for="tentacles ">Add About:</label>
 
-                <textarea class="form-control" aria-label="With textarea" name="about"></textarea>
-
+                <!-- <textarea class="form-control" aria-label="With textarea" name="about" value="{{user.aboutme}}"></textarea> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">About</span>
+                    <input type="text" class="form-control" placeholder="Add About" aria-label="about" aria-describedby="basic-addon1" name="about" value="{{user.aboutme}}">
+                </div>
                 <br>
+                <!-- <span id="abouterror"></span> -->
 
             </div>
         </dd>
 
 
-        <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "><i class="fa fa-image">                Add Profile Picture
+        <!-- <dt>
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"><i class="fa fa-image">                Add Profile Picture
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+        <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+            <div class="ms-5" style="padding-top: 20px;">
 
 
-                <label for="tentacles ">Add Profile Picture:</label>
 
                 <input type="file" class="" id="avatar" name="picture" accept="image/png, image/jpg" placeholder="Choose Image">
-
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Add Image:</span>
+                    <input type="file" class="form-control" placeholder="Choose Image" aria-label="Profile image" accept="image/png, image/jpg" aria-describedby="basic-addon1" name="picture" value="/app4 /media/{{userdata.picture}}">
+                </div>
                 <br>
 
             </div>
-        </dd>
+        </dd> -->
         <br>
-        <div class="text-center ms-4 mt-2 ">
-            <button class="btn btn-warning fa fa-upload text-center " type="submit " role="button "></button>
+        <div class="text-center ms-4 mt-2">
+            <button class="btn btn-warning fa fa-upload text-center" type="submit" role="button">Update Profile</button>
             <br>
+            <!-- <span id="imageerror"></span> -->
+
         </div>
         <br>
         </dl>
@@ -337,7 +358,52 @@
 
 </div>
 
-</div>
+<script>
+    function validateform() {
+        var address = document.profileeditform.address.value;
+        var Website = document.profileeditform.website.value;
+        var bio = document.profileeditform.bio.value;
+        var phone = document.profileeditform.phone.value;
+        var whatsapp = document.profileeditform.whatsapp.value;
+        var about = document.profileeditform.about.value;
+        var picture = document.profileeditform.picture.value;
+        if (address == "") {
+            alert("Address Can't be Blank ");
+            // document.getElementById("addresserror").innerHTML("Address Can't be Blank")
+            return false;
+
+        } else if (Website == "") {
+            alert("Website Can't be Blank ");
+            // document.getElementById("Websiteerror").innerHTML("website Can't be Blank")
+            return false;
+
+        } else if (bio == "") {
+            alert("Bio Can't be Blank ");
+            // document.getElementById("bioerror").innerHTML("Bio cant'be Blank")
+            return false;
+
+        } else if (phone == "") {
+            alert("phone Number Can't be Blank ");
+            // document.getElementById("phoneerror").innerHTML("phone Number cant'be Blank")
+            return false;
+
+        } else if (whatsapp == "") {
+            alert("whatsapp Number Can't be Blank ");
+            // document.getElementById("whatsapperror").innerHTML("whatsapp Number Cant'be Blank")
+            return false;
+        } else if (about == "") {
+            alert("About Can't be Blank ");
+            // document.getElementById("abouterror").innerHTML("About Cant'be Blank")
+            return false;
+        } else if (picture == "") {
+            alert("Image Can't be Blank ");
+            // document.getElementById("imageerror").innerHTML("Image Cant'be Blank")
+            return false;
+        }
+
+    }
+</script>
+
 <script src='{% static "js/charityorghomesendreq.js " %}'></script>
 
 

@@ -6,7 +6,7 @@
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
     }
     
     @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
@@ -72,6 +72,7 @@
         -webkit-transition: background-color 0.5s ease-in-out;
         transition: background-color 0.5s ease-in-out;
         border-bottom: 1px solid black;
+        opacity: 0.8;
     }
     
     .accordionTitle:before,
@@ -201,130 +202,180 @@
     }
 </style>
 
-<div class="container">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4">
+            <div class="ms-0">
+                <img src="../static/images/eventsimg2.jpg" alt=" " class="ms-0">
+            </div>
+        </div>
+        <div class="col-8 align-items-center">
+            <div class="text-center">
+                <h3>Fill The Event Form</h3>
+            </div>
+            <br>
+            <form action="" method="POST" enctype="multipart/form-data" name="addeventform" onsubmit="return validateform()">
 
-    <div class="text-center">
-        <h3>Fill The Event Form</h3>
-    </div>
-    <br>
-    <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
 
-        {% csrf_token %}
-
-        <dt>
-              <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fas fa-user-edit">          Event Name
+                <dt>
+              <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fas fa-user-edit">          Event Name
             </i></a>
               </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+                <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+                    <div class="ms-5" style="padding-top: 20px;">
 
 
-                <label for="tentacles ">Event Name:</label>
 
-                <input type="text" id="tentacles " name="eventname">
 
-                <br>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Event Name:</span>
+                            <input type="text" class="form-control" placeholder="Event Name" aria-label="Event Name" aria-describedby="basic-addon1" name="eventname">
+                        </div>
 
-            </div>
-        </dd>
-        <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fas fa-clock">          Select The Time
+                        <br>
+
+                    </div>
+                </dd>
+                <dt>
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fas fa-clock">          Select The Time
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+                <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+                    <div class="ms-5" style="padding-top: 20px;">
 
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Select Starting Time:</span>
+                            <input type="time" class="form-control" placeholder="Event start Time" aria-label="Event start Time" aria-describedby="basic-addon1" name="starttime">
+                        </div>To
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Select Ending Time:</span>
+                            <input type="time" class="form-control" placeholder="Event Ending Time" aria-label="Event Ending Time" aria-describedby="basic-addon1" name="endtime">
+                        </div>
+                        <br>
 
-                <label for="tentacles ">Select Time:</label>
-
-                <input id="appt-time" type="time" value="13:30" name="starttime"> To
-                <input id="appt-time" type="time" value="13:30" name="endtime">
-                <br>
-
-            </div>
-        </dd>
-        <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fas fa-calendar">          Select Date
+                    </div>
+                </dd>
+                <dt>
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fas fa-calendar">          Select Date
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+                <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+                    <div class="ms-5" style="padding-top: 20px;">
 
+                        <div class="input-group mb-3 ">
+                            <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Select Event Date:</span>
+                            <input type="date" class="form-control" placeholder="Event Date" aria-label="Event Date" aria-describedby="basic-addon1" name="date">
+                        </div>
 
-                <label for="tentacles ">Select Date:</label>
+                        <br>
 
-                <input type="date" value="2017-06-01" name="date">
-
-                <br>
-
-            </div>
-        </dd>
-        <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fas fa-map-marker">          Add Location
+                    </div>
+                </dd>
+                <dt>
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fas fa-map-marker">          Add Location
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+                <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+                    <div class="ms-5" style="padding-top: 20px;">
 
-                <label for="tentacles ">Add Location:</label>
 
-                <textarea class="form-control" aria-label="With textarea" name="location"></textarea>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Add Location :</span>
+                            <input type="text" class="form-control" placeholder="Event Location" aria-label="Event Location" aria-describedby="basic-addon1" name="location">
+                        </div>
+                        <br>
 
-                <br>
-
-            </div>
-        </dd>
-        <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "> <i class="fas fa-pen">          Enter Discription
+                    </div>
+                </dd>
+                <dt>
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"> <i class="fas fa-pen">          Enter Description
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+                <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+                    <div class="ms-5" style="padding-top: 20px;">
 
 
-                <label for="tentacles ">Enter Discription:</label>
 
-                <textarea class="form-control" aria-label="With textarea" name="discription"></textarea>
+                        <div class="input-group ">
+                            <span class="input-group-text" style="background-color: rgb(155, 223, 223);">Enter Description:</span>
+                            <textarea class="form-control" aria-label="With textarea" name="discription"></textarea>
+                        </div>
+                        <br>
 
-                <br>
-
-            </div>
-        </dd>
+                    </div>
+                </dd>
 
 
-        <dt>
-            <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "><i class="fas fa-image">                Add Image
+                <dt>
+            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger"><i class="fas fa-image">                Add Image
             </i></a>
             </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
+                <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true">
+                    <div class="ms-5" style="padding-top: 20px;">
 
 
-                <label for="tentacles ">Add Image:</label>
 
-                <input type="file" class="" id="" name="image" placeholder="Choose Image">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1 " style="background-color: rgb(155, 223, 223);">Add Image:</span>
+                            <input type="file" class="form-control" placeholder=" Choose Image" aria-label="Event image" aria-describedby="basic-addon1" name="image">
+                        </div>
+                        <br>
 
+                    </div>
+                </dd>
                 <br>
+                <div class="text-center ms-4 mt-2">
+                    <button class="btn btn-warning fa fa-upload text-center" type="submit" role="button">Upload Event</button>
+                    <br>
+                </div>
+                <br>
+                </dl>
+            </form>
 
-            </div>
-        </dd>
-        <br>
-        <div class="text-center ms-4 mt-2 ">
-            <button class="btn btn-warning fa fa-upload text-center " type="submit " role="button ">Upload Event</button>
-            <br>
         </div>
-        <br>
-        </dl>
-    </form>
-
+    </div>
+</div>
 </div>
 
-</div>
+<script>
+    function validateform() {
+        var eventname = document.addeventform.eventname.value;
+        var starttime = document.addeventform.starttime.value;
+        var endtime = document.addeventform.endtime.value;
+        var date = document.addeventform.date.value;
+        var location = document.addeventform.location.value;
+        var discription = document.addeventform.discription.value;
+        var image = document.addeventform.image.value;
 
 
+        if (eventname == " ") {
+            alert("Even Name can 't be Blank");
+            return false;
+        } else if (starttime == "") {
+            alert("Event Starting Time can 't be Blank ");
+            return false;
+        } else if (endtime == " ") {
+            alert("Event Ending Time can 't be Blank");
+            return false;
+        } else if (date == "") {
+            alert("Event Date can 't be Blank ");
+            return false;
+        } else if (location == " ") {
+            alert("Event Location can 't be Blank");
+            return false;
+        } else if (discription == "") {
+            alert("Event Description can 't be Blank ");
+            return false;
+        } else if (image == " ") {
+            alert("Image can 't be Blank");
+            return false;
+        }
+    }
+</script>
 
 
-<script src='{% static "js/charityorghomesendreq.js " %}'></script>
+<script src='{% static "js/charityorghomesendreq.js " %} '></script>
 
 
 

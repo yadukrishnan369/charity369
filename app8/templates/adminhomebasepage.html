@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
@@ -503,38 +503,44 @@
         <ul class="nav-links">
             <li>
                 <a href="adminhome" class="active">
-                    <i class='bx bx-grid-alt'></i>
+                    <i class='bx bxs-grid-alt'></i>
                     <span class="links_name">Home</span>
                 </a>
             </li>
             <li>
-                <a href="adminhomecharityorgadd">
-                    <i class='bx bx-user-plus'></i>
-                    <span class="links_name">Add Charity Org</span>
+                <a href="adminhomefooddonation">
+                    <i class='bx bxs-heart'></i>
+                    <span class="links_name">Food Donation</span>
                 </a>
             </li>
             <li>
-                <a href="adminhomedonationreq">
-                    <i class='bx bx-heart-circle'></i>
-                    <span class="links_name">Donation Request</span>
+                <a href="adminhomeclothingdonation">
+                    <i class='bx bxs-heart'></i>
+                    <span class="links_name">Clothing Donation</span>
                 </a>
             </li>
             <li>
-                <a href="adminhomeuserdonation">
-                    <i class='bx bxs-donate-heart'></i>
-                    <span class="links_name">User Donations</span>
+                <a href="adminhomemedicinedonation">
+                    <i class='bx bxs-heart'></i>
+                    <span class="links_name">Medicine Donation</span>
+                </a>
+            </li>
+            <li>
+                <a href="adminhomestudymaterialdonation">
+                    <i class='bx bxs-heart'></i>
+                    <span class="links_name">Study Material Donation</span>
+                </a>
+            </li>
+            <li>
+                <a href="adminhomeotherdonation">
+                    <i class='bx bxs-heart'></i>
+                    <span class="links_name">Other Donation</span>
                 </a>
             </li>
             <li>
                 <a href="adminhomeevents">
-                    <i class='bx bx-trophy'></i>
-                    <span class="links_name">Events</span>
-                </a>
-            </li>
-            <li>
-                <a href="adminhomeaddservices">
                     <i class='bx bx-book-heart'></i>
-                    <span class="links_name">Add Services</span>
+                    <span class="links_name">Events</span>
                 </a>
             </li>
 
@@ -553,6 +559,7 @@
                 </a>
             </li>
 
+
         </ul>
     </div>
     <section class="home-section">
@@ -563,19 +570,16 @@
                 </span>
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Search...">
+
+                <input type="text" placeholder="Search..." name="search">
                 <i class='bx bx-search'></i>
             </div>
+            {% for i in adminname %}
             <div class="dropdown">
-                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Yadu Krishna
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <button class="btn btn-warning">{{i.adminname}}</button>
             </div>
+            {% endfor %}
+
         </nav>
 
         <div class="home-content">
@@ -583,46 +587,34 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic"><a href="adminhomecharityorg" style="text-decoration: none; color: black;">charity Org</a></div>
-                        <div class="number">50</div>
-                        <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Up from yesterday</span>
-                        </div>
+                        <div class="number">{{charitycount}}</div>
+
                     </div>
-                    <i class='bx bx-cart-alt cart'></i>
+                    <i class='bx bx-home-alt cart'></i>
                 </div>
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic"> <a href="adminhometotaluser" style="text-decoration: none; color: black;">Total User</a></div>
-                        <div class="number">1000</div>
-                        <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Up from yesterday</span>
-                        </div>
+                        <div class="number">{{usercount}}</div>
+
                     </div>
-                    <i class='bx bxs-cart-add cart two'></i>
+                    <i class='bx bx-user cart three'></i>
                 </div>
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic"> <a href="adminhometotaldonationreq" style="text-decoration: none; color: black;">Donation Req</a></div>
-                        <div class="number">500</div>
-                        <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Up from yesterday</span>
-                        </div>
+                        <div class="number">{{donationrequestcount}}</div>
+
                     </div>
-                    <i class='bx bx-cart cart three'></i>
+                    <i class='bx bx-send cart two'></i>
                 </div>
                 <div class="box">
                     <div class="right-side">
-                        <div class="box-topic"><a href="adminhometotaldonation" style="text-decoration: none; color: black;">TotalDonation</a></div>
-                        <div class="number">400</div>
-                        <div class="indicator">
-                            <i class='bx bx-down-arrow-alt down'></i>
-                            <span class="text">Down From Today</span>
-                        </div>
+                        <div class="box-topic"><a href="adminhometotaldonation" style="text-decoration: none; color: black;"> User Donation</a></div>
+                        <div class="number">{{donationcount}}</div>
+
                     </div>
-                    <i class='bx bxs-cart-download cart four'></i>
+                    <i class='bx bx-donate-blood cart four'></i>
                 </div>
             </div>
 

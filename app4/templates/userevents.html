@@ -2,10 +2,11 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
     }
     
     .button {
@@ -20,9 +21,29 @@
         cursor: pointer;
         border-radius: 16px;
     }
-    
-    .row:hover {
+    /* .row:hover {
         background-color: rgb(243, 235, 235);
+    } */
+    
+    .row {
+        border-radius: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 0px 50px 50px 0px;
+        box-shadow: 4px 4px rgb(161, 156, 156);
+        border-style: groove;
     }
 </style>
 
@@ -31,66 +52,91 @@
 
 
 
-
 <br>
-
-<div class="text-center p-2 text-light" style="padding-top: 400px;">
-    <h2 class="text-center bg-danger" id=""> Up Coming Events</h2>
-</div>
-
-{% for i in charityevents %}
-<div class="container mt-5  bg-light">
-
-    <div class="row">
+<div class="conatainer">
+    <div class=" container text-center p-2 text-light" style="padding-top: 400px;">
+        <h2 class="text-center bg-danger" id=""> Up Coming Events</h2>
+    </div>
+    <div class=" container text-end">
+        <a href="userregisterdevents" type="button" class="btn btn-success fa fa-trophy">Registerd Events</a>
+    </div>
 
 
-        <div class="col-sm-4 ">
+    <div class="text-center text-danger">
+        <h1>{{message}}</h1>
+    </div>
 
-            <img src="/app6/media/{{i.image}}" class=" img-thumbnail" alt="..." style="width:100%;">
+    {% for i in charityevents %}
+    <div class="container mt-5  bg-light" id="box">
 
-
-        </div>
-
-        <div class="col-sm-8 ">
-
-            <h4>{{i.eventname}}--{{i.charity.charityName}}</h4>
-
-            <ul>
+        <div class="row">
 
 
-                <p>
-                    <i style="color: chocolate;" class="fa fa-clock-o"></i> {{i.starttime}} to {{i.endtime}}
-                </p>
+            <div class="col-sm-4 ">
 
+                <img src="/media/{{i.image}}" class=" img-thumbnail" alt="..." style="width:100%;">
 
-
-
-                <p>
-                    <i style="color: chocolate;" class="fa fa-calendar"></i>{{i.date}}
-                </p>
-
-                <p>
-                    <i style="color: chocolate;" class="fa fa-map-marker"></i> calicut beach road,calicut,kerala,india{{i.location}}
-                </p>
-
-
-                <p>{{i.discription}}</p>
-
-            </ul>
-
-            <div class="text-start ms-5 mt-2 ">
-
-                <a class="btn btn-success fa fa-pencil" href="usereventsreg" role="button">Register</a>
 
             </div>
-            <br>
+
+            <div class="col-sm-8 mt-3">
+
+                <h4><b>{{i.eventname}}--{{i.charity.charityName}}</b></h4>
+
+                <ul>
+
+
+                    <p>
+                        <i style="color: chocolate;" class="fa fa-clock-o"></i><b>{{i.starttime}} to {{i.endtime}}</b>
+                    </p>
+
+
+
+
+                    <p>
+                        <i style="color: chocolate;" class="fa fa-calendar"></i><b>{{i.date}}</b>
+                    </p>
+
+                    <p>
+                        <i style="color: chocolate;" class="fa fa-map-marker"></i><b>calicut beach road,calicut,kerala,india{{i.location}}</b>
+                    </p>
+
+
+                    <p><b>{{i.discription}}</b></p>
+
+                </ul>
+
+                <div class="text-start ms-5 mt-2 ">
+                    <button type="submit" class="btn btn-success fa fa-pencil" role="button" id="register" onclick="register('{{i.id}}')">Register</button>
+                </div>
+                <br>
+            </div>
         </div>
     </div>
 </div>
 {% endfor %}
 
+<script>
+    function register(event_id) {
 
+        $.ajax({
+            url: '/usereventsreg',
+            type: 'POST',
+            data: {
+                event_id
+            },
+            success: function(response) {
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+                alert('Registerd Success')
+                    // alert(response.messege);
+            },
+            error: function(response) {
+                alert('You Have Already Registerd In The Event, View Registerd Events')
+            }
+        })
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
 {% endblock %}

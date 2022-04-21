@@ -1,25 +1,72 @@
-{% extends "charityorghomebasepage.html" %} {% block content %} {% load static %}
+ {% extends "charityorghomebasepage.html" %} {% block content %} {% load static %}
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 0px 0px 50px 50px;
+        box-shadow: 4px 3px rgb(161, 156, 156);
+        background-color: white;
+        background-color: rgb(242, 240, 238);
+        border-style: groove;
+    }
+    
+    .button {
+        text-decoration: none;
+    }
+    
+    .button:hover {
+        text-decoration: none;
+        background-color: white;
+        background-color: rgb(136, 178, 200);
+    }
+    
+    #btn {
+        background-color: white;
+    }
+    
+    #btn:hover {
+        background-color: rgb(136, 178, 200);
     }
 </style>
 
-<div class="container">
 
 
+<div class="container mt-5">
+
+    <div class="container text-center bg-success text-white mb-3 p-0">
+        <h1>Accepted Donations</h1>
+    </div>
+    <h1>{{message}}</h1>
+
+    <div class="text-center mb-4 mt-1"> <button type="button" class="btn btn-outline-info" id="btn"><a href="viewcollecteddonations" class="button">View Collections</a></button><button type="button" class="btn btn-outline-info" id="btn"><a href="charityorghomeviewdonations" class="button">Back To Donations</a></button>
+    </div>
+    {% for i in foodaccept %}
+    <!--  -->
+    {% if i.FoodRequest.charity.id == request.session.session_name %}
+
+    <div class="container" id="box">
 
 
-    <div class="container ">
-
-        <br>
-        <div class="ms-4 bg-danger text-center">
-            <h3 class="">Jhone Doe</h3>
+        <div class="bg-danger text-center">
+            <h3 class="text-white">Donor Name - {{i.user.username}}</h3>
         </div>
         <br>
         <div>
@@ -27,7 +74,7 @@
 
                 <p>
 
-                    <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Food
+                    <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Food Donation
                    </span>
 
                 </p>
@@ -35,7 +82,7 @@
 
                 <p>
 
-                    <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> Rice And Vegitebles
+                    <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.foodType}}
                    </span>
 
                 </p>
@@ -44,61 +91,406 @@
 
 
                 <p>
-                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> 10 Persons
+                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
                     </span>
                 </p>
 
 
 
                 <p>
-                    <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> Beypore, North beypore,po:arrakkinar,Calicut,kerla State
+                    <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.user.address}}
 
                       
                     </span>
                 </p>
 
                 <p>
-                    <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> 233/455
+                    <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> {{i.buildingNumber}}
                   </span>
                 </p>
 
 
 
                 <p>
-                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> Near BMH hospital
+                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
                   </span>
                 </p>
 
 
                 <p>
-                    <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i> 14/1/2022
+                    <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}
                   </span>
+                </p>
+
+            </ul>
+        </div>
+
+        <div class="text-center ms-4 mt-2 ">
+            <a class="btn btn-info fa fa-phone text-center" href="#" role="button">{{i.user.phone}}</a>
+            <a class="btn btn-warning fa fa-whatsapp text-center" href="#" role="button">{{i.user.whatsapp}}</a>
+
+
+            <a href="donationcollected/{{i.id}}" class="btn btn-success text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Collect')">Collected</a>
+
+            <a href="foodacceptedcancel/{{i.id}}" class="btn btn-danger text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Cancel')">Cancel</a>
+
+        </div>
+
+        <br>
+    </div>
+    <br>
+    <hr style="border: 3px solid red; "> <br>{% endif %} {% endfor %}
+
+    <!--  -->
+
+
+    <br> {% for i in clothingaccept %}
+    <!--  -->
+    {% if i.clothingRequest.charity.id == request.session.usersession_name %}
+
+    <div class="container" id="box">
+
+        <br>
+        <div class="ms-4 bg-danger text-center">
+            <h3 class="text-white">Donor Name - {{i.user.username}}</h3>
+        </div>
+        <br>
+        <div>
+            <ul class="text-start">
+
+                <p>
+
+                    <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Clothing Donation
+                   </span>
+
+                </p>
+
+
+                <p>
+
+                    <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.clothingType}}
+                   </span>
+
                 </p>
 
 
 
 
+                <p>
+                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.clothingQuantity}}
+                    </span>
+                </p>
 
 
+
+                <p>
+                    <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.user.address}}
+
+                      
+                    </span>
+                </p>
+
+                <p>
+                    <b>House NO:</b><span>                    <i  style="color: chocolate;"></i> {{i.buildingNumber}}
+                  </span>
+                </p>
+
+
+
+                <p>
+                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
+                  </span>
+                </p>
+
+
+                <p>
+                    <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}
+                  </span>
+                </p>
+
+            </ul>
+        </div>
+
+        <div class="text-center ms-4 mt-2">
+            <a class="btn btn-info fa fa-phone text-center" href="#" role="button">{{i.user.phone}}</a>
+            <a class="btn btn-warning fa fa-whatsapp text-center" href="#" role="button">{{i.user.whatsapp}}</a>
+
+
+            <a href="donationcollected/{{i.id}}" class="btn btn-success text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Collect')">Collected</a>
+            <a href="clothingacceptedcancel/{{i.id}}" class="btn btn-danger text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Cancel')">Cancel</a>
+
+        </div>
+
+        <br>
+    </div>
+    <hr style="border: 3px solid red;"> {% endif %} {% endfor %}
+    <!--  -->
+
+
+
+
+
+
+    <br> {% for i in medicineaccept %}
+    <!--  -->
+    {% if i.medicineRequest.charity.id == request.session.usersession_name %}
+
+    <div class="container " id="box">
+
+        <br>
+        <div class="ms-4 bg-danger text-center">
+            <h3 class="text-white ">Donor Name - {{i.user.username}}</h3>
+        </div>
+        <br>
+        <div>
+            <ul>
+
+                <p>
+
+                    <b>Donation Type:</b><span>                    <i style="color: chocolate; " ></i>Medicine Donation
+                   </span>
+
+                </p>
+
+
+                <p>
+
+                    <b>Donation Item:</b><span>                    <i style="color: chocolate; " ></i> {{i.medicineType}}
+                   </span>
+
+                </p>
+
+
+
+
+                <p>
+                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.medicineQuantity}}
+                    </span>
+                </p>
+
+
+
+                <p>
+                    <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.user.address}}
+
+                      
+                    </span>
+                </p>
+
+                <p>
+                    <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                  </span>
+                </p>
+
+
+
+                <p>
+                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                  </span>
+                </p>
+
+
+                <p>
+                    <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> {{i.date}}
+                  </span>
+                </p>
+
+            </ul>
+        </div>
+
+        <div class="text-center ms-4 mt-2 ">
+            <a class="btn btn-info fa fa-phone text-center " href="# " role="button ">{{i.user.phone}}</a>
+            <a class="btn btn-warning fa fa-whatsapp text-center " href="# " role="button ">{{i.user.whatsapp}}</a>
+
+
+            <a href="donationcollected/{{i.id}}" class="btn btn-success text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Collect')">Collected</a>
+            <a href="medicineacceptedcancel/{{i.id}}" class="btn btn-danger text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Cancel')">Cancel</a>
+
+        </div>
+
+        <br>
+    </div>
+    <hr style="border: 3px solid red; "> {% endif %} {% endfor %}
+    <br>
+    <!--  -->
+
+
+
+
+
+
+
+    <br> {% for i in studymaterialaccept %}
+    <!--  -->
+    {% if i.studyMaterialRequest.charity.id == request.session.usersession_name %}
+
+
+    <div class="container " id="box ">
+
+        <br>
+        <div class="ms-4 bg-danger text-center ">
+            <h3 class="text-white ">Donor Name - {{i.user.username}}</h3>
+        </div>
+        <br>
+        <div>
+            <ul>
+
+                <p>
+
+                    <b>Donation Type:</b><span>                    <i style="color: chocolate; " ></i>Study Material Donation
+                   </span>
+
+                </p>
+
+
+                <p>
+
+                    <b>Donation Item:</b><span>                    <i style="color: chocolate; " ></i> {{i.studyMaterialType}}
+                   </span>
+
+                </p>
+
+
+
+
+                <p>
+                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.studyMaterialQuantity}}
+                    </span>
+                </p>
+
+
+
+                <p>
+                    <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.user.address}}
+
+                      
+                    </span>
+                </p>
+
+                <p>
+                    <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                  </span>
+                </p>
+
+
+
+                <p>
+                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                  </span>
+                </p>
+
+
+                <p>
+                    <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> {{i.date}}
+                  </span>
+                </p>
+
+            </ul>
+        </div>
+
+        <div class="text-center ms-4 mt-2 ">
+            <a class="btn btn-info fa fa-phone text-center " href="# " role="button ">{{i.user.phone}}</a>
+            <a class="btn btn-warning fa fa-whatsapp text-center " href="# " role="button ">{{i.user.whatsapp}}</a>
+
+
+            <a href="donationcollected/{{i.id}}" class="btn btn-success text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Collect')">Collected</a>
+            <a href="studymaterialacceptedcancel/{{i.id}}" class="btn btn-danger text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Cancel')">Cancel</a>
+
+        </div>
+
+        <br>
+    </div>
+    <hr style="border: 3px solid red; "> {% endif %} {% endfor %}
+    <br>
+
+
+
+
+
+    <!--  -->
+    {% for i in otheraccept %}
+    <!--  -->
+    {% if i.otherRequest.charity.id == request.session.usersession_name %}
+
+
+    <div class="container " id="box ">
+
+        <br>
+        <div class="ms-4 bg-danger text-center ">
+            <h3 class="text-white ">Donor Name - {{i.user.username}}</h3>
+        </div>
+        <br>
+        <div>
+            <ul>
+
+                <p>
+
+                    <b>Donation Type:</b><span>                    <i style="color: chocolate; " ></i>Other Donations
+                   </span>
+
+                </p>
+
+
+                <p>
+
+                    <b>Donation Item:</b><span>                    <i style="color: chocolate; " ></i> {{i.otherType}}
+                   </span>
+
+                </p>
+
+
+
+
+                <p>
+                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.otherQuantity}}
+                    </span>
+                </p>
+
+
+
+                <p>
+                    <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.user.address}}
+
+                      
+                    </span>
+                </p>
+
+                <p>
+                    <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                  </span>
+                </p>
+
+
+
+                <p>
+                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                  </span>
+                </p>
+
+
+                <p>
+                    <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> {{i.date}}
+                  </span>
+                </p>
 
 
             </ul>
         </div>
 
         <div class="text-center ms-4 mt-2 ">
-            <a class="btn btn-info fa fa-phone text-center" href="#" role="button">9745303779</a>
-            <a class="btn btn-warning fa fa-whatsapp text-center" href="#" role="button">9745303779</a>
+            <a class="btn btn-info fa fa-phone text-center " href="# " role="button ">{{i.user.phone}}</a>
+            <a class="btn btn-warning fa fa-whatsapp text-center " href="# " role="button ">{{i.user.whatsapp}}</a>
 
 
-            <button type="submit" class="btn btn-success text-end  fa fa-heartbeat">Collected</button>
+            <a href="donationcollected/{{i.id}}" class="btn btn-success text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Collect')">Collected</a>
+            <a href="otheracceptedcancel/{{i.id}}" class="btn btn-danger text-end  fa fa-dropbox" onclick="return confirm('Are You Sure To Cancel')">Cancel</a>
 
         </div>
 
         <br>
-        <hr style="border: 3px solid red;">
     </div>
-
-
+    <hr style="border: 3px solid red; "> {% endif %} {% endfor %}
+    <br>
 
 
 
@@ -109,6 +501,6 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
 {% endblock %}

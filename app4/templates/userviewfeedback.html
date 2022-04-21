@@ -7,7 +7,7 @@
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
     }
     
     .dropdown-list-image {
@@ -26,86 +26,91 @@
         background-color: #e5f7f0;
         border-color: #d8f7eb;
     }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    b {
+        font-family: "Oswald"
+    }
+    
+    #delete {
+        text-decoration: none;
+        color: red;
+    }
+    
+    #delete:hover {
+        background-color: white;
+    }
+    
+    #box {
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 4px 3px rgb(161, 156, 156);
+        border-style: groove;
+    }
 </style>
 
 <br>
 
 <div class="container">
 
-    <div class=" d-grid">
 
-        <div class="box shadow-sm rounded bg-white mb-3  ">
-
-            <div class="box-title border-bottom p-3">
-                <h6 class="m-0">Feedback Reply</h6>
-            </div>
+    <div class="box-title border-bottom p-2 bg-danger text-center text-white">
+        <h4 class="m-0">My Feedback</h4>
+    </div>
+    <br>
 
 
+    <br>{% for i in UserMyFeedback %}
 
-            <div class="box-body p-0">
+    <div class="d-grid">
 
-
-
-                <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header ">
+        <div class="box shadow-sm rounded bg-white mb-3">
 
 
 
-                    <div class="dropdown-list-image ms-2 mr-3">
-                        <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
+            <div class="box-body p-0" id="box">
+
+
+
+                <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header">
+
+
+
+                    <div class="dropdown-list-image ms-2 mr-3 col10">
+                        <img class="rounded-circle" src="/app4/media/{{i.user.picture}}" alt="" />
                     </div>
 
                     <br>
-                    <div class="font-weight-bold mr-3 ms-5">
-                        <div class="text-truncate"><b>The Smile Foundation</b></div>
-                        <div class="small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, doloremque. Molestias officia sequi alias commodi delectus</div>
-                        <div class="text-right text-muted pt-1">3h</div>
+                    <div class="font-weight-bold mr-3 ms-5 mt-3">
+                        <div class="small"><b>{{i.message}}</b></div>
 
                         <br>
 
-                    </div>
 
+                    </div>
+                    <div class="text-end col-2">
+                        <a href="deletefeedback/{{i.id}}" id="delete" class="text-end" onclick="return confirm('Are You Sure To Delete')"><b>Delete</b></a>
+                    </div>
                     <br>
+
                 </div>
 
 
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-    <div class="box-body p-0">
-
-
-
-        <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header ">
-
-
-
-            <div class="dropdown-list-image ms-2 mr-3">
-                <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
-            </div>
-
-            <br>
-            <div class="font-weight-bold mr-3 ms-5">
-                <div class="text-truncate"><b>The wings Welfare Association</b></div>
-                <div class="small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint recusandae et doloribus illum minus. Beatae lab</div>
-                <div class="text-right text-muted pt-1">3h</div>
-
-                <br>
 
             </div>
 
-            <br>
         </div>
 
 
     </div>
 
-
-</div>
+    {% endfor %}
 
 
 </div>
@@ -116,8 +121,10 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+<script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
 
 
 

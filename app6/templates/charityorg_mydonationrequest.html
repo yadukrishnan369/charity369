@@ -4,58 +4,82 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     body {
+        background-color: white;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 0px 0px 0px 0px;
+        box-shadow: 4px 3px rgb(161, 156, 156);
         background-color: rgb(243, 235, 233);
+        border-style: groove;
     }
 </style>
 
 
 
-
-
-
 <br>
-<div class="text-center ">
-    <h2>My Donation Requests</h2>
-</div><br><br>
-<div class="container text-center text-light bg-danger ">
-    <h4>Food Requests</h4>
+<div class="container text-center bg-danger mt-3">
+    <h2>My Donations</h2>
 </div>
-{% for i in foodrequest %}
 
-
-<div class="container mt-5  bg-light" id="div1" style="border: black;">
+<br>{% for i in foodrequest %}
+<div class="container mt-5  bg-light" id="box">
+    <div class="text-center text-light bg-success">
+        <h4>Food Requests</h4>
+    </div>
 
     <div class="container ">
 
         <br>
+        <div class="row">
+            <div class="col-9">
 
+                <ul>
 
-        <ul>
+                    <p>
 
-            <p>
-
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Food
+                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Food
                    </span>
 
-            </p>
+                    </p>
 
 
-            <p>
+                    <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.foodExpectedItem}}
+                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.foodExpectedItem}}
                    </span>
 
-            </p>
+                    </p>
 
 
 
 
-            <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
                     </span>
-            </p>
+                    </p>
+                    <!-- <p>
+                        <b>charityname</b><span>                    <i  style="color: chocolate;" ></i> {{i.charity.charityName}}
+                    </span>
+                    </p> -->
 
-        </ul>
+                </ul>
+            </div>
+            <div class=" col-3 text-center mt-5">
+                <a href="charityorgfoodreqdelete/{{i.id}}" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete')">Delete Request</a>
+            </div>
+        </div>
+
 
         <br>
     </div>
@@ -64,48 +88,104 @@
 
 </div>
 {% endfor %}
-<br><br>
-<div class=" container text-center text-light bg-danger">
-    <h4>Clothing Requests</h4>
-</div>
-{% for i in clothingrequest %}
+<br><br> {% for i in clothingrequest %}
 
 
-<div class="container mt-5  bg-light" id="div1">
+<div class="container mt-5  bg-light" id="box">
 
     <div class="container ">
-
         <br>
+        <div class=" container text-center text-light bg-success">
+            <h4>Clothing Requests</h4>
+        </div>
 
+        <div class="row">
+            <div class="col-9">
+                <ul>
 
-        <ul>
+                    <p>
 
-            <p>
-
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Clothing
+                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Clothing
                    </span>
 
-            </p>
+                    </p>
 
 
-            <p>
+                    <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.clothingExpectedItem}}
+                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.clothingExpectedItem}}
                    </span>
 
-            </p>
+                    </p>
 
 
 
 
-            <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.clothingQuantity}}
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.clothingQuantity}}
                     </span>
-            </p>
+                    </p>
 
-        </ul>
+                </ul>
+
+            </div>
+            <div class=" col-3 text-center mt-5">
+                <a href="charityorgclothingreqdelete/{{i.id}}" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete')">Delete Request</a>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+
+<br><br> {% for i in medicinerequest %}
+
+
+<div class="container mt-5  bg-light" id="box">
+
+    <div class="container ">
+        <div class=" container text-center text-light bg-success">
+            <h4>Medicines Requests</h4>
+        </div>
 
         <br>
+        <div class="row">
+            <div class="col-9">
+
+                <ul>
+
+                    <p>
+
+                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Medicines
+                   </span>
+
+                    </p>
+
+
+                    <p>
+
+                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.medicineExpectedItem}}
+                   </span>
+
+                    </p>
+
+
+
+
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.medicineQuantity}}
+                    </span>
+                    </p>
+
+                </ul>
+            </div>
+            <div class=" col-3 text-center mt-5">
+                <a href="charityorgmedicinereqdelete/{{i.id}}" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete')">Delete Request</a>
+            </div>
+            <br>
+        </div>
     </div>
 
 
@@ -113,48 +193,51 @@
 </div>
 {% endfor %}
 
-<br><br>
-<div class=" container text-center text-light bg-danger">
-    <h4>Medicines Requests</h4>
-</div>
-{% for i in medicinerequest %}
+<br><br> {% for i in studymaterialrequest %}
 
 
-<div class="container mt-5  bg-light" id="div1">
+<div class="container mt-5  bg-light" id="box">
 
     <div class="container ">
+        <div class=" container text-center text-light bg-success">
+            <h4>Study Material Requests</h4>
+        </div>
 
         <br>
+        <div class="row">
+            <div class="col-9">
+                <ul>
 
+                    <p>
 
-        <ul>
-
-            <p>
-
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Medicines
+                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Study Materials
                    </span>
 
-            </p>
+                    </p>
 
 
-            <p>
+                    <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.medicineExpectedItem}}
+                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.studymaterialExpectedItem}}
                    </span>
 
-            </p>
+                    </p>
 
 
 
 
-            <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.medicineQuantity}}
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.studymaterialQuantity}}
                     </span>
-            </p>
+                    </p>
 
-        </ul>
-
-        <br>
+                </ul>
+            </div>
+            <div class=" col-3 text-center mt-5">
+                <a href="charityorgstudymeterialreqdelete/{{i.id}}" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete')">Delete Request</a>
+            </div>
+            <br>
+        </div>
     </div>
 
 
@@ -162,99 +245,53 @@
 </div>
 {% endfor %}
 
-<br><br>
-<div class=" container text-center text-light bg-danger">
-    <h4>Study Material Requests</h4>
-</div>
-{% for i in studymaterialrequest %}
+<br><br> {% for i in otherrequest %}
 
 
-<div class="container mt-5  bg-light" id="div1">
+<div class="container mt-5  bg-light" id="box">
 
     <div class="container ">
-
+        <div class=" container text-center text-light bg-success">
+            <h4> Other Requests</h4>
+        </div>
         <br>
 
+        <div class="row">
+            <div class="col-9">
+                <ul>
 
-        <ul>
+                    <p>
 
-            <p>
-
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Study Materials
+                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Other Requests
                    </span>
 
-            </p>
+                    </p>
 
 
-            <p>
+                    <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.studymaterialExpectedItem}}
+                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.otherExpectedItem}}
                    </span>
 
-            </p>
+                    </p>
 
 
 
 
-            <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.studymaterialQuantity}}
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.otherQuantity}}
                     </span>
-            </p>
+                    </p>
 
-        </ul>
+                </ul>
 
-        <br>
+                <br>
+                <div class=" col-3 text-center mt-5">
+                    <a href="charityorgotherreqdelete/{{i.id}}" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete')">Delete Request</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
-</div>
-{% endfor %}
-
-<br><br>
-<div class=" container text-center text-light bg-danger">
-    <h4> Other Requests</h4>
-</div>
-{% for i in otherrequest %}
-
-
-<div class="container mt-5  bg-light" id="div1">
-
-    <div class="container ">
-
-        <br>
-
-
-        <ul>
-
-            <p>
-
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Other Requests
-                   </span>
-
-            </p>
-
-
-            <p>
-
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.otherExpectedItem}}
-                   </span>
-
-            </p>
-
-
-
-
-            <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.otherQuantity}}
-                    </span>
-            </p>
-
-        </ul>
-
-        <br>
-    </div>
-
 
 
 </div>

@@ -6,7 +6,7 @@
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        /* background-color: rgb(243, 235, 233); */
     }
     
     .dropdown-list-image {
@@ -25,116 +25,227 @@
         background-color: #e5f7f0;
         border-color: #d8f7eb;
     }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 4px 3px rgb(161, 156, 156);
+        background-color: rgb(242, 240, 238);
+    }
 </style>
 
 <br>
 
+<div class="container text-center bg-success text-white mb-5">
+    <h1>Notification</h1>
+</div>
+
 <div class="container">
 
-    <div class="row ">
 
+    {% for i in eventreg %}
+    <div class="row">
         <div class="box shadow-sm rounded bg-white mb-3">
 
             <div class="box-title border-bottom p-3">
-                <h6 class="m-0">Recent</h6>
+                <h6 class="m-0 text-danger">Event Notifications</h6>
             </div>
 
-            <div class="box-body p-0">
+            <div class="box-body p-0" id="box">
 
                 <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header">
 
                     <div class="dropdown-list-image ms-2 mr-3">
-                        <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
+                        <img class="rounded-circle" src="/media/{{i.user.picture}}" alt="" />
                     </div>
                     <br>
                     <div class="font-weight-bold mr-3 ms-5">
-                        <div class="text-truncate"><b>Jhone Doe</b></div>
-                        <div class="small">Accept Your Food Donation Request</div>
+                        <div class="text-truncate"><b>{{ i.user.username }}</b></div>
+                        <div class="small">Register Your {{i.event.eventname}} Event</div>
 
                     </div>
-
-
-
                 </div>
 
-
-
-
-                <div class="p-3 d-flex align-items-center osahan-post-header">
-
-                    <div class="dropdown-list-image mr-3 ms-2">
-                        <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                    </div>
-
-                    <div class="font-weight-bold mr-3 ms-5">
-                        <div class="text-truncate"><b>Olive Yew</b></div>
-
-                        <div class="mb-2">Accept Your Cloths Donation Request</div>
-
-                    </div>
-
-
-
-                </div>
 
             </div>
 
         </div>
 
-
-
-
+    </div>
+    {% endfor %} {% for i in fooddonationnotification %}
+    <div class="row">
         <div class="box shadow-sm rounded bg-white mb-3">
 
             <div class="box-title border-bottom p-3">
-                <h6 class="m-0">Earlier</h6>
+                <h6 class="m-0 text-danger"> Donation Notification</h6>
             </div>
 
 
 
-            <div class="box-body p-0">
+            <div class="box-body p-0" id="box">
 
                 <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
 
-                    <div class="dropdown-list-image mr-3 ms-2 d-flex align-items-center bg-danger justify-content-center rounded-circle text-white">DRM</div>
-
+                    <div class="dropdown-list-image ms-2 mr-3">
+                        <img class="rounded-circle" src="/media/{{i.user.picture}}" alt="" />
+                    </div>
                     <div class="font-weight-bold mr-3 ms-5">
-                        <div class="text-truncate"><b>Jhone Doe</b></div>
-                        <div class="small">Nunc purus metus, aliquam vitae </div>
+                        <div class="text-truncate"><b>{{i.user.username}}</b></div>
+                        <div class="small">Donate For Your {{i.FoodRequest.foodExpectedItem}}</div>
 
                     </div>
 
 
 
                 </div>
-
-
-
-
-
-
-                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
-                    <div class="dropdown-list-image mr-3 ms-2"><img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" /></div>
-                    <div class="font-weight-bold mr-3 ms-5">
-                        <div class="text-truncate"><b>Olive Yew</b></div>
-                        <div class="small">Pellentesque semper ex diam, at </div>
-
-                    </div>
-
-                </div>
-
-
-
-
 
 
             </div>
         </div>
 
     </div>
+    {% endfor %} {% for i in clothingdonationnotification %}
+    <div class="row">
+        <div class="box shadow-sm rounded bg-white mb-3">
+
+            <div class="box-title border-bottom p-3">
+                <h6 class="m-0 text-danger"> Donation Notification</h6>
+            </div>
+
+
+
+            <div class="box-body p-0" id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+
+                    <div class="dropdown-list-image ms-2 mr-3">
+                        <img class="rounded-circle" src="/media/{{i.user.picture}}" alt="" />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5">
+                        <div class="text-truncate"><b>{{i.user.username}}</b></div>
+                        <div class="small">Donate For Your {{i.clothingType }}</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endfor %} {% for i in medicinedonationnotification %}
+    <div class="row">
+        <div class="box shadow-sm rounded bg-white mb-3">
+
+            <div class="box-title border-bottom p-3">
+                <h6 class="m-0 text-danger"> Donation Notification</h6>
+            </div>
+
+
+
+            <div class="box-body p-0" id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+
+                    <div class="dropdown-list-image ms-2 mr-3">
+                        <img class="rounded-circle" src="/media/{{i.user.picture}}" alt="" />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5">
+                        <div class="text-truncate"><b>{{i.user.username}}</b></div>
+                        <div class="small">Donate For Your {{i.clothingType }}</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    <br> {% for i in studymaterialdonationnotification %}
+    <div class="row">
+        <div class="box shadow-sm rounded bg-white mb-3">
+
+            <div class="box-title border-bottom p-3">
+                <h6 class="m-0 text-danger"> Donation Notification</h6>
+            </div>
+
+
+
+            <div class="box-body p-0" id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+
+                    <div class="dropdown-list-image ms-2 mr-3">
+                        <img class="rounded-circle" src="/media/{{i.user.picture}}" alt="" />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5">
+                        <div class="text-truncate"><b>{{i.user.username}}</b></div>
+                        <div class="small">Donate For Your {{i.studyMaterialType }}</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    <br> {% for i in otherdonationnotification %}
+    <div class="row">
+        <div class="box shadow-sm rounded bg-white mb-3">
+
+            <div class="box-title border-bottom p-3">
+                <h6 class="m-0 text-danger"> Donation Notification</h6>
+            </div>
+
+
+
+            <div class="box-body p-0" id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+
+                    <div class="dropdown-list-image ms-2 mr-3">
+                        <img class="rounded-circle" src="/media/{{i.user.picture}}" alt="" />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5">
+                        <div class="text-truncate"><b>{{i.user.username}}</b></div>
+                        <div class="small">Donate For Your {{i.otherType }}</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+
 </div>
-
-
 
 
 

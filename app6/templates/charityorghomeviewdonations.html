@@ -6,12 +6,32 @@
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        /* background-color: rgb(243, 235, 233); */
     }
     
-    #div1,
-    #div2 {
-        border-radius: 15px;
+    .image--cover {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center left;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 0px 0px 50px 50px;
+        box-shadow: 4px 3px rgb(161, 156, 156);
+        background-color: rgb(242, 240, 238);
+        border-style: groove;
     }
 </style>
 
@@ -21,35 +41,35 @@
 
     <div class="text-start ms-5 mt-4 ">
 
-        <a class="btn btn-success fa fa-plus" href="charityorgaccepteddon" role="button">Accepted donations</a>
+        <a class="btn btn-success fa fa-handshake" href="viewacceptdonation" role="button">Accepted donations</a>
 
     </div>
+    {% for i in fooddonation %}
 
+    <div class="mt-5  bg-light" id="box">
 
-
-    <div class="container mt-5  bg-light" id="div1">
+        <div class="bg-success text-center text-white">
+            <h4>Food Donation</h4>
+        </div>
 
 
         <div class="row">
-            <div class="col-sm-4 ">
-
-                <img src="../static/images/charityprofile.jpg" class="img-fluid " alt="..." style="width:100%;">
-
-
+            <div class="col-sm-2 pt-5 text-center">
+                <img src="/media/{{i.user.picture}}" class="image--cover">
             </div>
 
             <div class="col-sm-8 ">
 
                 <br>
-
-                <h3>Jhone doe</h3>
-
+                <div class="text-start ms-5 text-danger">
+                    <h3>{{i.user.username}}</h3>
+                </div>
                 <ul>
 
 
                     <p>
 
-                        <b>food Type:</b><span>                    <i style="color: chocolate;" ></i> Rice And Vegitebles
+                        <b>food Type:</b><span>                    <i style="color: chocolate;" ></i> {{i.foodType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.FoodRequest.foodExpectedItem}}
                    </span>
 
                     </p>
@@ -58,27 +78,27 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> 10 Persons
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
                     </span>
                     </p>
 
                     <p>
-                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i> 14/1/2022
+                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
                     </span>
                     </p>
 
                     <p>
-                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> Beypore, North beypore,po:arrakkinar,Calicut,kerla State
+                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.address}}
                     </span>
                     </p>
 
                     <p>
-                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> 233/455
+                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> {{i.buildingNumber}}
                     </span>
                     </p>
 
                     <p>
-                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> Near BMH hospital
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
                       </span>
                     </p>
 
@@ -86,9 +106,9 @@
                 </ul>
 
                 <div class="text-start ms-4 mt-2 ">
-                    <a class="btn btn-warning fa fa-handshake text-center" href="#" role="button">Accept Donation</a>
-                    <a class="btn btn-info fa fa-phone text-center" href="#" role="button">9745303779</a>
-                    <a class="btn btn-success fa fa-whatsapp text-center" href="#" role="button">9745303779</a>
+                    <a class="btn btn-warning fa fa-handshake text-center " href="charityorgaccepteddon/{{i.id}}" role="button" onclick="return confirm('Are You Sure To Accept Donation')">Accept Donation</a>
+                    <a class=" btn btn-info fa fa-phone text-center " href="#" role="button ">{{i.user.phone}}</a>
+                    <a class="btn btn-success fa fa-whatsapp text-center " href="# " role="button ">{{i.user.whatsapp}}</a>
 
                 </div>
                 <br>
@@ -97,29 +117,35 @@
 
     </div>
 
-    <div class="container  mt-5  bg-light" id="div2">
+    {% endfor %}
+    <br> {% for i in clothingdonation %}
+    <div class="mt-5 bg-light " id="box">
+
+        <div class="bg-success text-center text-white ">
+            <h4>Clothing Donation</h4>
+        </div>
 
 
-        <div class="row">
-            <div class="col-sm-4 ">
+        <div class="row ">
 
-                <img src="../static/images/charityprofile.jpg" class=" img-thumbnail" alt="..." style="width:100%;">
-
-
+            <div class="col-sm-2 pt-5 text-center ">
+                <img src="/media/{{i.user.picture}} " class="image--cover ">
             </div>
+
+
 
             <div class="col-sm-8 ">
 
                 <br>
-
-                <h3>Olive Yew</h3>
-
+                <div class="text-start ms-5 text-danger ">
+                    <h3>{{i.user.username}}</h3>
+                </div>
                 <ul>
 
 
                     <p>
 
-                        <b>Cloths Type:</b><span>                    <i style="color: chocolate;" ></i> T-shirts
+                        <b>Clothig Type:</b><span>                    <i style="color: chocolate; " ></i> {{i.clothingType}}   &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.clothingRequest.clothingExpectedItem}}
                    </span>
 
                     </p>
@@ -128,27 +154,27 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> 5 Persons
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.clothingQuantity}}
                     </span>
                     </p>
 
                     <p>
-                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i> 22/2/2022
+                        <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
                     </span>
                     </p>
 
                     <p>
-                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> palazhi, thondayad,po:calicut,Calicut,kerla State
+                        <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.address}}
                     </span>
                     </p>
 
                     <p>
-                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> 122/3345
+                        <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
                     </span>
                     </p>
 
                     <p>
-                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> Near Hilite Mall
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
                     </span>
                     </p>
 
@@ -156,9 +182,82 @@
                 </ul>
 
                 <div class="text-start ms-4 mt-2 ">
-                    <a class="btn btn-warning fa fa-handshake text-center" href="#" role="button">Accept Donation</a>
-                    <a class="btn btn-info fa fa-phone text-center" href="#" role="button">8089652533</a>
-                    <a class="btn btn-success fa fa-whatsapp text-center" href="#" role="button">8089652533</a>
+                    <a class="btn btn-warning fa fa-handshake text-center " href="charityorgaccepteddon/{{i.id}}" role="button" onclick="return confirm('Are You Sure To Accept Donation')">Accept Donation</a>
+                    <a class="btn btn-info fa fa-phone text-center " href="# " role="button ">{{i.user.phone}}</a>
+                    <a class="btn btn-success fa fa-whatsapp text-center " href="# " role="button ">{{i.user.whatsapp}}</a>
+
+                </div>
+                <br>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    <br> {% for i in medicinedonation %}
+
+    <div class="mt-5 bg-light " id="box">
+
+        <div class="bg-success text-center text-white ">
+            <h4>Medicine Donation</h4>
+        </div>
+
+
+        <div class="row ">
+            <div class="col-sm-2 pt-5 text-center ">
+                <img src="/media/{{i.user.picture}} " class="image--cover ">
+            </div>
+
+            <div class="col-sm-8 ">
+
+                <br>
+                <div class="text-start ms-5 text-danger ">
+                    <h3>{{i.user.username}}</h3>
+                </div>
+                <ul>
+
+
+                    <p>
+
+                        <b>Medicine Type:</b><span>                    <i style="color: chocolate; " ></i> {{i.medicineType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.medicineRequest.medicineExpectedItem}}
+                   </span>
+
+                    </p>
+
+
+
+
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.medicineQuantity}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.address}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                      </span>
+                    </p>
+
+
+                </ul>
+
+                <div class="text-start ms-4 mt-2 ">
+                    <a class="btn btn-warning fa fa-handshake text-center" href="charityorgaccepteddon/{{i.id}}" role="button" onclick="return confirm('Are You Sure To Accept Donation')">Accept Donation</a>
+                    <a class="btn btn-info fa fa-phone text-center" href="#" role="button">{{i.user.phone}}</a>
+                    <a class="btn btn-success fa fa-whatsapp text-center" href="#" role="button">{{i.user.whatsapp}}</a>
 
                 </div>
                 <br>
@@ -167,13 +266,165 @@
 
     </div>
 
+    {% endfor %}
+    <br> {% for i in studymaterialdonation %}
 
+    <div class="mt-5 bg-light " id="box">
+
+        <div class="bg-success text-center text-white ">
+            <h4>Study Material Donation</h4>
+        </div>
+
+
+        <div class="row ">
+            <div class="col-sm-2 pt-5 text-center ">
+                <img src="/media/{{i.user.picture}} " class="image--cover ">
+            </div>
+
+            <div class="col-sm-8 ">
+
+                <br>
+                <div class="text-start ms-5 text-danger ">
+                    <h3>{{i.user.username}}</h3>
+                </div>
+                <ul>
+
+
+                    <p>
+
+                        <b>Study Material Type:</b><span>                    <i style="color: chocolate; " ></i> {{i.studyMaterialType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.studyMaterialRequest.studymaterialExpectedItem}}
+                   </span>
+
+                    </p>
+
+
+
+
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.studyMaterialQuantity}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.address}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> {{i.buildingNumber}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
+                      </span>
+                    </p>
+
+
+                </ul>
+
+                <div class="text-start ms-4 mt-2 ">
+                    <a class="btn btn-warning fa fa-handshake text-center" href="charityorgaccepteddon/{{i.id}}" role="button" onclick="return confirm('Are You Sure To Accept Donation')">Accept Donation</a>
+                    <a class="btn btn-info fa fa-phone text-center" href="#" role="button">{{i.user.phone}}</a>
+                    <a class="btn btn-success fa fa-whatsapp text-center " href="#" role="button">{{i.user.whatsapp}}</a>
+
+                </div>
+                <br>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    <br> {% for i in otherdonation %}
+
+    <div class="mt-5 bg-light" id="box">
+
+        <div class="bg-success text-center text-white">
+            <h4>Other Donation</h4>
+        </div>
+
+
+        <div class="row ">
+            <div class="col-sm-2 pt-5 text-center">
+                <img src="/media/{{i.user.picture}}" class="image--cover">
+            </div>
+
+            <div class="col-sm-8 ">
+
+                <br>
+                <div class="text-start ms-5 text-danger">
+                    <h3>{{i.user.username}}</h3>
+                </div>
+                <ul>
+
+
+                    <p>
+
+                        <b>Other Type:</b><span>                    <i style="color: chocolate;"></i> {{i.otherType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.otherRequest.otherExpectedItem}}
+                   </span>
+
+                    </p>
+
+
+
+
+                    <p>
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;"></i> {{i.otherQuantity}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Available For:</b><span>                    <i  style="color: chocolate;"></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Address:</b><span>                    <i  style="color: chocolate;"></i> {{i.address}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>House NO:</b><span>                    <i  style="color: chocolate;"></i> {{i.buildingNumber}}
+                    </span>
+                    </p>
+
+                    <p>
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;"></i> {{i.tradeMark}}
+                      </span>
+                    </p>
+
+
+                </ul>
+
+                <div class="text-start ms-4 mt-2">
+                    <a class="btn btn-warning fa fa-handshake text-center" href="charityorgaccepteddon/{{i.id}}" role="button" onclick="return confirm('Are You Sure To Accept Donation')">Accept Donation</a>
+                    <a class="btn btn-info fa fa-phone text-center" href="#" role="button ">{{i.user.phone}}</a>
+                    <a class="btn btn-success fa fa-whatsapp text-center" href="#" role="button">{{i.user.whatsapp}}</a>
+
+                </div>
+                <br>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
 
 </div>
 
-<script src='{% static "js/charityorghomesendreq.js" %}'></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+<script src='{% static "js/charityorghomesendreq.js " %}'></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
 {% endblock %}

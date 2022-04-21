@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1px">
+        <tr>
+
+            <td style="background-color: black;" colspan="4"><input type="text" readonly id="display"></td>
+        </tr>
+        <tr>
+            <td style="background-color: rgba(187, 187, 7, 0.678);"><button onclick="operation('+')">+</button></td>
+            <td style="background-color: rgba(187, 187, 7, 0.678);"><button onclick="operation('-')">-</button></td>
+            <td style="background-color: rgba(187, 187, 7, 0.678);"><button onclick="operation('*')">*</button></td>
+            <td style="background-color: rgba(187, 187, 7, 0.678);"><button onclick=" operation('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="setnumber('7')">7</button></td>
+            <td><button onclick="setnumber('8')">8</button></td>
+            <td><button onclick="setnumber('9')">9</button></td>
+            <td style="background-color: tomato;" rowspan="4" onclick="result()"> =</button>
+            </td>
+        </tr>
+        <tr>
+            <td><button onclick="setnumber('4')">4</button></td>
+            <td><button onclick="setnumber('5')">5</button></td>
+            <td><button onclick="setnumber('6')">6</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="setnumber('1')">1</button></td>
+            <td><button onclick="setnumber('2')">2</button></td>
+            <td><button onclick="setnumber('3')">3</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="setnumber('0')">0</button></td>
+            <td><button onclick="setnumber('.')">.</button></td>
+            <td style="background-color: red;"><button onclick="document.getElementById('display').value='' ">clear</button></td>
+        </tr>
+
+    </table>
+
+    <script src="javascript.js"></script>
+</body>
+
+</html>

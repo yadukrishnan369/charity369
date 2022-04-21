@@ -149,17 +149,34 @@
         background-color: rgb(243, 235, 233);
         text-decoration: none;
     }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        /* border-radius: 0px 50px 50px 0px; */
+        box-shadow: 4px 4px rgba(186, 183, 183, 0.821);
+    }
 </style>
 
 
 
 <br>
-<div class="container emp-profile">
+<div class="container emp-profile" id="box">
     <form method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="/app4/media/{{userdata.picture}}" alt="" />
+                    <img src="/media/{{userdata.picture}}" alt="" />
+
                     <div class="file btn btn-lg btn-primary">
 
                         <b> <span>  <a href="changeprofile" class="edit"> 
@@ -174,7 +191,7 @@
             <div class="col-md-6">
                 <div class="profile-head">
 
-                    <p>Username: <b>, {{userdata.username}}<span>  <a href="changeusername" class="fa fa-pencil-square ms-3 edit"></a> </span></b></p>
+                    <p>Username: <b> {{userdata.username}}<span>  <a href="changeusername" class="fa fa-pencil-square ms-3 edit"></a> </span></b></p>
                     <p>Website: <b>{{userdata.website}}<span><a href="changewebsite" class="fa fa-pencil-square ms-3  edit"    ></a> </span></b></p>
                     <p>Email: <b>{{userdata.useremail}}  <span>  <a href="changeemail" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
                     <p>Bio: <b>{{userdata.bio}}  <span>  <a href="changebio" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>

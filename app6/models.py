@@ -1,11 +1,13 @@
 from datetime import date
 import email
+from enum import unique
 from tkinter.tix import Tree
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields import CharField
 
-from app4.models import usersignup
+# from app4.models import FoodDonation
+# from app4.models import *
 
 # Create your models here.
 class charitysignup(models.Model):
@@ -20,6 +22,7 @@ class charitysignup(models.Model):
     whatsapp=models.CharField(max_length=50, default="")
     services=models.SlugField(max_length=1000, default="")
     picture=models.ImageField(default="")
+    
 
 
 
@@ -36,10 +39,6 @@ class addevents(models.Model):
     charity=models.ForeignKey(charitysignup, on_delete=models.CASCADE)
 
 
-class EventsRegistrations(models.Model):
-    user=models.ForeignKey(usersignup, on_delete=models.CASCADE)
-    event=models.ForeignKey(addevents, on_delete=models.CASCADE)
-    date=models.DateTimeField(auto_now_add=True)
 
 
 #--------------------------- Event Section end ----------------------------#
@@ -56,6 +55,7 @@ class FoodRequest(models.Model):
     foodExpectedItem=models.CharField(max_length=500)
     foodDiscription=models.CharField(max_length=1000)
     charity=models.ForeignKey(charitysignup, on_delete=models.CASCADE)
+    
     
 
     
@@ -89,12 +89,17 @@ class OtherRequest(models.Model):
 
 #---------------------------- donations requests end -------------------------------#
 
+
+
+
+
+
+
             
+class CharityFeedback(models.Model):
+    message=models.CharField(max_length=1000)
+    charity=models.ForeignKey(charitysignup, on_delete=models.CASCADE)
 
-        
 
-        
-
-    
 
 

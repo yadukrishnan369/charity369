@@ -1,0 +1,89 @@
+{% extends "adminhomebasepage.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+<style>
+    body {
+        background-color: rgb(243, 235, 233);
+    }
+    
+    .dropdown-list-image {
+        position: relative;
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+    
+    .dropdown-list-image img {
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+    
+    .btn-light {
+        color: #2cdd9b;
+        background-color: #e5f7f0;
+        border-color: #d8f7eb;
+    }
+    
+    .container {
+        max-width: 960px;
+        /* margin: 0 auto;
+        padding: 2em 0 2em 0; */
+    }
+</style>
+
+<div class="conatiner text-center mb-5">
+    <a href="adminhomeviewfeedback" class="btn btn-success ">User FeedBack</a>
+    <a href="adminhomeviewcharityfeedback" class="btn btn-success active">Charity FeedBack</a>
+</div>
+
+<div class="container text-center text-danger">
+    <h3>Charity Organization FeedBack</h3>
+</div>
+<br> {% for i in charityfeedback %}
+<div class="sales-boxes">
+    <div class="recent-sales box">
+        <div class="title"> </div><br>
+        <div class="sales-details">
+
+            <div class="dropdown-list-image col-2">
+                <img class="rounded-circle" src="/app6/media/{{i.user.picture}}" alt="" />
+
+            </div>
+
+            <br>
+            <div class="font-weight-bold col-10">
+                <div class="text-truncate"><b><h5>{{i.charity.charityName}}</h5></b></div>
+                <br>
+                <div class="small">
+                    {{i.message}}
+                </div>
+                <div class="text-right text-muted pt-1">3h</div>
+
+                <br>
+
+            </div>
+
+            <br>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+<br> {% endfor %}
+
+
+
+<script src='{% static "js/adminhomeviewfeedback.js" %}'></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+
+{% endblock %}

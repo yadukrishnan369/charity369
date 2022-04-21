@@ -2,8 +2,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-
-
+<div class="container">
+    <div class=" col-3 text-end ">
+        <h6 class="text-danger fa fa-search mt-2">Search Charity Organization</h6>
+    </div>
+    <div class="col-6 ">
+        <form class="d-flex" method="POST" action="searchcharityprofile">
+            {% csrf_token %}
+            <input class="form-control mt-" type="search" placeholder="Search Charity Organization" aria-label="Search" name="searchCharity">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+<br><br>
 <div class="sales-boxes">
     <div class="recent-sales box">
         <div class="title"> Total Charity Organizations</div><br>
@@ -11,7 +22,7 @@
             <ul class="details">
                 <li class="topic"> Name</li>
                 {% for charityorg in charityorgreg %}
-                <li><a href="#">{{charityorg.charityName}}</a></li>
+                <li><a href="search_charity_profile/{{i.id}}">{{charityorg.charityName}}</a></li>
                 {% endfor %}
 
 
@@ -33,16 +44,15 @@
             </ul>
 
             <ul class="details">
-                <li class="topic">Phone</li>
+                <li class="topic">Delete</li>
                 {% for charityorg in charityorgreg %}
-                <li><a href="#">{{charityorg.phoneNumber}} </a></li> {% endfor %}
+                <a href="adminhomecharityorgdelete/{{i.id}}" class="text-danger" onclick="return confirm('Are You Sure Want To Delete')">
+                    <h6>Delete</h6>
+                </a>
+                {% endfor %}
 
             </ul>
-            <ul class="details">
-                {% for charityorg in charityorgreg %}
 
-                <button type="submit" class=" btn-danger">Delete</button> {% endfor %}
-            </ul>
 
 
         </div>

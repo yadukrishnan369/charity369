@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div {
+        background-color: coral;
+        height: 150px;
+        width: 400px;
+        margin-top: 50px;
+        margin-left: 100px;
+        text-align: center;
+        font-size: large;
+    }
+    
+    .second {
+        background-color: #00bfff;
+        color: black;
+        height: 150px;
+        width: 400px;
+        margin-top: 50px;
+        margin-left: 100px;
+        text-align: center;
+    }
+    
+    .button {
+        width: 60px;
+        height: 20px;
+        margin-left: 70px;
+        background-color: skyblue;
+    }
+    
+    #dv {
+        background-color: springgreen;
+    }
+    
+    #bttn {
+        background-color: tomato;
+    }
+</style>
+
+<body>
+    <!-- <input type="text" name="" id="inp1">
+    <input type="text" name="" id="inp2">
+    <button onclick="add()">click</button>
+    <span id="result"></span><br><br><br> -->
+    <div class="div" id="dv">
+
+        HELLO WORLD
+        <!-- <input type="password" id="pass" class="inp">
+        <input type="checkbox" onclick="show()"> -->
+    </div><br><br>
+    <button onclick="changestyle()" class="button" id="bttn">change</button>
+
+    <script>
+        // function add() {
+        //     var inp1 = document.getElementById('inp1').value
+        //     var inp2 = document.getElementById('inp2').value
+        //     var sum = Number(inp1) + Number(inp2)
+        //     document.getElementById('result').innerHTML = sum
+
+        // }
+
+
+        // function show() {
+
+        //     var pass = document.getElementById('pass').type = show
+
+
+        // }
+
+        function changestyle() {
+            document.getElementById('dv').setAttribute('id', 'second')
+
+        }
+    </script>
+</body>
+
+</html>

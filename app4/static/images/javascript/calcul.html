@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="number" name="" id="n1" placeholder="first number"><br><br>
+        <input type="number" name="" id="n2" placeholder="second number"><br><br>
+        <input type="number" name="" id="n3" placeholder="third number"><br><br>
+        <input type="number" id="res" placeholder="result"><br><br>
+
+
+    </form>
+
+    <button onclick="fn1()">add</button>
+    <button onclick="fn2()">sub</button>
+    <button onclick="fn3()">mul</button>
+    <button onclick="fn4()">div</button>
+
+    <script>
+        function fn1() {
+            num1 = Number(document.getElementById('n1').value)
+            num2 = Number(document.getElementById('n2').value)
+            num3 = Number(document.getElementById('n3').value)
+            document.getElementById('res').value = num1 + num2 + num3
+
+
+        }
+
+        function fn2() {
+
+            num1 = Number(document.getElementById('n1').value)
+            num2 = Number(document.getElementById('n2').value)
+            num3 = Number(document.getElementById('n3').value)
+            document.getElementById('res').value = num1 - num2 - num3
+
+        }
+
+        function fn3() {
+            num1 = Number(document.getElementById('n1').value)
+            num2 = Number(document.getElementById('n2').value)
+            num3 = Number(document.getElementById('n3').value)
+            document.getElementById('res').value = num1 * num2 * num3
+
+        }
+
+        function fn4() {
+
+            num1 = Number(document.getElementById('n1').value)
+            num2 = Number(document.getElementById('n2').value)
+            num3 = Number(document.getElementById('n3').value)
+            document.getElementById('res').value = num1 / num2 / num3
+        }
+    </script>
+</body>
+
+</html>

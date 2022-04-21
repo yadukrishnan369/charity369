@@ -211,7 +211,7 @@
     </div>
     <br>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="charityprofileedit" method="POST" enctype="multipart/form-data" name="charityprofileeditform" onsubmit="return validateform()">
         {% csrf_token %}
 
         <dt>
@@ -224,7 +224,11 @@
 
                 <label for="tentacles ">Add About:</label>
 
-                <textarea class="form-control" aria-label="With textarea" name="charityorgabout"></textarea>
+                <!-- <textarea class="form-control" aria-label="With textarea" name="charityorgabout"></textarea> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">About</span>
+                    <input type="text" class="form-control" placeholder="charityorgabout" aria-label="charityorgabout" aria-describedby="basic-addon1" name="charityorgabout" value="{{charity.aboutme}}">
+                </div>
 
                 <br>
 
@@ -240,7 +244,11 @@
 
                 <label for="tentacles ">Add Whatsapp Number:</label>
 
-                <input type="tel" id="phone" name="charityorgwhatsapp">
+                <!-- <input type="tel" id="phone" name="charityorgwhatsapp"> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Whatsapp Number</span>
+                    <input type="tel" class="form-control" placeholder="Enter Whatsapp Number" aria-label="charityorgwhatsapp" aria-describedby="basic-addon1" name="charityorgwhatsapp" value="{{charity.whatsapp}}">
+                </div>
 
                 <br>
 
@@ -255,9 +263,11 @@
             <div class="ms-5 " style="padding-top: 20px; ">
 
                 <label for="tentacles ">Add services:</label>
-
-                <textarea class="form-control" aria-label="With textarea" name="charityorgservices"></textarea>
-
+                <!-- <textarea class="form-control" aria-label="With textarea" name="charityorgservices"></textarea> -->
+                <div class="input-group">
+                    <span class="input-group-text" style="background-color: aquamarine;">With textarea</span>
+                    <textarea class="form-control" aria-label="With textarea" name="charityorgservices">{{charity.services}}</textarea>
+                </div>
                 <br>
 
             </div>
@@ -267,22 +277,22 @@
 
 
 
-        <dt>
+        <!-- <dt>
             <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger "><i class="fa fa-image">                Add Profile Picture
             </i></a>
             </dt>
         <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
-
-
-                <label for="tentacles ">Add Profile Picture:</label>
+            <div class="ms-5 " style="padding-top: 20px;">
 
                 <input type="file" class="" id="avatar" name="charitypicture" accept="image/png, image/jpg" placeholder="Choose Image">
-
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Add Image:</span>
+                    <input type="file" class="form-control" placeholder="Choose Image" aria-label="Profile image" accept="image/png, image/jpg" aria-describedby="basic-addon1" name="charitypicture" value="charity.picture" src="{{charity.picture}}">
+                </div>
                 <br>
 
             </div>
-        </dd>
+        </dd> -->
         <br>
         <div class="text-center ms-4 mt-2 ">
             <button class="btn btn-warning fa fa-upload text-center " type="submit " role="button ">Submit</button>
@@ -294,7 +304,33 @@
 
 </div>
 
-</div>
+
+<script>
+    function validateform() {
+        var about = document.charityprofileeditform.charityorgabout.value;
+        var whatsapp = document.charityprofileeditform.charityorgwhatsapp.value;
+        var services = document.charityprofileeditform.charityorgservices.value;
+        var image = document.charityprofileeditform.charitypicture.value;
+
+        if (about == "") {
+            alert("About cant'be Blank");
+            return false;
+
+        } else if (whatsapp == "") {
+            alert("Whatsapp Cant'be Blank");
+            return false;
+        } else if (whatsapp.length <= 10) {
+            alert("Enter A Valid Whatsapp Number");
+            return false;
+        } else if (services == "") {
+            alert("Services Cant'be Blank");
+            return false;
+        } else if (image == "") {
+            alert("Image Cant'be Blank");
+            return false;
+        }
+    }
+</script>
 <script src='{% static "js/charityorghomesendreq.js " %}'></script>
 
 

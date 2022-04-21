@@ -6,7 +6,7 @@
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
     }
     
     @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
@@ -202,64 +202,93 @@
 </style>
 
 <div class="container">
+    <div class="row">
 
-    <div class="text-center">
-        <h3>Fill The Food Request Form</h3>
-    </div>
-    <form action="#" method="POST">
-        {% csrf_token %}
-
-        <dt>
-              <a href="#accordion2 " aria-expanded="false " aria-controls="accordion2 " class="accordion-title accordionTitle js-accordionTrigger ">Select Quantity</a>
-              </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion2 " aria-hidden="true ">
-            <div class="ms-5 " style="padding-top: 20px; ">
-
-                <p class="headings ">Select Quantity:</p>
-
-                <label for="tentacles ">Number of Persons:</label>
-
-                <input type="number " id="tentacles " name="foodquantity" min="1" max="100 ">
-
-                <br>
-
-            </div>
-        </dd>
-
-        <dt>
-              <a href="#accordion3 " aria-expanded="false " aria-controls="accordion3 " class="accordion-title accordionTitle js-accordionTrigger ">Add Dicription:</a>
-              </dt>
-        <dd class="accordion-content accordionItem is-collapsed " id="accordion3 " aria-hidden="true ">
-            <div class="container-fluid " style="padding-top: 20px; ">
-                <p class="headings ">Expected Items:</p>
-
-
-                <textarea class="form-control " name="foodexpecteditem" aria-label="With textarea " placeholder="Type Your Expected Item. "></textarea>
-
-                <br>
-            </div>
-            <div class="container-fluid " style="padding-top: 20px; ">
-                <p class="headings ">Add Discription:</p>
-
-
-                <textarea class="form-control " name="fooddiscription" aria-label="With textarea " placeholder="Type your Discription "></textarea>
-
-                <br>
-            </div>
-        </dd>
-        <br>
-        <div class="text-center ms-4 mt-2 ">
-            <button class="btn btn-warning fa fa-upload text-center " type="submit " role="button ">Send Request</button>
-            <br>
+        <div class="col-5">
+            <img src="../static/images/foodformimg3.jpg" alt="" class="" style="width: 400px; height: 400px;">
         </div>
-        <br>
-        </dl>
+        <div class="col-7 mt-4">
+            <div class="text-center">
+                <h3>Fill The Food Request Form</h3>
+            </div>
+            <form action="" method="POST" name="foodreqform" onsubmit="return validateform()">
+                {% csrf_token %}
 
+                <dt>
+              <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger">Select Quantity</a>
+              </dt>
+                <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+                    <div class="ms-5" style="padding-top: 20px; ">
+
+                        <p class="headings">Select Quantity:</p>
+
+
+                        <!-- <input type="number" id="tentacles" name="foodquantity" min="1" max="100"> -->
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(165, 223, 223);">Number of Persons:</span>
+                            <input type="number" class="form-control" placeholder="Quantity" id="tentacles" aria-label="Username" aria-describedby="addon-wrapping" name="foodquantity" min="1" max="100">
+                        </div>
+                        <br>
+
+                    </div>
+                </dd>
+
+                <dt>
+              <a href="#accordion3" aria-expanded="false" aria-controls="accordion3" class="accordion-title accordionTitle js-accordionTrigger">Add Dicription:</a>
+              </dt>
+                <dd class="accordion-content accordionItem is-collapsed" id="accordion3" aria-hidden="true">
+                    <div class="container-fluid" style="padding-top: 20px;">
+
+
+                        <!-- <textarea class="form-control" name="foodexpecteditem" aria-label="With textarea" placeholder="Add Your Expected Item."></textarea> -->
+                        <div class="input-group">
+                            <span class="input-group-text" style="background-color: rgb(165, 223, 223);">Add Expected Items:</span>
+                            <textarea class="form-control" aria-label="With textarea" placeholder="Add Your Expected Item." name="foodexpecteditem"></textarea>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="container-fluid" style="padding-top: 20px;">
+
+
+                        <!-- <textarea class="form-control" name="fooddiscription" aria-label="With textarea" placeholder="Type your Discription"></textarea> -->
+                        <div class="input-group">
+                            <span class="input-group-text" style="background-color: rgb(165, 223, 223);">Add Description:</span>
+                            <textarea class="form-control" aria-label="With textarea" placeholder="Type your Description" name="fooddiscription"></textarea>
+                        </div>
+                        <br>
+                    </div>
+                </dd>
+                <br>
+                <div class="text-center ms-4 mt-2 ">
+                    <button class="btn btn-warning fa fa-upload text-center" type="submit" role="button">Send Request</button>
+                    <br>
+                </div>
+                <br>
+                </dl>
+            </form>
+
+        </div>
+    </div>
 </div>
-</form>
 
-</div>
 
+<script>
+    function validateform() {
+        var foodquantity = document.foodreqform.foodquantity.value;
+        var foodexpecteditem = document.foodreqform.foodexpecteditem.value;
+        var fooddiscription = document.foodreqform.fooddiscription.value;
+        if (foodquantity == !null) {
+            alert("Food Quantity  can 't be Blank");
+            return false;
+        } else if (foodexpecteditem == "") {
+            alert("Food Expecteditem  can 't be Blank");
+            return false;
+        } else if (fooddiscription == "") {
+            alert("Food Discription  can 't be Blank");
+            return false;
+        }
+    }
+</script>
 
 <script src='{% static "js/charityorghomesendreq.js " %}'></script>
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="i" placeholder="enter first number">
+    <input type="number" id="j" placeholder="enter second number">
+    <br>
+    <button onclick="fn1()">sum</button>
+    <script>
+        function fn1() {
+            num1 = Number(document.getElementById('i').value)
+            num2 = Number(document.getElementById('j').value)
+            s = 0
+            i = num1
+            j = num2
+            for (i = 1; i <= j; i++) {
+                s = s + i
+            }
+            console.log(s)
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -11,7 +11,13 @@
             <ul class="details">
                 <li class="topic">Name</li>
                 {% for i in food %}
-                <li>{{i.charity.charityName}}</li>
+
+                <li>
+                    <a href="search_charity_profile/{{i.id}}">
+                        <h6>{{i.charity.charityName}}</h6>
+                    </a>
+                </li>
+
                 {% endfor %}
             </ul>
             <ul class="details">

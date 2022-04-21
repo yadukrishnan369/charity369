@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
     }
     /* ///// inputs /////*/
     
@@ -111,7 +111,7 @@
 <div class="container">
 
     <div class="text-end">
-        <a href="userviewfeedback" class="btn btn-success">view Feedback Reply</a>
+        <a href="userviewfeedback" class="btn btn-success fa fa-book">My Feedbacks </a>
     </div>
 
 
@@ -122,36 +122,36 @@
         <h4 style="text-align:center">Please Fill Your Feedback</h4>
     </div>
     <div class="row input-container">
-        <div class="col-xs-12">
-            <div class="styled-input wide">
-                <input type="text" required />
-                <label>Name</label>
+
+        <form action="" method="POST" name="feedbackform" onsubmit="return validateform()">
+            {% csrf_token %}
+            <div class="col-xs-12">
+                <span id="label" style="color: red;"></span>
+
+                <div class="styled-input wide">
+                    <textarea name="message" id="message"></textarea>
+                    <label>Message</label>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6 col-sm-12">
-            <div class="styled-input">
-                <input type="text" required />
-                <label>Email</label>
+            <div class="text-center ms-4 mt-2 ">
+                <button class="btn btn-success fa fa-send" type="submit">submit</button> <br>
             </div>
-        </div>
-        <div class="col-md-6 col-sm-12">
-            <div class="styled-input" style="float:right;">
-                <input type="text" required />
-                <label>Phone Number</label>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="styled-input wide">
-                <textarea required></textarea>
-                <label>Message</label>
-            </div>
-        </div>
-        <div class="text-center ms-4 mt-2 ">
-            <button class="btn btn-success" type="button">submit</button> <br>
-        </div>
+        </form>
+
     </div>
 </div>
 
+<script>
+    function validateform() {
+        var message = document.feedbackform.message.value;
+
+        if (message == "") {
+            document.getElementById("label").innerHTML = "* this field required";
+            return false;
+        }
+    }
+</script>
+</script>
 
 
 

@@ -177,70 +177,62 @@
     </head>
 
     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-5"><img src="" alt="" style="width: 400px; height: 400px;"></div>
+                <div class="col-5">
 
-        <div class="wrapper">
-            <div class="title">Login Here</div>
-            <form action="" method="POST">
-                {% csrf_token %}
+                    <div class="wrapper">
+                        <div class="title">Login Here</div>
+                        <form action="" method="POST" name="myform" onsubmit="return validateform()">
+                            {% csrf_token %}
 
-                <div class="field">
-                    <input type="email" name="email" required id="email">
-                    <label>Email Address</label>
-                </div>
-                <div class="field">
-                    <input type="password" name="password" required id="password">
-                    <label>Password</label>
-                </div>
-                <div class="content">
-                    <div class="checkbox">
-                        <input type="checkbox" id="remember-me">
-                        <label for="remember-me">Remember me</label>
+                            <div class="field">
+                                <input type="email" name="email" id="email">
+                                <label>Email Address</label>
+                            </div>
+                            <div class="field">
+                                <input type="password" name="password" id="password">
+                                <label>Password</label>
+                            </div>
+                            <div class="content">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="remember-me">
+                                    <label for="remember-me">Remember me</label>
+                                </div>
+                                <div class="pass-link"><a href="userloginforgot">Forgot password?</a></div>
+                            </div>
+                            <div class="field">
+                                <input type="submit" value="Login" id="submitbttn">
+                            </div>
+                            <div class="signup-link">Not a member? <a href="usersignup">Signup now</a></div>
+                            <div>
+                                <br>
+                                <center>
+                                    <h4 class="text-danger">{{message}}</h4>
+                                    <p class="text-danger">{{message2}}</p>
+                                </center>
+                            </div>
+                        </form>
                     </div>
-                    <div class="pass-link"><a href="userloginforgot">Forgot password?</a></div>
                 </div>
-                <div class="field">
-                    <input type="submit" value="Login" id="submitbttn">
-                </div>
-                <div class="signup-link">Not a member? <a href="usersignup">Signup now</a></div>
-            </form>
+            </div>
         </div>
 
-
         <script>
-            $('#submitbttn').click(() => {
-                        var useremail = $('#email').val()
-                        var password = $('#password').val()
-                        var data = {
-                            'csrfmiddilewaretoken': '{{csrf_token}}',
-                            'useremail': useremail,
-                            'password': password
-                        }
+            function validateform() {
+                var useremail = document.myform.email.value;
+                var password = document.myform.password.value;
 
-                        if (useremail == '') {
-                            alert('Enter Your Username')
-                        } else if (password == '') {
-                            alert('Enter Your Password')
-                                //     } else {
-                                //         $.ajax({
-                                //             url: '/userlogin/',
-                                //             method: 'POST',
-                                //             // data: data,
-                                //             dataType: 'json',
-                                //             success: function(response) {
 
-                            //                 console.log("qwertyu")
-                            //                 if (response.res == true) {
-                            //                     console.log("success")
-                            //                     alert('User Logged In')
-                            //                         // window.location.replace('/userhomepage/')
-                            //                 } else {
-                            //                     alert('User Loggin Failed')
-                            //                 }
-                            //             }
-
-                            //         })
-                            //     }
-                            // })
+                if (useremail == "") {
+                    alert("Please Enter Valid Email.");
+                    return false;
+                } else if (password == "") {
+                    alert("Please Enter Valid Password.");
+                    return false;
+                }
+            }
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

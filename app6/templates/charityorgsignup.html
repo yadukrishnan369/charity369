@@ -184,7 +184,7 @@
         <br>
         <div class="content">
 
-            <form action="#" method="POST">
+            <form action="#" method="POST" name="myform" onsubmit="return validateform()">
                 {% csrf_token %}
 
                 <div class="user-details">
@@ -195,7 +195,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Username</span>
-                        <input type="text" placeholder="Enter your username" name="username" id="username" onchange="checkUserName()">
+                        <input type="text" placeholder="Enter your username" name="username" id="username">
                         <span id="label1"></span><br>
 
                     </div>
@@ -209,13 +209,13 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input type="email" placeholder="Enter your email" name="email" id="email" onchange="checkUserEmail()">
+                        <input type="email" placeholder="Enter your email" name="email" id="email">
                         <span id="label2"></span><br>
 
                     </div>
                     <div class="input-box">
                         <span class="details">Phone Number</span>
-                        <input type="number" placeholder="Enter your number" name="phonenumber" id="phonenumber" onchange="checkUserPhone()">
+                        <input type="tel" placeholder="Enter your number" name="phonenumber" id="phonenumber">
                         <span id="label3"></span><br>
 
                     </div>
@@ -230,7 +230,7 @@
                 </div>
 
                 <div class="button">
-                    <input type="submit" value="Register" onclick="addCharityorg()">
+                    <input type="submit" value="Register" id="btn">
                 </div>
 
                 <div class="text text-center">
@@ -243,128 +243,130 @@
     <br><br>
 
     <script>
-        function checkUserName() {
-            var user_name = $("#username").val()
-            console.log(user_name)
+        function validateform() {
+            var charityname = document.myform.charityname.value;
+            var username = document.myform.username.value;
+            var address = document.myform.address.value;
+            var typeofcharity = document.myform.typeofcharity.value;
+            var email = document.myform.email.value;
 
-            $.ajax({
-                url: 'http://127.0.0.1:8000/checkUserName',
-                type: 'get',
-                data: {
-                    'user_name': user_name,
-                },
-                success: function(response) {
-                    console.log(response.isNameExist)
-                    if (response.isExist == true) {
-                        document.getElementById("label1").style.color = "#ff0000";
-                        document.getElementById("label1").innerHTML = "User Name Already Exist";
-                        $(':input[type="submit"]').prop('disabled', true);
+            var phonenumber = document.myform.phonenumber.value;
+            var password = document.myform.password.value;
+            var confpassword = document.myform.confpassword.value;
 
-                    } else {
-                        document.getElementById("label1").innerHTML = '';
-                        $(':input[type="submit"]').prop('disabled', false);
-
-                    }
-
-                }
-
-            })
-        }
-
-
-        function checkUserEmail() {
-            var user_email = $("#email").val()
-            console.log(user_email)
-
-            $.ajax({
-                url: 'http://127.0.0.1:8000/checkUserEmail',
-                type: 'get',
-                data: {
-                    'email': user_email,
-                },
-
-                success: function(response) {
-                    console.log(response.isEmailExist)
-                    if (response.isExist == true) {
-                        document.getElementById("label2").style.color = "#ff0000";
-                        document.getElementById("label2").innerHTML = "Email  Already Exist";
-                        alert("Email  Already Exist")
-                        $(':input[type="submit"]').prop('disabled', true);
-
-                    } else {
-                        document.getElementById("label2").innerHTML = '';
-                        $(':input[type="submit"]').prop('disabled', false);
-
-                    }
-
-                }
-            })
+            if (charityname == "") {
+                alert("Charity Name can 't be Blank.");
+                return false;
+            } else if (username == "") {
+                alert("Username can't be Blank.");
+                return false;
+            } else if (address == "") {
+                alert("Address Can't be Blank.");
+                return false;
+            } else if (typeofcharity == "") {
+                alert("Type Of Charity Can't be Blank.");
+                return false;
+            } else if (email == "") {
+                alert(" Email Can't be Blank.");
+                return false;
+            } else if (email == /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ && email != "") {
+                alert("Enter Valid Email Address");
+                return false;
+            } else if (phonenumber == "") {
+                alert("Phone Number Can't be Blank.");
+                return false;
+            } else if (phonenumber.length < 10) {
+                alert("Enter Valid Phone Number");
+                return false;
+            } else if (password == "") {
+                alert(" Password Can't be Blank.");
+                return false;
+            } else if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            } else if (confpassword == "") {
+                alert(" Confirm Password Can't be Blank.");
+                return false;
+            } else if (confpassword != password) {
+                alert("Password And Confirm Password Are Not Same.");
+                return false;
+            }
 
         }
 
 
 
-        function checkUserPhone() {
-            var phonenumber = $("#phonenumber").val()
-            console.log(phonenumber)
+        $.ajaxSetup({
+            headers: {
+                "X-CSRFToken": '{{csrf_token}}'
+            }
+        })
 
+        $("#username").keyup(function() {
             $.ajax({
-                url: 'http://127.0.0.1:8000/checkPhoneNumber',
-                type: 'get',
-                data: {
-                    'phone_number': phonenumber,
-                },
-                success: function(response) {
-                    console.log(response.isNameExist)
-                    if (response.isExist == true) {
-                        document.getElementById("label1").style.color = "#ff0000";
-                        document.getElementById("label1").innerHTML = "User Name Already Exist";
-                        $(':input[type="submit"]').prop('disabled', true);
-
-                    } else {
-                        document.getElementById("label1").innerHTML = '';
-                        $(':input[type="submit"]').prop('disabled', false);
-
-                    }
-
-                }
-
-            })
-        }
-
-
-        function addCharityorg() {
-
-            var charityorg_name = $('#charityorgname').val()
-            var user_name = $('#username').val()
-            var address = $('#address').val()
-            var typeofcharity = $('#typeofcharity').val()
-            var email = $('#email').val()
-            var phonenumber = $('#phonenumber').val()
-            var password = $('#password').val()
-            var conf_password = $('#confpassword').val()
-
-            console.log(charityorg_name)
-
-            $.ajax({
-                url: '/charityorgsignup',
+                url: 'charityusernameAjax',
                 type: 'POST',
                 data: {
-                    'charityorg_name': charityorgname,
-                    'user_name': username,
-                    'address': address,
-                    'typeofcharity': typeofcharity,
-                    'email': email,
-                    'phonenumber': phonenumber,
-                    'password': password,
-                    'confpassword': confpassword
+                    username: $('#username').val(),
                 },
-                success: function(response) {
-                    alert('data inserted')
+                success: function(res) {
+                    if (res.message == true) {
+
+                        $('#label1').html("User Name Already Exist").css("color", "red")
+                        var $submit = $('#btn');
+                        $submit.prop('disabled', true);
+                    } else {
+                        $("#label1").html("").css("color", "green")
+                        var $submit = $('#btn');
+                        $submit.prop('disabled', false);
+                    }
                 }
             })
+        })
 
-        }
+        $("#email").keyup(function() {
+            $.ajax({
+                url: 'charityuserEmailajax',
+                type: 'POST',
+                data: {
+                    useremail: $('#email').val(),
+                },
+                success: function(res) {
+                    if (res.message == true) {
+                        $("#label2").html("Email Already Exist").css("color", "red")
+                        var $submit = $('#btn');
+                        $submit.prop('disabled', true);
+                    } else {
+                        $("#label2").html("").css("color", "green")
+                        var $submit = $('#btn');
+                        $submit.prop('disabled', false);
+                    }
+                }
+
+            })
+        })
+
+        $("#phonenumber").keyup(function() {
+            $.ajax({
+                url: 'charityuserPhoneajax',
+                type: 'POST',
+                data: {
+                    phonenumber: $('#phonenumber').val(),
+                },
+                success: function(res) {
+                    if (res.message == true) {
+                        $("#label3").html("Enter Valid Phone Number").css("color", "red")
+                        var $submit = $('#btn');
+                        $submit.prop('disabled', true);
+                    } else {
+                        $("#label3").html("").css("color", "green")
+                        var $submit = $('#btn');
+                        $submit.prop('disabled', false);
+                    }
+                }
+
+            })
+        })
     </script>
 
 

@@ -5,7 +5,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
     body {
-        background: rgb(226, 218, 216);
+        background: white;
     }
     
     .wrapper {
@@ -19,59 +19,103 @@
         object-fit: cover;
         object-position: center left;
     }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        font-family: "Oswald"
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    a:hover {
+        color: rgb(58, 57, 57);
+        text-decoration: none;
+    }
+    
+    #box {
+        border-radius: 0px 50px 50px 0px;
+        box-shadow: 4px 4px rgb(216, 160, 160);
+        border-style: groove;
+    }
 </style>
-
-
-<br> {% for i in charity %}
-
-<div class="container mt-5  bg-light" id="div1">
-
-
-    <div class="row wrapper">
-
-        <div class="col-3">
-            <div class="col-sm-2 pt-3 text-center">
-                <img src="app6/media/{{i.picture}}" class="image--cover">
+<div class="container" id="bgimage">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-3 text-danger text-end mt-2 fa fa-search">Search Charity Organization</div>
+            <div class=" col-6 search-box">
+                <form class="d-flex" method="POST" action="searchcharity">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Search charity Organization" aria-label="Search" name="searchCharity" style="background-color:rgb(226, 212, 194); border-style: groove;">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
             </div>
-        </div>
-
-
-        <div class="col-sm-9 ">
-
-            <br>
-
-            <h3>{{i.charityName}}</h3>
-
-            <ul>
-
-
-                <p>
-
-                    <h6>
-                        {{i.charityName}} </h6>
-                </p>
-
-
-
-
-                <p>
-                    {{i.address}} </p>
-
-                <p> {{i.aboutme}}</p>
-
-
-
-            </ul>
-
-            <div class="text-start ms-4 mt-2 ">
-                <a class="btn btn-info fa fa-phone text-center" href="#" role="button"> {{i.phoneNumber}}</a>
-                <a class="btn btn-success fa fa-whatsapp text-center" href="#" role="button">{{i.whatsapp}}</a>
-
-            </div>
-            <br>
+            <div class="col-3"></div>
         </div>
     </div>
 
+
+    <br> {% for i in charity %}
+
+    <div class="container mt-5  bg-light" id="box">
+
+
+        <div class="row wrapper">
+
+            <div class="col-3">
+                <div class="col-sm-2 pt-3 text-center">
+                    <img src="app6/media/{{i.picture}}" class="image--cover">
+                </div>
+            </div>
+
+
+            <div class="col-sm-9 ">
+
+                <br>
+
+                <a href="/searchcharityprofile/{{i.id}}">
+                    <h3>{{i.charityName}}</h3>
+                </a>
+
+                <ul>
+
+
+                    <p>
+
+                        <h6>
+                            {{i.charityName}} </h6>
+                    </p>
+
+
+
+
+                    <p>
+                        {{i.address}} </p>
+
+                    <p> {{i.aboutme}}</p>
+
+
+
+                </ul>
+
+                <div class="text-start ms-4 mt-2 ">
+                    <a class="btn btn-info fa fa-phone text-center" href="#" role="button"> {{i.phoneNumber}}</a>
+                    <a class="btn btn-success fa fa-whatsapp text-center" href="#" role="button">{{i.whatsapp}}</a>
+
+                </div>
+                <br>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 {% endfor %}

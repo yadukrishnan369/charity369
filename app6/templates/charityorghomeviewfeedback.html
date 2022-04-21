@@ -6,7 +6,7 @@
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
     }
     
     .dropdown-list-image {
@@ -25,23 +25,52 @@
         background-color: #e5f7f0;
         border-color: #d8f7eb;
     }
+    
+    #delete {
+        text-decoration: none;
+        color: red;
+    }
+    
+    #delete:hover {
+        background-color: white;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    b {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 4px 3px rgb(161, 156, 156);
+        background-color: rgb(242, 240, 238);
+        border-style: groove;
+    }
 </style>
 
 <br>
 
 <div class="container">
-
+    <div class="box-title border-bottom p-2 bg-danger text-center">
+        <h4 class="m-0">My Feedback</h4>
+    </div>
+    <div class=" text-center text-danger mt-5">
+        <h2 class="">"{{message}}"</h2>
+    </div>
+    <br> {% for i in viewMyFeedback %}
     <div class=" d-grid">
 
         <div class="box shadow-sm rounded bg-white mb-3  ">
 
-            <div class="box-title border-bottom p-3">
-                <h6 class="m-0">Feedback Reply</h6>
-            </div>
 
-
-
-            <div class="box-body p-0">
+            <div class="box-body p-0" id="box">
 
 
 
@@ -50,20 +79,19 @@
 
 
                     <div class="dropdown-list-image ms-2 mr-3">
-                        <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
+                        <img class="rounded-circle" src="/app6/media/{{i.charity.picture}}`" alt="" />
                     </div>
 
                     <br>
                     <div class="font-weight-bold mr-3 ms-5">
-                        <div class="text-truncate"><b>DoNow</b></div>
-                        <div class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nulla odit voluptates dolor, ad eos, vitae vel distinctio nesciunt architecto blanditiis!</div>
+                        <div class="small">{{i.message}}</div>
                         <div class="text-right text-muted pt-1">3h</div>
 
                         <br>
-
                     </div>
-
-                    <br>
+                    <div class="text-end col-2">
+                        <a href="deletecharityfeedback/{{i.id}}" id="delete" class="text-end" onclick="return confirm('Are You Sure To Delete')"><b>Delete</b></a>
+                    </div>
                 </div>
 
 
@@ -71,43 +99,11 @@
 
         </div>
     </div>
-
-
-
-
-    <div class="box-body p-0">
-
-
-
-        <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header ">
-
-
-
-            <div class="dropdown-list-image ms-2 mr-3">
-                <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
-            </div>
-
-            <br>
-            <div class="font-weight-bold mr-3 ms-5">
-                <div class="text-truncate"><b>DoNow</b></div>
-                <div class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam dolore fuga molestiae illo qui minima voluptatum ab eius d</div>
-                <div class="text-right text-muted pt-1">3h</div>
-
-                <br>
-
-            </div>
-
-            <br>
-        </div>
-
-
-    </div>
-
+    <br> {% endfor %}
 
 </div>
 
 
-</div>
 
 
 

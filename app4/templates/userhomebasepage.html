@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>charity</title>
+    <title>User</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -146,12 +146,14 @@
         <p class="p">The Complete Charity Platform
         </p>
         <div class="dropdown text-right">
+            {% for i in name %}
             <button class="btn  dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-               <b>{{user.username}}</b>        </button>
+               <b>{{i.username}}</b>        </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class=" fa fa-user dropdown-item" href="userprofile">Profile</a></li>
                 <li> <a class=" fa fa-sign-out dropdown-item" href="userprofilelogout" onclick="return confirm('are you sure to logout')" role="button">Logout</a></li>
             </ul>
+            {% endfor %}
         </div>
     </div>
 

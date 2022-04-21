@@ -140,22 +140,39 @@
         text-decoration: none;
         color: tomato;
     }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: "Oswald"
+    }
+    
+    #box {
+        border-radius: 0px 0px 50px 50px;
+        box-shadow: 4px 3px rgb(161, 156, 156);
+    }
 </style>
 
 
 
 <br>
-<div class="container emp-profile">
+
+
+<div class="container emp-profile" id="box">
     <form method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
                     <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" /> -->
                     <!-- <img src="/app6/media/{{charity.picture}}" alt="" /> -->
-                    <img src="/app6/media/{{charity.picture}}" alt="" />
+                    <img src="/media/{{charity.picture}}" alt="" />
 
                     <div class="file btn btn-lg btn-primary">
-                        <a href="changeprofile" class="edit" style="color:white;">
+                        <a href="changecharityprofile" class="edit" style="color:white;">
                             <p> Change Photo </p>
                         </a>
                     </div>
@@ -191,10 +208,11 @@
             </div>
             <br>
             <div class="col-md-2">
-                <a class="btn btn-success fa fa-plus" href="charityorghomeprofileedit" role="button">Edit Profile</a><br><br>
-                <a class="btn btn-success fa fa-plus" href="charityorghomechangepassword" role="button">Change Password </a>
-
+                <a class="btn btn-success fa fa-plus" href="charityprofileedit" role="button">Update Profile</a><br><br>
+                <a class="btn btn-success fa fa-edit" href="charityorghomechangepassword" role="button">Change Password </a>
+                <br>
             </div>
+
         </div>
         <br>
         <div class="row">

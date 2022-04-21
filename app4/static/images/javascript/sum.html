@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="enter first no " id="txtn1">
+    <input type="text" placeholder="enter second no " id="txtn2">
+    <input type="text" placeholder="result " id="res">
+    <button onclick="FnSum()">sum</button>
+    <br><br><br><br>
+
+    <input type="text" placeholder="enter first no " oninput="Fn2Sum() " id="txtn3">
+    <input type="text" placeholder="enter second no " oninput="Fn2Sum()" id="txtn4">
+    <input type="text" placeholder="result " id="result">
+
+    <script>
+        function FnSum() {
+            n1 = Number(document.getElementById('txtn1').value)
+            n2 = Number(document.getElementById('txtn2').value)
+            document.getElementById('res').value = n1 + n2
+            console.log(n1 + n2)
+
+        }
+
+        function Fn2Sum() {
+            n1 = Number(document.getElementById('txtn3').value)
+            n2 = Number(document.getElementById('txtn4').value)
+            document.getElementById('result').value = n1 + n2
+            console.log(n1 + n2)
+
+        }
+    </script>
+</body>
+
+</html>

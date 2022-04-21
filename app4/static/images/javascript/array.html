@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let a = 10;
+        // let stdname = ['yadu', 'krishna', 10, 20, 30]
+        // console.log(stdname[1]);
+
+
+
+        // let a = 10;
+        // let stdname = ['yadu', 'krishna', 10, 20, 30]
+        // for (i = 0; i <= 5; i++) {
+
+        //     console.log(stdname[i]);
+        // }
+
+
+        // let a = 10;
+        // let stdname = ['yadu', 'krishna', 10, 20, 30, 23, 45, 56]
+        // x = stdname.length
+        // for (let i = 0; i < x; i++) {
+        //     console.log(x)
+        // }
+
+
+        let a = [55, 45, 15, 10, 20, 30]
+        let s = []
+        x = a.length
+        for (let i = 0; i < x; i++) {
+            for (let j = 0; j <= x; j++) {
+                if (a[i] > a[j]) {
+                    s = a[i]
+                    a[i] = a[j]
+                    a[j] = s
+
+                }
+            }
+        }
+        console.log(a[0]);
+        console.log(a);
+    </script>
+</body>
+
+</html>

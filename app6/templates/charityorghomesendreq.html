@@ -6,258 +6,224 @@
 
 <style>
     body {
-        background-color: rgb(243, 235, 233);
+        background-color: white;
     }
     
-    @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
-    * {
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Libre Baskerville';
-    }
-    /* /* .heading-primary {
-        font-size: 2em;
-        padding: 2em;
-        text-align: center;
-    } */
-    
-    */ .accordion dl,
-    .accordion-list {
-        border: 1px solid #ddd;
-    }
-    
-    .accordion dl:after,
-    .accordion-list:after {
-        content: "";
-        display: block;
-        height: 1em;
-        width: 100%;
-        background-color: #099DF6;
-    }
-    
-    .accordion dd,
-    .accordion__panel {
-        background-color: #eee;
-        font-size: 1em;
-        line-height: 1.5em;
-    }
-    
-    .accordion p {
-        padding: 1em 2em 1em 2em;
-    }
-    
-    .accordion {
-        position: relative;
-        background-color: #eee;
-    }
-    
-    .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 2em 0 2em 0;
-    }
-    
-    .accordionTitle,
-    .accordion__Heading {
-        background-color: rgb(231, 152, 138);
-        /*text-align: center; */
-        text-indent: 3px;
-        font-weight: 700;
-        padding: 2em;
-        display: block;
-        text-decoration: none;
-        color: #fff;
-        -webkit-transition: background-color 0.5s ease-in-out;
-        transition: background-color 0.5s ease-in-out;
-        border-bottom: 1px solid black;
-    }
-    
-    .accordionTitle:before,
-    .accordion__Heading:before {
-        content: "+";
-        font-size: 1.5em;
-        line-height: 0.9em;
-        float: left;
-        -webkit-transition: -webkit-transform 0.3s ease-in-out;
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .accordionTitle:hover,
-    .accordion__Heading:hover {
-        background-color: rgb(111, 172, 212);
-    }
-    
-    .accordionTitleActive,
-    .accordionTitle.is-expanded {
-        background-color: rgb(111, 172, 212);
-    }
-    
-    .accordionTitleActive:before,
-    .accordionTitle.is-expanded:before {
-        -webkit-transform: rotate(-225deg);
-        -ms-transform: rotate(-225deg);
-        transform: rotate(-225deg);
-    }
-    
-    .accordionItem {
-        height: auto;
-        overflow: auto;
-        max-height: 900px;
-        -webkit-transition: max-height 1s;
-        transition: max-height 1s;
-    }
-    
-    @media screen and (min-width: 48em) {
-        .accordionItem {
-            max-height: 900px;
-            -webkit-transition: max-height 0.5s;
-            transition: max-height 0.5s;
-        }
-    }
-    
-    .accordionItem.is-collapsed {
-        max-height: 0;
-    }
-    
-    .no-js .accordionItem.is-collapsed {
-        max-height: 900px;
-    }
-    
-    .animateIn {
-        -webkit-animation: accordionIn 0.65s normal ease-in-out both 1;
-        animation: accordionIn 0.65s normal ease-in-out both 1;
-    }
-    
-    .animateOut {
-        -webkit-animation: accordionOut 0.75s alternate ease-in-out both 1;
-        animation: accordionOut 0.75s alternate ease-in-out both 1;
-    }
-    
-    @-webkit-keyframes accordionIn {
-        0% {
-            opacity: 0;
-            -webkit-transform: scale(0.9) rotateX(-60deg);
-            transform: scale(0.9) rotateX(-60deg);
-            -webkit-transform-origin: 50% 0;
-            transform-origin: 50% 0;
-        }
-        100% {
-            opacity: 1;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-    }
-    
-    @keyframes accordionIn {
-        0% {
-            opacity: 0;
-            -webkit-transform: scale(0.9) rotateX(-60deg);
-            transform: scale(0.9) rotateX(-60deg);
-            -webkit-transform-origin: 50% 0;
-            transform-origin: 50% 0;
-        }
-        100% {
-            opacity: 1;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-    }
-    
-    @-webkit-keyframes accordionOut {
-        0% {
-            opacity: 1;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-        100% {
-            opacity: 0;
-            -webkit-transform: scale(0.9) rotateX(-60deg);
-            transform: scale(0.9) rotateX(-60deg);
-        }
-    }
-    
-    @keyframes accordionOut {
-        0% {
-            opacity: 1;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-        100% {
-            opacity: 0;
-            -webkit-transform: scale(0.9) rotateX(-60deg);
-            transform: scale(0.9) rotateX(-60deg);
-        }
-    }
-    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
     p,
-    label {
-        font: 1rem 'Fira Sans', sans-serif;
+    a {
+        font-family: "Oswald"
     }
     
-    input {
-        margin: .4rem;
+    .slide-content {
+        margin: 8px;
+        width: 250px;
+        height: 140px;
+        background-color: lightgray;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        border-style: groove;
     }
     
-    #myBtnContainer {
+    img {
+        width: 100%;
+    }
+    
+    .slid-er {
+        height: 156px;
+        /* slide-content height + 2*margin */
+        margin: auto;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .slid-er .slides {
+        display: flex;
+    }
+    
+    .slid-er .slide {
+        width: 258px;
+        /* slide-content width + margin */
+    }
+    
+    .button-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 150%;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        transition: opacity 0.25s;
+    }
+    
+    .button-container:hover {
+        opacity: 1;
         text-decoration: none;
     }
     
-    .reqtype {
-        text-decoration: none;
-        color: black;
-        padding: 10px;
-        font-weight: bold;
+    .button-container:hover .button {
+        transform: translate(-50%, -50%);
     }
     
-    .reqtype:hover {
-        background-color: rgb(243, 235, 233);
-        color: rgb(228, 109, 88);
+    .button {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(-50%, calc(-50% + 12px));
+        background-color: rgba(0, 0, 0, 0.7);
+        transition: all 0.25s;
+        padding: 0 8px;
+        border-radius: 12px;
+        color: white;
+        outline: 2px solid transparent;
+    }
+    
+    .button:after {
+        content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+        margin: 0 3px 0 5px;
+        filter: invert(1);
+    }
+    
+    .button:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+        outline: 2px solid gray;
+    }
+    
+    #link {
+        text-decoration: none;
+        color: aliceblue;
+    }
+    
+    .content {
+        color: rgb(176, 76, 76);
+        font-size: larger;
     }
 </style>
 
+<br>
 
 
-<div class="container">
 
-    <div>
-        <h1 class="heading bg-danger text-center">Send Donation For Request </h1>
-    </div>
-    <br>
 
-    <div class="mt-3 p-0 bg-text-white text-center " id="">
 
-        <div id="link">
-            <a class=" reqtype text-start text-danger   fa fa-arrow-circle-right" href="" role="button">Request Types</a>
 
-            <a class=" reqtype text-center" href="foodsendreq" role="button">Food</a>
-            <a class="reqtype  text-center" href="clothingsendreq" role="button">Clothing</a>
-            <a class="reqtype  text-center" href="medicinesendreq" role="button">Medicines</a>
-            <a class="reqtype  text-center" href="studymeterialsendreq" role="button">Study Meterials</a>
-            <a class="reqtype  text-center" href="othersendreq" role="button">Others</a>
-        </div>
-        <div class="text-center mt-4">
-            <a class="text-center btn btn-success" href="charityorg_mydonationrequest" role="button">My Donation Requests</a>
-        </div>
-        <br>
-        <hr style="border: 1px solid red;">
-    </div>
 
-    <br>
 
-    <!-- end description list -->
+<!-- ---------------------------------------------------------- -->
+<div class="text-center mt-4">
+    <a class="text-center btn btn-outline-primary fa fa-send" href="charityorg_mydonationrequest" role="button">My Donation Requests</a>
 </div>
-<div class="ms-4 me-4" style="letter-spacing: 1px;">
-    <p>People living in poverty need opportunities for growth in order to get out of poverty. When you donate money for programs that help the working poor make their way out of poverty, you are helping to create a population within your community that is
+
+<h2 class="text-center mt-4 text-danger">Donation Request Types</h2>
+
+<div class="container mt-4">
+    <div class="slid-er">
+        <div class="slides" id="slides">
+            <div class="slide">
+                <div class="slide-content">
+                    <a href="https://www.pinterest.com/pin/42502790224869685/" target="_blank">
+                        <img src="../static/images/foodreqimg.jpg" loading="lazy" />
+                        <div class="button-container">
+                            <a href="foodsendreq" class="button" id="link">Food Request</a>
+
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="slide">
+                <div class="slide-content">
+                    <a href="https://www.pinterest.com/pin/15833036179887216/" target="_blank">
+                        <img src="../static/images/clothingreqimg.jpg" loading="lazy" />
+                        <div class="button-container">
+                            <a href="clothingsendreq" class="button" id="link">Clothing Request</a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <a href="https://www.pinterest.com/pin/125045327144436605/" target="_blank">
+                        <img src="../static/images/medicinereqimg.jpg" loading="lazy" />
+                        <div class="button-container">
+                            <a href="medicinesendreq" class="button" id="link">Medicine Request</a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <a href="https://www.pinterest.com/pin/413909022012674906/?mt=login" target="_blank">
+                        <img src="../static/images/studymaterialreqimg.jpg" loading="lazy" />
+                        <div class="button-container">
+                            <a href="studymeterialsendreq" class="button" id="link">Study Material Request</a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <a href="https://www.pinterest.com/pin/amelie-poulain-audrey-tautou--407857309977538667/" target="_blank">
+                        <img src="../static/images/oherreqimg.jpg" loading="lazy" />
+                        <div class="button-container">
+                            <a href="othersendreq" class="button" id="link">Other Request</a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<br>
+<hr class="container" style="color:red">
+
+<div class=" container text-center  mt-5">
+    <p class="content p-4">People living in poverty need opportunities for growth in order to get out of poverty. When you donate money for programs that help the working poor make their way out of poverty, you are helping to create a population within your community that is
         stronger.
     </p>
-    <p>Whether you're donating money or time, giving promotes happiness, draws us closer to others, and strengthens empathy. These are vital for a wealthy life, which starts from the inside. After a certain point, more income doesn't increase well-being
+    <p class="content">Whether you're donating money or time, giving promotes happiness, draws us closer to others, and strengthens empathy. These are vital for a wealthy life, which starts from the inside. After a certain point, more income doesn't increase well-being
         but empathetically giving to others does</p>
 </div>
 
-<script src='{% static "js/charityorghomesendreq.js " %}'></script>
 
+<!-- <script>
+    let xOffset = 0;
+    let isMouseIn = false;
+    const slides = document.getElementById("slides");
+
+    setInterval(translate, 0);
+
+    function translate() {
+        let offsetIncrementor = isMouseIn ? 0.80 : 0.110;
+        if (xOffset >= 258 * 0) xOffset = 1;
+        else xOffset = xOffset + offsetIncrementor;
+        slides.style.transform = "translateX(-" + xOffset + "px)";
+    }
+
+    slides.addEventListener("mouseover", function(event) {
+        isMouseIn = true;
+    });
+
+    slides.addEventListener("mouseout", function(event) {
+        isMouseIn = false;
+    }); -->
+</script>
+<script src='{% static "js/charityorghomesendreq.js " %}'></script>
 
 
 
