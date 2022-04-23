@@ -52,6 +52,17 @@
         text-decoration: none;
         background-color: white;
     }
+    
+    .dropdown-list-image {
+        position: relative;
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    
+    .dropdown-list-image img {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
 </style>
 
 <br>
@@ -82,12 +93,14 @@
 
                 <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header">
 
-
+                    <div class="dropdown-list-image ms-2 mr-3">
+                        <img class="rounded-circle" src="/media/{{i.user.picture}}" alt="" />
+                    </div>
 
                     <div class="font-weight-bold mr-3 ms-5">
                         <br>
                         <div class="font-weight-bold mr-3 ms-5 mb-3">
-                            <div class="text-truncate"><b>{{i.user.username}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger"> Donation Item <a href="" class="text-danger" id="link">{{i.medicineType}}</a></span></div>
+                            <div class="text-truncate"><b>{{i.user.username}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Donation Item :&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">  <a href="viewcollectedmedicinedetails/{{i.id}}" class="text-danger" id="link">{{i.medicineType}}</a></span></div>
 
                         </div>
                     </div>

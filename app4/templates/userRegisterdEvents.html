@@ -35,9 +35,7 @@
 </div>
 
 
-<div class="container text-center text-danger mt-5">
-    <h2>{{message}}</h2>
-</div>
+
 
 
 
@@ -45,7 +43,7 @@
 
 
 <div class="container mt-5  bg-light" id="box">
-    <div class=" text-center text-light ">
+    <div class="text-center text-light">
         <h4>{{i.event.eventname}}</h4>
     </div>
 
@@ -61,28 +59,28 @@
 
         <div class="col-sm-6 ">
 
-            <h4> {{i.event.eventname}}</h4>
+            <h4 class="text-danger"><b>{{i.event.eventname}}</b> </h4>
 
             <ul>
 
 
                 <p>
-                    <i style="color: chocolate;" class="fa fa-clock-o"></i> {{i.event.starttime}} to {{i.event.endtime}}
+                    <i style="color: chocolate;" class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;<b>{{i.event.starttime}}</b> to <b>{{i.event.endtime}}</b>
                 </p>
 
 
 
 
                 <p>
-                    <i style="color: chocolate;" class="fa fa-calendar"></i> {{i.event.date}}
+                    <i style="color: chocolate;" class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;<b>{{i.event.date}}</b>
                 </p>
 
                 <p>
-                    <i style="color: chocolate;" class="fa fa-map-marker"></i> {{i.event.location}}
+                    <i style="color: chocolate;" class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;<b>{{i.event.location}}</b>
                 </p>
 
 
-                <p>Description: {{i.event.discription}}</p>
+                <p> <i style="color: chocolate;" class="fa fa-book"></i> &nbsp;&nbsp;&nbsp;Description: <b>{{i.event.discription}}</b> </p>
 
             </ul>
             <br>

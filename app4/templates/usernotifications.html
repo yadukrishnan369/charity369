@@ -54,9 +54,6 @@
     <h1>Notification</h1>
 </div>
 
-<div class="container text-center text-danger mb-5">
-    <h1>{{message}}</h1>
-</div>
 
 
 <div class="container">
@@ -239,6 +236,209 @@
                     <div class="font-weight-bold mr-3 ms-5 ">
                         <div class="text-truncate "><b>{{i.otherRequest.charity.charityName}}</b></div>
                         <div class="small ">Accepted For Your {{i.otherType }} Donation</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endif %}{% endfor %}
+
+
+
+
+
+
+
+
+
+    <br> {% for i in foodcollectdonation %}
+
+    <!--  -->
+
+    {% if i.user.id == request.session.usersession_name %}
+
+    <div class="row">
+        <div class="box shadow-sm rounded bg-white mb-3">
+
+            <div class="box-title border-bottom p-3 ">
+                <h6 class="m-0 text-danger "> Donation Collected Notification</h6>
+            </div>
+
+
+            <div class="box-body" id="box">
+
+                <div class="p-3 d-flex align-items-center ">
+
+                    <div class="dropdown-list-image ms-2 mr-3 ">
+                        <img class="rounded-circle " src="/media/{{i.FoodRequest.charity.picture}} " alt=" " />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5 ">
+                        <div class="text-truncate "><b>{{i.FoodRequest.charity.charityName}}</b></div>
+                        <div class="small "> Collected For Your {{i.foodType }} Donation</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endif %}{% endfor %}
+    <br>
+    <!--  -->
+
+
+
+    {% for i in clothingcollectdonation %}
+    <!--  -->
+    {% if i.user.id == request.session.usersession_name %}
+
+
+    <div class="row ">
+        <div class="box shadow-sm rounded bg-white mb-3 ">
+
+            <div class="box-title border-bottom p-3 ">
+                <h6 class="m-0 text-danger "> Donation Collected Notification</h6>
+            </div>
+
+            <div class="box-body p-0 " id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header ">
+
+                    <div class="dropdown-list-image ms-2 mr-3 ">
+                        <img class="rounded-circle " src="/media/{{i.clothingRequest.charity.picture}} " alt=" " />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5 ">
+                        <div class="text-truncate "><b>{{i.clothingRequest.charity.charityName}}</b></div>
+                        <div class="small ">Collected For Your {{i.clothingType }} Donation</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endif %}{% endfor %}
+    <br>
+    <!--  -->
+
+
+
+
+    {% for i in medicinecollectdonation %}
+    <!--  -->
+    {% if i.user.id == request.session.usersession_name %}
+
+    <div class="row">
+        <div class="box shadow-sm rounded bg-white mb-3">
+
+            <div class="box-title border-bottom p-3 ">
+                <h6 class="m-0 text-danger "> Donation Collected Notification</h6>
+            </div>
+
+
+            <div class="box-body p-0" id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+
+                    <div class="dropdown-list-image ms-2 mr-3 ">
+                        <img class="rounded-circle " src="/media/{{i.medicineRequest.charity.picture}}" alt=" " />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5 ">
+                        <div class="text-truncate "><b>{{i.medicineRequest.charity.charityName}}</b></div>
+                        <div class="small ">Collected For Your {{i.clothingType }} Donation</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endif %}{% endfor %}
+
+
+
+
+    <br> {% for i in studymaterialcollectdonation %}
+    <!--  -->
+    {% if i.user.id == request.session.usersession_name %}
+
+    <div class="row ">
+        <div class="box shadow-sm rounded bg-white mb-3 ">
+
+            <div class="box-title border-bottom p-3 ">
+                <h6 class="m-0 text-danger "> Donation Collected Notification</h6>
+            </div>
+
+            <div class="box-body p-0" id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header ">
+
+                    <div class="dropdown-list-image ms-2 mr-3 ">
+                        <img class="rounded-circle " src="/media/{{i.studyMaterialRequest.charity.picture}} " alt=" " />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5 ">
+                        <div class="text-truncate "><b>{{i.studyMaterialRequest.charity.charityName}}</b></div>
+                        <div class="small ">Collected For Your {{i.studyMaterialType }} Donation</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    {% endif %}{% endfor %}
+
+
+
+    <br> {% for i in othercollectdonation %}
+    <!--  -->
+    {% if i.user.id == request.session.usersession_name %}
+
+    <div class="row ">
+        <div class="box shadow-sm rounded bg-white mb-3 ">
+
+            <div class="box-title border-bottom p-3 ">
+                <h6 class="m-0 text-danger "> Donation Collected Notification</h6>
+            </div>
+
+
+            <div class="box-body p-0" id="box">
+
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header ">
+
+                    <div class="dropdown-list-image ms-2 mr-3 ">
+                        <img class="rounded-circle " src="/media/{{i.otherRequest.charity.picture}} " alt=" " />
+                    </div>
+                    <div class="font-weight-bold mr-3 ms-5 ">
+                        <div class="text-truncate "><b>{{i.otherRequest.charity.charityName}}</b></div>
+                        <div class="small ">Collected For Your {{i.otherType }} Donation</div>
 
                     </div>
 

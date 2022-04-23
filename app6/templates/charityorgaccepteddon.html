@@ -56,7 +56,7 @@
     </div>
     <h1>{{message}}</h1>
 
-    <div class="text-center mb-4 mt-1"> <button type="button" class="btn btn-outline-info" id="btn"><a href="viewcollecteddonations" class="button">View Collections</a></button><button type="button" class="btn btn-outline-info" id="btn"><a href="charityorghomeviewdonations" class="button">Back To Donations</a></button>
+    <div class="text-center mb-4 mt-1"> <button type="button" class="btn btn-outline-danger text-danger" id="btn"><a href="viewcollecteddonations" class="button">View Collections</a></button>&nbsp;&nbsp;<button type="button" class="btn btn-outline-danger" id="btn"><a href="charityorghomeviewdonations" class="button">Back To Donations</a></button>
     </div>
     {% for i in foodaccept %}
     <!--  -->
@@ -74,7 +74,7 @@
 
                 <p>
 
-                    <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Food Donation
+                    <b>Donation Type:</b><span>       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               <i style="color: chocolate;" ></i>  Food Donation
                    </span>
 
                 </p>
@@ -82,7 +82,7 @@
 
                 <p>
 
-                    <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.foodType}}
+                    <b>Donation Item:</b><span>     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i style="color: chocolate;" ></i> {{i.foodType}}
                    </span>
 
                 </p>
@@ -91,34 +91,34 @@
 
 
                 <p>
-                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
+                    <b>No.Of Quantity:</b><span>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
                     </span>
                 </p>
 
 
 
                 <p>
-                    <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.user.address}}
-
+                    <b>Address:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           <i  style="color: chocolate;" ></i>{{i.user.address}}
+                    </b> 
                       
                     </span>
                 </p>
 
                 <p>
-                    <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> {{i.buildingNumber}}
+                    <b>House NO:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           <i  style="color: red;" ></i>{{i.buildingNumber}}
                   </span>
                 </p>
 
 
 
                 <p>
-                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
+                    <b>Trade Mark:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           <i  style="color: red;" ></i> {{i.tradeMark}}
                   </span>
                 </p>
 
 
                 <p>
-                    <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}
+                    <b>Available For:</b><span>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: red;" ></i> {{i.date}}
                   </span>
                 </p>
 
@@ -160,7 +160,7 @@
 
                 <p>
 
-                    <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Clothing Donation
+                    <b>Donation Type:</b><span>            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          <i style="color: red;" ></i>Clothing Donation
                    </span>
 
                 </p>
@@ -168,7 +168,7 @@
 
                 <p>
 
-                    <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.clothingType}}
+                    <b>Donation Item:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i style="color: red;" ></i> {{i.clothingType}}
                    </span>
 
                 </p>
@@ -177,34 +177,34 @@
 
 
                 <p>
-                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.clothingQuantity}}
+                    <b>No.Of Quantity:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i  style="color: red;" ></i> {{i.clothingQuantity}}
                     </span>
                 </p>
 
 
 
                 <p>
-                    <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.user.address}}
+                    <b>Address:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: red;" ></i> {{i.user.address}}
 
                       
                     </span>
                 </p>
 
                 <p>
-                    <b>House NO:</b><span>                    <i  style="color: chocolate;"></i> {{i.buildingNumber}}
+                    <b>House NO:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: red;"></i> {{i.buildingNumber}}
                   </span>
                 </p>
 
 
 
                 <p>
-                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
+                    <b>Trade Mark:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: red;" ></i> {{i.tradeMark}}
                   </span>
                 </p>
 
 
                 <p>
-                    <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}
+                    <b>Available For:</b><span>       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               <i  style="color: red;" ></i> {{i.date}}
                   </span>
                 </p>
 
@@ -247,7 +247,7 @@
 
                 <p>
 
-                    <b>Donation Type:</b><span>                    <i style="color: chocolate; " ></i>Medicine Donation
+                    <b>Donation Type:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate; " ></i>Medicine Donation
                    </span>
 
                 </p>
@@ -255,7 +255,7 @@
 
                 <p>
 
-                    <b>Donation Item:</b><span>                    <i style="color: chocolate; " ></i> {{i.medicineType}}
+                    <b>Donation Item:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i style="color: chocolate; " ></i> {{i.medicineType}}
                    </span>
 
                 </p>
@@ -264,34 +264,34 @@
 
 
                 <p>
-                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.medicineQuantity}}
+                    <b>No.Of Quantity:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate; " ></i> {{i.medicineQuantity}}
                     </span>
                 </p>
 
 
 
                 <p>
-                    <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.user.address}}
+                    <b>Address:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i  style="color: chocolate; " ></i> {{i.user.address}}
 
                       
                     </span>
                 </p>
 
                 <p>
-                    <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                    <b>House NO:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
                   </span>
                 </p>
 
 
 
                 <p>
-                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                    <b>Trade Mark:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate; " ></i> {{i.tradeMark}}
                   </span>
                 </p>
 
 
                 <p>
-                    <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> {{i.date}}
+                    <b>Available For:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate; " ></i> {{i.date}}
                   </span>
                 </p>
 
@@ -337,7 +337,7 @@
 
                 <p>
 
-                    <b>Donation Type:</b><span>                    <i style="color: chocolate; " ></i>Study Material Donation
+                    <b>Donation Type:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate; " ></i>Study Material Donation
                    </span>
 
                 </p>
@@ -345,7 +345,7 @@
 
                 <p>
 
-                    <b>Donation Item:</b><span>                    <i style="color: chocolate; " ></i> {{i.studyMaterialType}}
+                    <b>Donation Item:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate; " ></i> {{i.studyMaterialType}}
                    </span>
 
                 </p>
@@ -354,34 +354,34 @@
 
 
                 <p>
-                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.studyMaterialQuantity}}
+                    <b>No.Of Quantity:</b><span>       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               <i  style="color: chocolate; " ></i> {{i.studyMaterialQuantity}}
                     </span>
                 </p>
 
 
 
                 <p>
-                    <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.user.address}}
+                    <b>Address:</b><span>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <i  style="color: chocolate; " ></i> {{i.user.address}}
 
                       
                     </span>
                 </p>
 
                 <p>
-                    <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                    <b>House NO:</b><span>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
                   </span>
                 </p>
 
 
 
                 <p>
-                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                    <b>Trade Mark:</b><span>           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           <i  style="color: chocolate; " ></i> {{i.tradeMark}}
                   </span>
                 </p>
 
 
                 <p>
-                    <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> {{i.date}}
+                    <b>Available For:</b><span>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <i  style="color: chocolate; " ></i> {{i.date}}
                   </span>
                 </p>
 
@@ -425,7 +425,7 @@
 
                 <p>
 
-                    <b>Donation Type:</b><span>                    <i style="color: chocolate; " ></i>Other Donations
+                    <b>Donation Type:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i style="color: chocolate; " ></i>Other Donations
                    </span>
 
                 </p>
@@ -433,7 +433,7 @@
 
                 <p>
 
-                    <b>Donation Item:</b><span>                    <i style="color: chocolate; " ></i> {{i.otherType}}
+                    <b>Donation Item:</b><span>           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           <i style="color: chocolate; " ></i> {{i.otherType}}
                    </span>
 
                 </p>
@@ -442,34 +442,34 @@
 
 
                 <p>
-                    <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.otherQuantity}}
+                    <b>No.Of Quantity:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate; " ></i> {{i.otherQuantity}}
                     </span>
                 </p>
 
 
 
                 <p>
-                    <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.user.address}}
+                    <b>Address:</b><span>             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         <i  style="color: chocolate; " ></i> {{i.user.address}}
 
                       
                     </span>
                 </p>
 
                 <p>
-                    <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                    <b>House NO:</b><span>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
                   </span>
                 </p>
 
 
 
                 <p>
-                    <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                    <b>Trade Mark:</b><span>           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           <i  style="color: chocolate; " ></i> {{i.tradeMark}}
                   </span>
                 </p>
 
 
                 <p>
-                    <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> {{i.date}}
+                    <b>Available For:</b><span>            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          <i  style="color: chocolate; " ></i> {{i.date}}
                   </span>
                 </p>
 

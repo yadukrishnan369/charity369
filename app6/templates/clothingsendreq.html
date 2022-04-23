@@ -227,6 +227,8 @@
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(165, 223, 223);">Number of Persons:</span>
                                 <input type="number" class="form-control" placeholder="Quanity" id="tentacles" aria-label="Username" aria-describedby="addon-wrapping" name="clothingquantity" min="1" max="100">
+                                <label class="text-danger" for="" id="label1"></label>
+
                             </div>
                             <br>
 
@@ -243,6 +245,8 @@
                             <div class="input-group">
                                 <span class="input-group-text" style="background-color: rgb(165, 223, 223);">Add Expected Items:</span>
                                 <textarea class="form-control" aria-label="With textarea" placeholder="Add Your Expected Item." name="clothingexpecteditem"></textarea>
+                                <label class="text-danger" for="" id="label2"></label>
+
                             </div>
                             <br>
                         </div>
@@ -252,6 +256,8 @@
                             <div class="input-group">
                                 <span class="input-group-text" style="background-color: rgb(165, 223, 223);">Add Description:</span>
                                 <textarea class="form-control" aria-label="With textarea" placeholder="Type your Description" name="clothingdiscription"></textarea>
+                                <label class="text-danger" for="" id="label3"></label>
+
                             </div>
                             <br>
                         </div>
@@ -277,12 +283,18 @@
         var clothingdiscription = document.clothingreqform.clothingdiscription.value;
         if (clothingquantity == "") {
             alert("Clothing Quantity  can 't be Blank");
+            document.getElementById("label1").innerHTML = "* this field required";
+
             return false;
         } else if (clothingexpecteditem == "") {
             alert("clothing Expected item  can 't be Blank");
+            document.getElementById("label2").innerHTML = "* this field required";
+
             return false;
         } else if (clothingdiscription == "") {
             alert("Clothing Discription  can 't be Blank");
+            document.getElementById("label3").innerHTML = "* this field required";
+
             return false;
         }
     }

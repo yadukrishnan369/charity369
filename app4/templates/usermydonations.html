@@ -24,6 +24,7 @@
         border-radius: 0px 50px 0px 0px;
         box-shadow: 4px 3px rgb(161, 156, 156);
         border-style: groove;
+        background-color: rgb(246, 243, 239);
     }
 </style>
 
@@ -33,9 +34,12 @@
 <br><br>
 <div class=" container text-center bg-success text-white">
     <h2>My Donations</h2>
+
+
 </div><br> {% for i in fooddon %}
 
-<div class="container mt-5  bg-light" id="box">
+<div class="container mt-5" id="box">
+
 
 
 
@@ -49,7 +53,7 @@
 
             <p>
 
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i><b class="text-danger">Food</b>
+                <b>Donation Type:</b><span>        &nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i><b class="text-danger">Food</b>
                    </span>
 
             </p>
@@ -57,7 +61,7 @@
 
             <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.foodType}}
+                <b>Donation Item:</b><span>         &nbsp;&nbsp;&nbsp;           <i style="color: chocolate;" ></i> {{i.foodType}}
                    </span>
 
             </p>
@@ -66,12 +70,12 @@
 
 
             <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}} Persons
+                <b>No.Of Quantity:</b><span>        &nbsp;&nbsp;&nbsp;            <i  style="color: chocolate;" ></i> {{i.foodQuantity}} Persons
                     </span>
             </p>
 
             <p>
-                <b>Donation Date And Time:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
+                <b>Donation Date And Time:</b><span>         &nbsp;&nbsp;&nbsp;           <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
                     </span>
             </p>
 
@@ -92,7 +96,7 @@
 
 <br> {% for i in clothingdon %}
 
-<div class="container mt-5 bg-light" id="box">
+<div class="container mt-5" id="box">
     <div class="container">
 
         <br>
@@ -103,7 +107,7 @@
 
             <p>
 
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i><b class="text-danger">Clothing</b>
+                <b>Donation Type:</b><span>        &nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i><b class="text-danger">Clothing</b>
                    </span>
 
             </p>
@@ -111,7 +115,7 @@
 
             <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.clothingType}}
+                <b>Donation Item:</b><span>         &nbsp;&nbsp;&nbsp;           <i style="color: chocolate;" ></i> {{i.clothingType}}
                    </span>
 
             </p>
@@ -120,12 +124,12 @@
 
 
             <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.clothingQuantity}} Persons
+                <b>No.Of Quantity:</b><span>        &nbsp;&nbsp;&nbsp;            <i  style="color: chocolate;" ></i> {{i.clothingQuantity}} Persons
                     </span>
             </p>
 
             <p>
-                <b>Donation Date And Time:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
+                <b>Donation Date And Time:</b><span>       &nbsp;&nbsp;&nbsp;             <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
                     </span>
             </p>
 
@@ -144,7 +148,7 @@
 
 <br> {% for i in medicinedon %}
 
-<div class="container mt-5 bg-light" id="box">
+<div class="container mt-5" id="box">
     <div class="container ">
 
         <br>
@@ -155,7 +159,7 @@
 
             <p>
 
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i> <b class="text-danger">Medicine</b>
+                <b>Donation Type:</b><span>       &nbsp;&nbsp;&nbsp;             <i style="color: chocolate;" ></i> <b class="text-danger">Medicine</b>
                    </span>
 
             </p>
@@ -163,7 +167,7 @@
 
             <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.medicineType}}
+                <b>Donation Item:</b><span>       &nbsp;&nbsp;&nbsp;             <i style="color: chocolate;" ></i> {{i.medicineType}}
                    </span>
 
             </p>
@@ -172,12 +176,12 @@
 
 
             <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.medicineQuantity}} Persons
+                <b>No.Of Quantity:</b><span>         &nbsp;&nbsp;&nbsp;           <i  style="color: chocolate;" ></i> {{i.medicineQuantity}} Persons
                     </span>
             </p>
 
             <p>
-                <b>Donation Date And Time:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
+                <b>Donation Date And Time:</b><span>      &nbsp;&nbsp;&nbsp;              <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
                     </span>
             </p>
 
@@ -198,7 +202,7 @@
 
 <br> {% for i in studymaterialdon %}
 
-<div class="container mt-5 bg-light " id="box">
+<div class="container mt-5" id="box">
     <div class="container ">
 
         <br>
@@ -209,7 +213,7 @@
 
             <p>
 
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i> <b class="text-danger">Study Material</b>
+                <b>Donation Type:</b><span>        &nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i> <b class="text-danger">Study Material</b>
                    </span>
 
             </p>
@@ -217,7 +221,7 @@
 
             <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.studyMaterialType}}
+                <b>Donation Item:</b><span>        &nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i> {{i.studyMaterialType}}
                    </span>
 
             </p>
@@ -226,12 +230,12 @@
 
 
             <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.studymaterialQuantity}} Persons
+                <b>No.Of Quantity:</b><span>         &nbsp;&nbsp;&nbsp;           <i  style="color: chocolate;" ></i> {{i.studymaterialQuantity}} Persons
                     </span>
             </p>
 
             <p>
-                <b>Donation Date And Time:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
+                <b>Donation Date And Time:</b><span>        &nbsp;&nbsp;&nbsp;            <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
                     </span>
             </p>
 
@@ -246,7 +250,7 @@
     </div>
 </div><br> {% endfor %} {% for i in otherdon %}
 
-<div class="container mt-5 bg-light" id="box">
+<div class="container mt-5" id="box">
     <div class="container ">
 
         <br>
@@ -257,7 +261,7 @@
 
             <p>
 
-                <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i> <b class="text-danger">Other Donation</b>
+                <b>Donation Type:</b><span>         &nbsp;&nbsp;&nbsp;           <i style="color: chocolate;" ></i> <b class="text-danger">Other Donation</b>
                    </span>
 
             </p>
@@ -265,7 +269,7 @@
 
             <p>
 
-                <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i> {{i.otherType}}
+                <b>Donation Item:</b><span>        &nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i> {{i.otherType}}
                    </span>
 
             </p>
@@ -274,12 +278,12 @@
 
 
             <p>
-                <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.otherQuantity}} Persons
+                <b>No.Of Quantity:</b><span>       &nbsp;&nbsp;&nbsp;             <i  style="color: chocolate;" ></i> {{i.otherQuantity}} Persons
                     </span>
             </p>
 
             <p>
-                <b>Donation Date And Time:</b><span>                    <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
+                <b>Donation Date And Time:</b><span>      &nbsp;&nbsp;&nbsp;              <i  style="color: chocolate;" ></i> {{i.date}}  &  {{i.time}}
                     </span>
             </p>
 

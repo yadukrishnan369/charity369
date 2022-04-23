@@ -62,8 +62,11 @@
             <ul class="details">
                 <li class="topic">Name</li>
                 {% for i in clothing %}
-                <li>{{i.charity.charityName}}</li>
-                {% endfor %}
+                <li>
+                    <a href="search_charity_profile/{{i.id}}">
+                        <h6>{{i.charity.charityName}}</h6>
+                    </a>
+                </li> {% endfor %}
 
             </ul>
             <ul class="details">
@@ -108,8 +111,11 @@
             <ul class="details">
                 <li class="topic">Name</li>
                 {% for i in medicine %}
-                <li>{{i.charity.charityName}}</li>
-                {% endfor %}
+                <li>
+                    <a href="search_charity_profile/{{i.id}}">
+                        <h6>{{i.charity.charityName}}</h6>
+                    </a>
+                </li> {% endfor %}
 
             </ul>
             <ul class="details">
@@ -153,8 +159,11 @@
             <ul class="details">
                 <li class="topic">Name</li>
                 {% for i in studymaterial %}
-                <li>{{i.charity.charityName}}</li>
-                {% endfor %}
+                <li>
+                    <a href="search_charity_profile/{{i.id}}">
+                        <h6>{{i.charity.charityName}}</h6>
+                    </a>
+                </li> {% endfor %}
 
             </ul>
             <ul class="details">
@@ -199,8 +208,11 @@
             <ul class="details">
                 <li class="topic">Name</li>
                 {% for i in other%}
-                <li>{{i.charity.charityName}}</li>
-                {% endfor %}
+                <li>
+                    <a href="search_charity_profile/{{i.id}}">
+                        <h6>{{i.charity.charityName}}</h6>
+                    </a>
+                </li> {% endfor %}
 
             </ul>
             <ul class="details">

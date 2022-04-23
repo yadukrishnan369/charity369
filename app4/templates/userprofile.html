@@ -165,6 +165,14 @@
         /* border-radius: 0px 50px 50px 0px; */
         box-shadow: 4px 4px rgba(186, 183, 183, 0.821);
     }
+    
+    #link {
+        color: black;
+    }
+    
+    #link:hover {
+        background-color: antiquewhite;
+    }
 </style>
 
 
@@ -192,8 +200,8 @@
                 <div class="profile-head">
 
                     <p>Username: <b> {{userdata.username}}<span>  <a href="changeusername" class="fa fa-pencil-square ms-3 edit"></a> </span></b></p>
-                    <p>Website: <b>{{userdata.website}}<span><a href="changewebsite" class="fa fa-pencil-square ms-3  edit"    ></a> </span></b></p>
-                    <p>Email: <b>{{userdata.useremail}}  <span>  <a href="changeemail" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
+                    <p>Website: <b><a href="" id="link">{{userdata.website}}</a><span><a href="changewebsite" class="fa fa-pencil-square ms-3  edit"    ></a> </span></b></p>
+                    <p>Email: <b><a href="" id="link">{{userdata.useremail}}</a> <span>  <a href="changeemail" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
                     <p>Bio: <b>{{userdata.bio}}  <span>  <a href="changebio" class="fa fa-pencil-square ms-3 edit"   ></a> </span></b></p>
 
 

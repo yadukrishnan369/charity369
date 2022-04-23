@@ -46,7 +46,7 @@
     </div>
     {% for i in fooddonation %}
 
-    <div class="mt-5  bg-light" id="box">
+    <div class="mt-5" id="box">
 
         <div class="bg-success text-center text-white">
             <h4>Food Donation</h4>
@@ -62,14 +62,14 @@
 
                 <br>
                 <div class="text-start ms-5 text-danger">
-                    <h3>{{i.user.username}}</h3>
+                    <h3><b>{{i.user.username}}</b></h3>
                 </div>
                 <ul>
 
 
                     <p>
 
-                        <b>food Type:</b><span>                    <i style="color: chocolate;" ></i> {{i.foodType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.FoodRequest.foodExpectedItem}}
+                        <b>food Type:</b><span>                    <i style="color: chocolate;" ></i> <b>{{i.foodType}}</b>  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> <b>{{i.FoodRequest.foodExpectedItem}}</b>
                    </span>
 
                     </p>
@@ -78,27 +78,27 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> <b>{{i.foodQuantity}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i>Date : <b>{{i.date}}</b>  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : <b>{{i.time}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.address}}
+                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i><b> {{i.address}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> {{i.buildingNumber}}
+                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> <b>{{i.buildingNumber}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i><b>{{i.tradeMark}}</b> 
                       </span>
                     </p>
 
@@ -119,7 +119,7 @@
 
     {% endfor %}
     <br> {% for i in clothingdonation %}
-    <div class="mt-5 bg-light " id="box">
+    <div class="mt-5" id="box">
 
         <div class="bg-success text-center text-white ">
             <h4>Clothing Donation</h4>
@@ -138,14 +138,14 @@
 
                 <br>
                 <div class="text-start ms-5 text-danger ">
-                    <h3>{{i.user.username}}</h3>
+                    <h3><b>{{i.user.username}}</b></h3>
                 </div>
                 <ul>
 
 
                     <p>
 
-                        <b>Clothig Type:</b><span>                    <i style="color: chocolate; " ></i> {{i.clothingType}}   &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.clothingRequest.clothingExpectedItem}}
+                        <b>Clothig Type:</b><span>                    <i style="color: chocolate; " ></i> <b>{{i.clothingType}}</b>   &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> <b>{{i.clothingRequest.clothingExpectedItem}}</b>
                    </span>
 
                     </p>
@@ -154,27 +154,27 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.clothingQuantity}}
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i><b>{{i.clothingQuantity}}</b> 
                     </span>
                     </p>
 
                     <p>
-                        <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                        <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i> Date : <b>{{i.date}} </b> &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : <b>{{i.time}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.address}}
+                        <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> <b>{{i.address}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                        <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i><b>{{i.buildingNumber}}</b> 
                     </span>
                     </p>
 
                     <p>
-                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> <b>{{i.tradeMark}}</b>
                     </span>
                     </p>
 
@@ -195,7 +195,7 @@
     {% endfor %}
     <br> {% for i in medicinedonation %}
 
-    <div class="mt-5 bg-light " id="box">
+    <div class="mt-5" id="box">
 
         <div class="bg-success text-center text-white ">
             <h4>Medicine Donation</h4>
@@ -218,7 +218,7 @@
 
                     <p>
 
-                        <b>Medicine Type:</b><span>                    <i style="color: chocolate; " ></i> {{i.medicineType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.medicineRequest.medicineExpectedItem}}
+                        <b>Medicine Type:</b><span>                    <i style="color: chocolate; " ></i> <b>{{i.medicineType}}</b>  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> <b>{{i.medicineRequest.medicineExpectedItem}}</b>
                    </span>
 
                     </p>
@@ -227,27 +227,27 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.medicineQuantity}}
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> <b>{{i.medicineQuantity}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                        <b>Available For:</b><span>                    <i  style="color: chocolate; " ></i>Date : <b>{{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : <b>{{i.time}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> {{i.address}}
+                        <b>Address:</b><span>                    <i  style="color: chocolate; " ></i> <b>{{i.address}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> {{i.buildingNumber}}
+                        <b>House NO:</b><span>                    <i  style="color: chocolate; " ></i> <b>{{i.buildingNumber}}</b> 
                     </span>
                     </p>
 
                     <p>
-                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> {{i.tradeMark}}
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate; " ></i> <b>{{i.tradeMark}}</b>
                       </span>
                     </p>
 
@@ -269,7 +269,7 @@
     {% endfor %}
     <br> {% for i in studymaterialdonation %}
 
-    <div class="mt-5 bg-light " id="box">
+    <div class="mt-5" id="box">
 
         <div class="bg-success text-center text-white ">
             <h4>Study Material Donation</h4>
@@ -292,7 +292,7 @@
 
                     <p>
 
-                        <b>Study Material Type:</b><span>                    <i style="color: chocolate; " ></i> {{i.studyMaterialType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.studyMaterialRequest.studymaterialExpectedItem}}
+                        <b>Study Material Type:</b><span>                    <i style="color: chocolate; " ></i><b>{{i.studyMaterialType}}</b>   &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b><b>{{i.studyMaterialRequest.studymaterialExpectedItem}}</b> 
                    </span>
 
                     </p>
@@ -301,27 +301,27 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i> {{i.studyMaterialQuantity}}
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate; " ></i><b>{{i.studyMaterialQuantity}}</b> 
                     </span>
                     </p>
 
                     <p>
-                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                        <b>Available For:</b><span>                    <i  style="color: chocolate;" ></i>Date : <b>{{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : <b>{{i.time}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> {{i.address}}
+                        <b>Address:</b><span>                    <i  style="color: chocolate;" ></i> <b>{{i.address}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> {{i.buildingNumber}}
+                        <b>House NO:</b><span>                    <i  style="color: chocolate;" ></i> <b>{{i.buildingNumber}}</b> 
                     </span>
                     </p>
 
                     <p>
-                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> {{i.tradeMark}}
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;" ></i> <b>{{i.tradeMark}}</b>
                       </span>
                     </p>
 
@@ -344,7 +344,7 @@
 
     <br> {% for i in otherdonation %}
 
-    <div class="mt-5 bg-light" id="box">
+    <div class="mt-5" id="box">
 
         <div class="bg-success text-center text-white">
             <h4>Other Donation</h4>
@@ -367,7 +367,7 @@
 
                     <p>
 
-                        <b>Other Type:</b><span>                    <i style="color: chocolate;"></i> {{i.otherType}}  &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> {{i.otherRequest.otherExpectedItem}}
+                        <b>Other Type:</b><span>                    <i style="color: chocolate;"></i><b>{{i.otherType}}</b>   &nbsp;  &nbsp; -- &nbsp;  &nbsp; <b>Donate For Your</b> <b>{{i.otherRequest.otherExpectedItem}}</b>
                    </span>
 
                     </p>
@@ -376,27 +376,27 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;"></i> {{i.otherQuantity}}
+                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;"></i> <b>{{i.otherQuantity}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Available For:</b><span>                    <i  style="color: chocolate;"></i>Date : {{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : {{i.time}}
+                        <b>Available For:</b><span>                    <i  style="color: chocolate;"></i>Date : <b>{{i.date}}  &nbsp;  &nbsp;  &nbsp;  &nbsp; <b>Time</b> : <b>{{i.time}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>Address:</b><span>                    <i  style="color: chocolate;"></i> {{i.address}}
+                        <b>Address:</b><span>                    <i  style="color: chocolate;"></i> <b>{{i.address}}</b>
                     </span>
                     </p>
 
                     <p>
-                        <b>House NO:</b><span>                    <i  style="color: chocolate;"></i> {{i.buildingNumber}}
+                        <b>House NO:</b><span>                    <i  style="color: chocolate;"></i> <b>{{i.buildingNumber}}</b> 
                     </span>
                     </p>
 
                     <p>
-                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;"></i> {{i.tradeMark}}
+                        <b>Trade Mark:</b><span>                    <i  style="color: chocolate;"></i> <b>{{i.tradeMark}}</b>
                       </span>
                     </p>
 

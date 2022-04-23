@@ -94,6 +94,13 @@ urlpatterns = [
         path('viewcollecteddonations',views.view_collected_donations,name='viewcollecteddonations'),
 
         path('viewcollectedfood',views.view_collected_food,name='viewcollectedfood'),
+
+        path('viewcollectedfooddetails/<int:id>',views.view_collected_food_details,name='viewcollectedfooddetails'),
+        path('viewcollectedclothingdetails/<int:id>',views.view_collected_clothing_details,name='viewcollectedclothingdetails'),
+        path('viewcollectedmedicinedetails/<int:id>',views.view_collected_medicine_details,name='viewcollectedmedicinedetails'),
+        path('viewcollectedstudymaterialdetails/<int:id>',views.view_collected_studymaterial_details,name='viewcollectedstudymaterialdetails'),
+        path('viewcollectedotherdetails/<int:id>',views.view_collected_other_details,name='viewcollectedotherdetails'),
+
         path('viewcollectedclothing',views.view_collected_clothing,name='viewcollectedclothing'),
         path('viewcollectedmedicine',views.view_collected_medicine,name='viewcollectedmedicine'),
         path('viewcollectedstudymaterial',views.view_collected_studymaterial,name='viewcollectedstudymaterial'),
@@ -109,5 +116,6 @@ urlpatterns = [
         path('charitynotevents',views.charity_not_event,name='charitynotevents'),
         path('usernotfound',views.user_not_found,name='usernotfound'),
         path('charitynotfeedback',views.charity_not_feedback,name='charitynotfeedback'),
+        path('usernotregisterevents',views.user_not_register_events,name='usernotregisterevents'),
 
 ]

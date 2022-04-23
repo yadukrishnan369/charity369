@@ -20,7 +20,7 @@
     #box {
         border-radius: 0px 0px 0px 0px;
         box-shadow: 4px 3px rgb(161, 156, 156);
-        background-color: rgb(243, 235, 233);
+        background-color: rgb(243, 238, 232);
         border-style: groove;
     }
 </style>
@@ -28,12 +28,12 @@
 
 
 <br>
-<div class="container text-center bg-danger mt-3">
-    <h2>My Donations</h2>
+<div class="container text-center bg-danger mt-3 text-white">
+    <h2>My Donation Requests</h2>
 </div>
 
 <br>{% for i in foodrequest %}
-<div class="container mt-5  bg-light" id="box">
+<div class="container mt-5" id="box">
     <div class="text-center text-light bg-success">
         <h4>Food Requests</h4>
     </div>
@@ -48,7 +48,7 @@
 
                     <p>
 
-                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Food
+                        <b>Donation Type:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate;" ></i>Food
                    </span>
 
                     </p>
@@ -56,7 +56,7 @@
 
                     <p>
 
-                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.foodExpectedItem}}
+                        <b>Donation Item:</b><span>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i>{{i.foodExpectedItem}}
                    </span>
 
                     </p>
@@ -65,13 +65,9 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
+                        <b>No.Of Quantity:</b><span>       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               <i  style="color: chocolate;" ></i> {{i.foodQuantity}}
                     </span>
                     </p>
-                    <!-- <p>
-                        <b>charityname</b><span>                    <i  style="color: chocolate;" ></i> {{i.charity.charityName}}
-                    </span>
-                    </p> -->
 
                 </ul>
             </div>
@@ -91,7 +87,7 @@
 <br><br> {% for i in clothingrequest %}
 
 
-<div class="container mt-5  bg-light" id="box">
+<div class="container mt-5" id="box">
 
     <div class="container ">
         <br>
@@ -105,7 +101,7 @@
 
                     <p>
 
-                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Clothing
+                        <b>Donation Type:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate;" ></i>Clothing
                    </span>
 
                     </p>
@@ -113,7 +109,7 @@
 
                     <p>
 
-                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.clothingExpectedItem}}
+                        <b>Donation Item:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate;" ></i>{{i.clothingExpectedItem}}
                    </span>
 
                     </p>
@@ -122,7 +118,7 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.clothingQuantity}}
+                        <b>No.Of Quantity:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate;" ></i> {{i.clothingQuantity}}
                     </span>
                     </p>
 
@@ -143,7 +139,7 @@
 <br><br> {% for i in medicinerequest %}
 
 
-<div class="container mt-5  bg-light" id="box">
+<div class="container mt-5" id="box">
 
     <div class="container ">
         <div class=" container text-center text-light bg-success">
@@ -158,7 +154,7 @@
 
                     <p>
 
-                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Medicines
+                        <b>Donation Type:</b><span>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i>Medicines
                    </span>
 
                     </p>
@@ -166,7 +162,7 @@
 
                     <p>
 
-                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.medicineExpectedItem}}
+                        <b>Donation Item:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate;" ></i>{{i.medicineExpectedItem}}
                    </span>
 
                     </p>
@@ -175,7 +171,7 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.medicineQuantity}}
+                        <b>No.Of Quantity:</b><span>       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               <i  style="color: chocolate;" ></i> {{i.medicineQuantity}}
                     </span>
                     </p>
 
@@ -196,7 +192,7 @@
 <br><br> {% for i in studymaterialrequest %}
 
 
-<div class="container mt-5  bg-light" id="box">
+<div class="container mt-5" id="box">
 
     <div class="container ">
         <div class=" container text-center text-light bg-success">
@@ -210,7 +206,7 @@
 
                     <p>
 
-                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Study Materials
+                        <b>Donation Type:</b><span>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                <i style="color: chocolate;" ></i>Study Materials
                    </span>
 
                     </p>
@@ -218,7 +214,7 @@
 
                     <p>
 
-                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.studymaterialExpectedItem}}
+                        <b>Donation Item:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate;" ></i>{{i.studymaterialExpectedItem}}
                    </span>
 
                     </p>
@@ -227,7 +223,7 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.studymaterialQuantity}}
+                        <b>No.Of Quantity:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate;" ></i> {{i.studymaterialQuantity}}
                     </span>
                     </p>
 
@@ -248,7 +244,7 @@
 <br><br> {% for i in otherrequest %}
 
 
-<div class="container mt-5  bg-light" id="box">
+<div class="container mt-5" id="box">
 
     <div class="container ">
         <div class=" container text-center text-light bg-success">
@@ -262,7 +258,7 @@
 
                     <p>
 
-                        <b>Donation Type:</b><span>                    <i style="color: chocolate;" ></i>Other Requests
+                        <b>Donation Type:</b><span>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <i style="color: chocolate;" ></i>Other Requests
                    </span>
 
                     </p>
@@ -270,7 +266,7 @@
 
                     <p>
 
-                        <b>Donation Item:</b><span>                    <i style="color: chocolate;" ></i>{{i.otherExpectedItem}}
+                        <b>Donation Item:</b><span>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              <i style="color: chocolate;" ></i>{{i.otherExpectedItem}}
                    </span>
 
                     </p>
@@ -279,7 +275,7 @@
 
 
                     <p>
-                        <b>No.Of Quantity:</b><span>                    <i  style="color: chocolate;" ></i> {{i.otherQuantity}}
+                        <b>No.Of Quantity:</b><span>         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <i  style="color: chocolate;" ></i> {{i.otherQuantity}}
                     </span>
                     </p>
 

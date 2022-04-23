@@ -213,7 +213,7 @@
             <h1 class="heading-primary">Please Fill The Form For Food Donation</h1>
             <div class="accordion">
 
-                <form action="#" method="POST">
+                <form action="#" method="POST" name="foodsendform" onsubmit="return validateform()">
                     {% csrf_token %}
 
                     <dl>
@@ -228,14 +228,17 @@
                                 <!-- <textarea class="form-control" aria-label="With textarea" placeholder="Enter Food Type.." name="foodtype"></textarea> -->
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Food Item</span>
-                                    <input type="text" class="form-control" placeholder="Enter Food Item" aria-label="FoodItem" aria-describedby="basic-addon1" name="foodtype">
+                                    <input type="text" class="form-control" placeholder="Enter Food Item" aria-label="FoodItem" aria-describedby="basic-addon1" name="foodtype" id="foodtype">
+                                    <!-- <span id="label1" style="color: red;"></span> -->
                                 </div>
 
                                 <br>
                                 <!-- <input type="number" id="tentacles" min="1" max="100" placeholder="Add Your Quantity" name="foodquantity" style="width: 200px;"> -->
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Food Quantity</span>
-                                    <input type="number" class="form-control" placeholder="Enter Food Quantity" aria-label="foodquantity" aria-describedby="basic-addon1" name="foodquantity">
+                                    <input type="number" class="form-control" placeholder="Enter Food Quantity" aria-label="foodquantity" aria-describedby="basic-addon1" name="foodquantity" id="foodquantity">
+                                    <!-- <span id="label2" style="color: red;"></span> -->
+
                                 </div>
 
                             </div>
@@ -255,14 +258,18 @@
                                         <!-- <input type="date" id="date" placeholder="Donation Date.." name="date" style="width: 150px;"> -->
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Enter Your Date</span>
-                                            <input type="date" class="form-control" placeholder="Select Your Date" aria-label="date" aria-describedby="basic-addon1" name="date">
+                                            <input type="date" class="form-control" placeholder="Select Your Date" aria-label="date" aria-describedby="basic-addon1" name="date" id="date">
+                                            <!-- <span id="label3" style="color: red;"></span> -->
+                                            <!-- <label for="" id="label3"></label> -->
                                         </div>
                                     </div>
                                     <div class="col">
                                         <!-- <input id="appt-time" type="time" value="12:00" name="time"> -->
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Enter Your Time</span>
-                                            <input type="time" class="form-control" placeholder="Select Your Time" aria-label="time" aria-describedby="basic-addon1" name="time">
+                                            <input type="time" class="form-control" placeholder="Select Your Time" aria-label="time" aria-describedby="basic-addon1" name="time" id="time">
+                                            <!-- <span id="label4" style="color: red;"></span> -->
+
                                         </div>
                                     </div>
                                 </div>
@@ -281,17 +288,24 @@
                                 <!-- <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Address" name="address"></textarea> -->
                                 <div class="input-group">
                                     <span class="input-group-text" style="background-color: aquamarine;">Address</span>
-                                    <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Address" name="address"></textarea>
+                                    <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Address" name="address" id="address"></textarea>
+                                    <!-- <span id="label5" style="color: red;"></span> -->
+                                    <!-- <label for="" id="label5"></label> -->
+
                                 </div><br>
                                 <!-- <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Building  No:" name="buildingnumber"></textarea> -->
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1" style="background-color: aquamarine;">Building Number</span>
-                                    <input type="text" class="form-control" placeholder="Enter your Building Number " aria-label="buildingnumber" aria-describedby="basic-addon1" name="buildingnumber">
+                                    <input type="text" class="form-control" placeholder="Enter your Building Number " aria-label="buildingnumber" aria-describedby="basic-addon1" name="buildingnumber" id="buildingnumber">
+                                    <!-- <span id="label6" style="color: red;"></span> -->
+
                                 </div><br>
                                 <!-- <textarea class="form-control " aria-label="With textarea " placeholder="Enter Trademark:" name="trademark"></textarea> -->
                                 <div class="input-group">
                                     <span class="input-group-text" style="background-color: aquamarine;">TradeMark</span>
-                                    <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Trademark" name="trademark"></textarea>
+                                    <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Trademark" name="trademark" id="trademark"></textarea>
+                                    <!-- <span id="label7" style="color: red;"></span> -->
+
                                 </div>
                                 <br>
                             </div>
@@ -307,11 +321,54 @@
                         </div>
                         <br>
                     </dl>
+                    <span id="label1" style="color: red;"></span>
+                    <span id="label2" style="color: red;"></span>
+                    <span id="label3" style="color: red;"></span>
+                    <span id="label4" style="color: red;"></span>
+                    <span id="label5" style="color: red;"></span>
+                    <span id="label6" style="color: red;"></span>
+                    <span id="label7" style="color: red;"></span>
+
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function validateform() {
+        var foodtype = document.foodsendform.foodtype.value;
+        var foodquantity = document.foodsendform.foodquantity.value;
+        var date = document.foodsendform.date.value;
+        var time = document.foodsendform.time.value;
+        var address = document.foodsendform.address.value;
+        var buildingnumber = document.foodsendform.buildingnumber.value;
+        var trademark = document.foodsendform.trademark.value;
+
+        if (foodtype == "") {
+            alert("this field can 't be Blank.");
+            return false;
+        } else if (foodquantity = "") {
+            alert("this field can 't be Blank.");
+            return false;
+        } else if (date = "") {
+            alert("this field can 't be Blank.");
+            return false;
+        } else if (time = "") {
+            alert("this field can 't be Blank.");
+            return false;
+        } else if (address = "") {
+            alert("this field can 't be Blank.");
+            return false;
+        } else if (buildingnumber = "") {
+            alert("this field can 't be Blank.");
+            return false;
+        } else if (trademark = "") {
+            alert("this field can 't be Blank.");
+            return false;
+        }
+    }
+</script>
 <script src='{% static "js/useracceptreq.js " %}'></script>
 
 

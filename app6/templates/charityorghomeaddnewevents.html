@@ -202,7 +202,7 @@
     }
 </style>
 
-<div class="container mt-5">
+<div class="container mt-3">
     <div class="row">
         <div class="col-4">
             <div class="ms-0">
@@ -231,6 +231,8 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Event Name:</span>
                             <input type="text" class="form-control" placeholder="Event Name" aria-label="Event Name" aria-describedby="basic-addon1" name="eventname">
+                            <label class="text-danger" for="" id="label1"></label>
+
                         </div>
 
                         <br>
@@ -247,10 +249,14 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Select Starting Time:</span>
                             <input type="time" class="form-control" placeholder="Event start Time" aria-label="Event start Time" aria-describedby="basic-addon1" name="starttime">
+                            <label class="text-danger" for="" id="label2"></label>
+
                         </div>To
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Select Ending Time:</span>
                             <input type="time" class="form-control" placeholder="Event Ending Time" aria-label="Event Ending Time" aria-describedby="basic-addon1" name="endtime">
+                            <label class="text-danger" for="" id="label3"></label>
+
                         </div>
                         <br>
 
@@ -266,6 +272,8 @@
                         <div class="input-group mb-3 ">
                             <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Select Event Date:</span>
                             <input type="date" class="form-control" placeholder="Event Date" aria-label="Event Date" aria-describedby="basic-addon1" name="date">
+                            <label class="text-danger" for="" id="label4"></label>
+
                         </div>
 
                         <br>
@@ -283,6 +291,8 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1" style="background-color: rgb(155, 223, 223);">Add Location :</span>
                             <input type="text" class="form-control" placeholder="Event Location" aria-label="Event Location" aria-describedby="basic-addon1" name="location">
+                            <label class="text-danger" for="" id="label5"></label>
+
                         </div>
                         <br>
 
@@ -300,6 +310,8 @@
                         <div class="input-group ">
                             <span class="input-group-text" style="background-color: rgb(155, 223, 223);">Enter Description:</span>
                             <textarea class="form-control" aria-label="With textarea" name="discription"></textarea>
+                            <label class="text-danger" for="" id="label6"></label>
+
                         </div>
                         <br>
 
@@ -319,6 +331,8 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1 " style="background-color: rgb(155, 223, 223);">Add Image:</span>
                             <input type="file" class="form-control" placeholder=" Choose Image" aria-label="Event image" aria-describedby="basic-addon1" name="image">
+                            <label class="text-danger" for="" id="label7"></label>
+
                         </div>
                         <br>
 
@@ -349,26 +363,40 @@
         var image = document.addeventform.image.value;
 
 
-        if (eventname == " ") {
+        if (eventname == "") {
             alert("Even Name can 't be Blank");
+            document.getElementById("label1").innerHTML = "* this field required";
+
             return false;
         } else if (starttime == "") {
             alert("Event Starting Time can 't be Blank ");
+            document.getElementById("label2").innerHTML = "* this field required";
+
             return false;
         } else if (endtime == " ") {
             alert("Event Ending Time can 't be Blank");
+            document.getElementById("label3").innerHTML = "* this field required";
+
             return false;
         } else if (date == "") {
             alert("Event Date can 't be Blank ");
+            document.getElementById("label4").innerHTML = "* this field required";
+
             return false;
         } else if (location == " ") {
             alert("Event Location can 't be Blank");
+            document.getElementById("label5").innerHTML = "* this field required";
+
             return false;
         } else if (discription == "") {
             alert("Event Description can 't be Blank ");
+            document.getElementById("label6").innerHTML = "* this field required";
+
             return false;
         } else if (image == " ") {
             alert("Image can 't be Blank");
+            document.getElementById("label7").innerHTML = "* this field required";
+
             return false;
         }
     }

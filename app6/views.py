@@ -440,7 +440,7 @@ def charity_org_home_userevents_reg(request):
         userEventReg=EventsRegistrations.objects.filter(event__charity_id=currentUser) 
         return render(request,'charityorghomeusereventreg.html',{'userreg':userEventReg})    
     else:
-        return render(request,'charityorghomeusereventreg.html',{'message':'Users Are Not Register In Events'})    
+        return render(request,'user_not_register_events.html',{'message':'Users Are Not Register In Events'})    
 
 
 #------------------------- event section end --------------------------#
@@ -517,6 +517,7 @@ def food_send_req(request):   #   request form
         print(quantity)
         data=FoodRequest(foodQuantity=quantity,foodExpectedItem=expectedItem,foodDiscription=discription,charity_id=charityId)
         data.save()
+        return redirect('charityorg_mydonationrequest')
     return render(request,'foodsendreq.html') 
 
 
@@ -539,6 +540,8 @@ def clothing_send_req(request):  #   request form
         print(quantity)
         data=ClothingRequest(clothingQuantity=quantity,clothingExpectedItem=expectedItem,clothingDiscription=discription,charity_id=charityId)
         data.save()  
+        return redirect('charityorg_mydonationrequest')
+
     return render(request,'clothingsendreq.html') 
 
 
@@ -560,7 +563,9 @@ def medicine_send_req(request):  #   request form
         charityId=request.session['session_name']
         print(quantity)
         data=MedicineRequest(medicineQuantity=quantity,medicineExpectedItem=expectedItem,medicineDiscription=discription,charity_id=charityId)
-        data.save()    
+        data.save()
+        return redirect('charityorg_mydonationrequest')
+    
     return render(request,'medicinesendreq.html') 
 
 
@@ -582,7 +587,9 @@ def studymeterial_send_req(request):     #   request form
         charityId=request.session['session_name']
         print(quantity)
         data=StudyMaterialRequest(studymaterialQuantity=quantity,studymaterialExpectedItem=expectedItem,studymaterialDiscription=discription,charity_id=charityId)
-        data.save()    
+        data.save()
+        return redirect('charityorg_mydonationrequest')
+    
     return render(request,'studymeterialsendreq.html') 
 
 
@@ -604,7 +611,9 @@ def other_send_req(request):    #   request form
         charityId=request.session['session_name']
         print(quantity)
         data=OtherRequest(otherQuantity=quantity,otherExpectedItem=expectedItem,otherDiscription=discription,charity_id=charityId)
-        data.save()   
+        data.save()
+        return redirect('charityorg_mydonationrequest')
+   
     return render(request,'othersendreq.html') 
 
 
@@ -721,13 +730,35 @@ def view_collected_donations(request):
     return render(request,'charity_org_collected_donation.html',{'foodcollect':foodcollect,'clothingcollect':clothtingcollect,'medicinecollect':medicinecollect,'studyMaterialcollect':studyMaterialcollect,'othercollect':othercollect})
 
 
+
+def view_collected_food_details(request,id):
+    foodcollect=FoodDonation.objects.filter(id=id)
+    return render(request,'view_collected_food_detailes.html',{'foodcollect':foodcollect})    
+
+def view_collected_clothing_details(request,id):
+    clothingcollect=clothingDonation.objects.filter(id=id)
+    return render(request,'view_collected_clothing_detailes.html',{'clothingcollect':clothingcollect})    
+
+def view_collected_medicine_details(request,id):
+    medicinecollect=medicineDonation.objects.filter(id=id)
+    return render(request,'view_collected_medicine_detailes.html',{'medicinecollect':medicinecollect})    
+
+def view_collected_studymaterial_details(request,id):
+    studyMaterialcollect=studyMaterialDonation.objects.filter(id=id)
+    return render(request,'view_collected_studymaterial_detailes.html',{'studyMaterialcollect':studyMaterialcollect})    
+
+def view_collected_other_details(request,id):
+    othercollect=otherDonation.objects.filter(id=id)
+    return render(request,'view_collected_other_detailes.html',{'othercollect':othercollect})    
+
 def view_collected_food(request):
     if FoodDonation.objects.filter(isCollected=True):
         foodcollect=FoodDonation.objects.filter(isCollected=True)
         return render(request,'collected_food.html',{'foodcollect':foodcollect})
     else:
-        return render(request,'no_collected.html',{'message':'You Have No Collected Food Donations'})
+        return render(request,'no_collected_donations.html',{'message':'You Have No Collected Food Donations'})
 
+    
 
 def view_collected_clothing(request):
     if clothingDonation.objects.filter(isCollected=True):
@@ -792,6 +823,7 @@ def charity_org_home_send_feedback(request):
         charityId=request.session['session_name']
         charityfeedback=CharityFeedback(message=charityMessage,charity_id=charityId)
         charityfeedback.save()
+        return redirect('charityorghomeviewfeedback')
     return render(request,'charityorghomesendfeedback.html') 
 
 
@@ -820,5 +852,6 @@ def user_not_found(request):
 def charity_not_feedback(request):
     return render(request,'charity_not_feedback.html')
 
-   
+def user_not_register_events(request):
+    return render(request,'user_not_register_events.html') 
    

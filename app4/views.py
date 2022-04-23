@@ -695,7 +695,15 @@ def usernotificationsfun(request):  # User Notification
     medicineacceptdonation=medicineDonation.objects.filter(status=True)
     studymaterialacceptdonation=studyMaterialDonation.objects.filter(status=True)
     otheracceptdonation=otherDonation.objects.filter(status=True)
-    return render(request,'usernotifications.html',{'foodacceptnotification':foodacceptdonation,'clothingacceptnotification':clothingacceptdonation,'medicineacceptnotificaton':medicineacceptdonation,'studymaterialacceptnotification':studymaterialacceptdonation,'otheracceptnotification':otheracceptdonation})   
+
+    foodcollectdonation=FoodDonation.objects.filter(isCollected=True)
+    clothingcollectdonation=clothingDonation.objects.filter(isCollected=True)
+    medicinecollectdonation=medicineDonation.objects.filter(isCollected=True)
+    studymaterialcollectdonation=studyMaterialDonation.objects.filter(isCollected=True)
+    othercollectdonation=otherDonation.objects.filter(isCollected=True)
+
+
+    return render(request,'usernotifications.html',{'foodacceptnotification':foodacceptdonation,'clothingacceptnotification':clothingacceptdonation,'medicineacceptnotificaton':medicineacceptdonation,'studymaterialacceptnotification':studymaterialacceptdonation,'otheracceptnotification':otheracceptdonation,'foodcollectdonation':foodcollectdonation,'clothingcollectdonation':clothingcollectdonation,'medicinecollectdonation':medicinecollectdonation,'studymaterialcollectdonation':studymaterialcollectdonation,'othercollectdonation':othercollectdonation})   
 
 
 
@@ -742,6 +750,7 @@ def usersendcompfeedbackfun(request):  # user send Feedback Form
         userId=request.session['usersession_name']
         userFeedback=UserFeedback(message=message,user_id=userId)
         userFeedback.save()
+        return redirect('userviewfeedback')
     return render(request,'usersendcompfeedback.html')    
 
 
